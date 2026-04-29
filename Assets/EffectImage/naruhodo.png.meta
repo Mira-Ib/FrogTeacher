@@ -1,0 +1,403 @@
+fileFormatVersion: 2
+guid: 23b221d41aaaf514399174a3d3dda062
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -3209828917593817063
+    second: naruhodo_0
+  - first:
+      213: 3171520051007178900
+    second: naruhodo_1
+  - first:
+      213: -8735532254387301315
+    second: naruhodo_2
+  - first:
+      213: -6551840843659536160
+    second: naruhodo_3
+  - first:
+      213: 5962916940104777470
+    second: naruhodo_4
+  - first:
+      213: -410335988545443610
+    second: naruhodo_5
+  - first:
+      213: 3420267137118407707
+    second: naruhodo_6
+  - first:
+      213: 2449287292462616135
+    second: naruhodo_7
+  - first:
+      213: -8688913491387765311
+    second: naruhodo_8
+  - first:
+      213: -5904987114402514765
+    second: naruhodo_9
+  - first:
+      213: -524475991869749285
+    second: naruhodo_10
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 1
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: naruhodo_0
+      rect:
+        serializedVersion: 2
+        x: 47
+        y: 115
+        width: 81
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9104b091b956473d0800000000000000
+      internalID: -3209828917593817063
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: naruhodo_1
+      rect:
+        serializedVersion: 2
+        x: 134
+        y: 151
+        width: 41
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 498cf46dea0830c20800000000000000
+      internalID: 3171520051007178900
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: naruhodo_2
+      rect:
+        serializedVersion: 2
+        x: 193
+        y: 46
+        width: 110
+        height: 152
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d34174d82b725c680800000000000000
+      internalID: -8735532254387301315
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: naruhodo_3
+      rect:
+        serializedVersion: 2
+        x: 350
+        y: 58
+        width: 51
+        height: 139
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0e817c0477f2315a0800000000000000
+      internalID: -6551840843659536160
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: naruhodo_4
+      rect:
+        serializedVersion: 2
+        x: 401
+        y: 58
+        width: 112
+        height: 129
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: efeba183d5980c250800000000000000
+      internalID: 5962916940104777470
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: naruhodo_5
+      rect:
+        serializedVersion: 2
+        x: 547
+        y: 62
+        width: 97
+        height: 118
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6e8a03ca7913e4af0800000000000000
+      internalID: -410335988545443610
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: naruhodo_6
+      rect:
+        serializedVersion: 2
+        x: 631
+        y: 170
+        width: 35
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b1c82e007da377f20800000000000000
+      internalID: 3420267137118407707
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: naruhodo_7
+      rect:
+        serializedVersion: 2
+        x: 667
+        y: 176
+        width: 33
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 74ecc1cc0dd9df120800000000000000
+      internalID: 2449287292462616135
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: naruhodo_8
+      rect:
+        serializedVersion: 2
+        x: 709
+        y: 137
+        width: 65
+        height: 75
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1cdabb52737ca6780800000000000000
+      internalID: -8688913491387765311
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: naruhodo_9
+      rect:
+        serializedVersion: 2
+        x: 90
+        y: 81
+        width: 81
+        height: 68
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3b877c261854d0ea0800000000000000
+      internalID: -5904987114402514765
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: naruhodo_10
+      rect:
+        serializedVersion: 2
+        x: 720
+        y: 62
+        width: 46
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bd7026b3ddfa8b8f0800000000000000
+      internalID: -524475991869749285
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      naruhodo_0: -3209828917593817063
+      naruhodo_1: 3171520051007178900
+      naruhodo_10: -524475991869749285
+      naruhodo_2: -8735532254387301315
+      naruhodo_3: -6551840843659536160
+      naruhodo_4: 5962916940104777470
+      naruhodo_5: -410335988545443610
+      naruhodo_6: 3420267137118407707
+      naruhodo_7: 2449287292462616135
+      naruhodo_8: -8688913491387765311
+      naruhodo_9: -5904987114402514765
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

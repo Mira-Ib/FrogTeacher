@@ -1,0 +1,13 @@
+### UnityでC#スクリプトを新規作成したときにANSIでなくUTF-8で作成させるためのコンフィグファイル ###
+
+# 上位ディレクトリから .editorconfig 設定を継承する場合は、以下の行を削除します
+root = true
+
+# C# ファイル
+[*.cs]
+
+# 改行設定
+end_of_line = crlf
+
+# 新規作成時にUTF-8(BOM)を指定する
+charset = utf-8-bom
