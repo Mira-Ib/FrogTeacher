@@ -33,6 +33,9 @@ public class QuizDirector : MonoBehaviour
     private float elapsedBonusTime; // 経過時間
     private bool isQuizActive = false;
 
+    // ★追加: ゲームが完全に終了したかどうかを判定するフラグ
+    private bool isGameEnded = false;
+
     // --- 追加：演出用のイベント ---
     public static System.Action<QuizResultData> OnCorrect; // 正解した時（データを渡す）
     public static System.Action OnWrong;                   // 不正解の時
@@ -56,17 +59,7 @@ public class QuizDirector : MonoBehaviour
     }
     private void Update()
     {
-        // --- DEBUG: キーボード入力テスト ---
-        /*
-        if (isQuizActive)
-        {
-            if (Input.GetKeyDown(KeyCode.LeftArrow)) OnAnswerSubmitted(true);
-            else if (Input.GetKeyDown(KeyCode.RightArrow)) OnAnswerSubmitted(false);
-        }
-        */
-        // ----------------------------------
-
-        if (!isQuizActive) return;
+        if (!isQuizActive || isGameEnded) return;
 
         // 時間は進めるが、0以下になってもクイズは終了させない
         elapsedBonusTime += Time.deltaTime;
@@ -81,7 +74,8 @@ public class QuizDirector : MonoBehaviour
     // プレイヤーが回答したときに呼ぶ
     public void OnAnswerSubmitted(bool playerChoice)
     {
-        if (!isQuizActive) return;
+        // ★修正: ゲーム終了状態なら何もしない（受付拒否）
+        if (!isQuizActive || isGameEnded) return;
         isQuizActive = false;
 
         // 1. 正誤判定（ロジック）
@@ -117,8 +111,11 @@ public class QuizDirector : MonoBehaviour
             Debug.Log("<color=red>不正解...</color>");
         }
 
-        // 次の問題へ（演出の時間分、少し待ってから呼ぶのがオススメ）
-        Invoke(nameof(ShowNextQuestion), 0.5f);
+        // ★修正: ゲーム終了フラグが立っていない場合のみ、次の問題を予約する
+        if (!isGameEnded)
+        {
+            Invoke(nameof(ShowNextQuestion), 0.5f);
+        }
     }
 
     // 新しい周回（100問単位）を開始する
@@ -146,6 +143,7 @@ public class QuizDirector : MonoBehaviour
     // 次の問題を出す処理（一部修正）
     public void ShowNextQuestion()
     {
+        if (isGameEnded) return;
         if (currentSequence.Count == 0) StartNewLoop();
 
         // 現在の問題を保持しておく
@@ -176,6 +174,12 @@ public class QuizDirector : MonoBehaviour
 
     private void GameEnd()
     {
+        // ★追加: 音楽終了イベント等で呼ばれたら、すぐにフラグを立てる
+        isGameEnded = true;
+
+        // 即座にクイズ進行（ゲージ減少など）を止める
+        isQuizActive = false;
+
         GameEndAsync().Forget();
     }
 
