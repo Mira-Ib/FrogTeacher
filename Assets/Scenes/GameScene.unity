@@ -4471,7 +4471,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1195605869
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5423,6 +5423,7 @@ GameObject:
   - component: {fileID: 1529969543}
   - component: {fileID: 1529969545}
   - component: {fileID: 1529969544}
+  - component: {fileID: 1529969547}
   - component: {fileID: 1529969546}
   m_Layer: 5
   m_Name: FrogTeacher
@@ -5430,7 +5431,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1529969543
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5506,6 +5507,26 @@ MonoBehaviour:
     frame2: {fileID: 21300000, guid: b581be8762dd18942abaec714ba8187c, type: 3}
   - frame1: {fileID: 21300000, guid: 52f51ff3ee4caf04aa8cb57d0d2793c2, type: 3}
     frame2: {fileID: 21300000, guid: ec8e463ef864c3a4ead8fcd2bb0b57b7, type: 3}
+--- !u!114 &1529969547
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1529969542}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62bd0b033e97f1b459dfa366b9d890af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  teacherRect: {fileID: 1529969543}
+  teacherImage: {fileID: 1529969544}
+  normalSprite: {fileID: 0}
+  handRaisedSprite: {fileID: 0}
+  startPosition: {x: 0, y: 0}
+  endPosition: {x: 0, y: 0}
+  enterDuration: 1
+  frogTeacherScript: {fileID: 1529969546}
 --- !u!1 &1621200210
 GameObject:
   m_ObjectHideFlags: 0
@@ -6639,6 +6660,7 @@ MonoBehaviour:
   bgmSource: {fileID: 766155764}
   seSource: {fileID: 1230937158}
   pauseseSource: {fileID: 1101265313}
+  loopSeSource: {fileID: 0}
   bgmList:
   - bgmType: 0
     clip: {fileID: 8300000, guid: 4dca3acd92f747146b1fe6d6f2a8f23d, type: 3}
@@ -6647,23 +6669,23 @@ MonoBehaviour:
   - bgmType: 2
     clip: {fileID: 8300000, guid: 67429e9834ea96f4992619a07d152a34, type: 3}
   seList:
-  - seType: 3
-    clip: {fileID: 8300000, guid: 964c950848b1aba499b00e83442f07df, type: 3}
   - seType: 4
-    clip: {fileID: 8300000, guid: bcbc33e981cd2d641b842f33e58bbdb4, type: 3}
+    clip: {fileID: 8300000, guid: 964c950848b1aba499b00e83442f07df, type: 3}
   - seType: 5
-    clip: {fileID: 8300000, guid: 0b501a5a941e5b5408f50c026acf055f, type: 3}
+    clip: {fileID: 8300000, guid: bcbc33e981cd2d641b842f33e58bbdb4, type: 3}
   - seType: 6
-    clip: {fileID: 8300000, guid: 64308311a9663d04f8b9a26dd26054f9, type: 3}
+    clip: {fileID: 8300000, guid: 0b501a5a941e5b5408f50c026acf055f, type: 3}
   - seType: 7
-    clip: {fileID: 8300000, guid: ebba35b3b1299ac40992f7b7cc9bce04, type: 3}
+    clip: {fileID: 8300000, guid: 64308311a9663d04f8b9a26dd26054f9, type: 3}
   - seType: 8
-    clip: {fileID: 8300000, guid: d422dac9f64a5d545ba5c16218230641, type: 3}
+    clip: {fileID: 8300000, guid: ebba35b3b1299ac40992f7b7cc9bce04, type: 3}
   - seType: 9
-    clip: {fileID: 8300000, guid: 43b17bc4cca8c424d85061ec0f32f9a4, type: 3}
+    clip: {fileID: 8300000, guid: d422dac9f64a5d545ba5c16218230641, type: 3}
   - seType: 10
-    clip: {fileID: 8300000, guid: e9f6a7308dc4c6b41a525e1118478aa3, type: 3}
+    clip: {fileID: 8300000, guid: 43b17bc4cca8c424d85061ec0f32f9a4, type: 3}
   - seType: 11
+    clip: {fileID: 8300000, guid: e9f6a7308dc4c6b41a525e1118478aa3, type: 3}
+  - seType: 12
     clip: {fileID: 8300000, guid: 56ea8a96dbbc9634bb125a8f475a6433, type: 3}
 --- !u!4 &2052186381
 Transform:
