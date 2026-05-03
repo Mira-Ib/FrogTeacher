@@ -59,7 +59,7 @@ public class ResultView : MonoBehaviour
         yield return new WaitForSeconds(interval);
 
         penaltyText.color = Color.red;
-        penaltyText.text = $"-{data.PenaltyCount * 10}pt";
+        penaltyText.text = $"-{data.PenaltyCount * 30}pt";
         yield return new WaitForSeconds(interval);
 
         totalScoreText.text = $"{data.TotalScore}pt";

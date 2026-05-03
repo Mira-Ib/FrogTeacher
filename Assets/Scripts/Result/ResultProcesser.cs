@@ -16,7 +16,7 @@ public static class ResultProcessor
     public static ResultDisplayData Process(int gettingScore, int penaltyCount)
     {
         // 合計点の計算（マイナスは0に丸める）
-        int totalScore = Mathf.Max(0, gettingScore - (penaltyCount * 10));
+        int totalScore = Mathf.Max(0, gettingScore - (penaltyCount * 30));
 
         // ランク判定（10段階の例：スコアに応じてインデックスを決定）
         int rankIndex = 0;

@@ -58,7 +58,7 @@ public class ScoreEffectItem : MonoBehaviour
 
     public void PlayWrong(Vector3 wPos, ScoreEffectSpawner s)
     {
-        totalText.text = "-10";
+        totalText.text = "-30";
         totalText.color = Color.red;
         totalText.rectTransform.position = wPos;
 
