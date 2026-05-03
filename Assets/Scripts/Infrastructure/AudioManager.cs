@@ -1,10 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening; // DOTweenを追加
 
-// 1. 曲と効果音の名前をリストアップする（Enum）
 public enum BGM { Title, Lecture, Quiz }
-public enum SE { Click, Transition, Chalk, Correct_1, Correct_2, Correct_3, Correct_4, Correct_5, Correct_6, Correct_7, Correct_8, Wrong, }
+// SEに「Talking」を追加しました
+public enum SE { Click, Transition, Chalk, Chime, Correct_1, Correct_2, Correct_3, Correct_4, Correct_5, Correct_6, Correct_7, Correct_8, Wrong, Talking }
 
 public class AudioManager : MonoBehaviour
 {
@@ -15,8 +16,9 @@ public class AudioManager : MonoBehaviour
     [SerializeField] private AudioSource bgmSource;
     [SerializeField] private AudioSource seSource;
     [SerializeField] private AudioSource pauseseSource;
+    // 文字送りの「ポポポ…」という音など、途中で止めたい音専用のスピーカーを追加
+    [SerializeField] private AudioSource loopSeSource;
 
-    // 2. インスペクターで設定するための専用クラス
     [System.Serializable]
     public class BGMDict
     {
@@ -35,6 +37,8 @@ public class AudioManager : MonoBehaviour
     [SerializeField] private List<BGMDict> bgmList = new List<BGMDict>();
     [SerializeField] private List<SEDict> seList = new List<SEDict>();
 
+    private Tween _bgmFadeTween; // BGMフェード用のTweenを保持
+
     private void Awake()
     {
         if (Instance == null)
@@ -49,15 +53,17 @@ public class AudioManager : MonoBehaviour
     }
 
     // ==========================================
-    // 再生機能 (Enumを受け取って再生する)
+    // BGM 再生・フェード機能
     // ==========================================
     public void PlayBGM(BGM bgmType, bool loop = true)
     {
-        // リストの中から、指定されたBGMと一致するデータを検索
         BGMDict data = bgmList.Find(x => x.bgmType == bgmType);
         if (data == null || data.clip == null) return;
+        if (bgmSource.clip == data.clip && bgmSource.isPlaying) return;
 
-        if (bgmSource.clip == data.clip) return;
+        // フェード処理が動いていればキャンセルして音量を戻す
+        _bgmFadeTween?.Kill();
+        bgmSource.volume = 1f;
 
         bgmSource.loop = loop;
         bgmSource.clip = data.clip;
@@ -66,6 +72,22 @@ public class AudioManager : MonoBehaviour
         OnBGMStarted?.Invoke(data.clip, bgmSource);
     }
 
+    public void FadeOutBGM(float duration)
+    {
+        // DOTweenを使って指定秒数で音量を0にし、完了したらStopする
+        _bgmFadeTween = bgmSource.DOFade(0f, duration).OnComplete(() => bgmSource.Stop());
+    }
+
+    public void StopBGMImmediate()
+    {
+        _bgmFadeTween?.Kill();
+        bgmSource.volume = 0f;
+        bgmSource.Stop();
+    }
+
+    // ==========================================
+    // SE 再生機能
+    // ==========================================
     public void PlaySE(SE seType)
     {
         SEDict data = seList.Find(x => x.seType == seType);
@@ -75,7 +97,6 @@ public class AudioManager : MonoBehaviour
         }
     }
 
-    // ポーズ専用のSE再生
     public void PlayPauseSE(SE seType)
     {
         SEDict data = seList.Find(x => x.seType == seType);
@@ -83,5 +104,24 @@ public class AudioManager : MonoBehaviour
         {
             pauseseSource.PlayOneShot(data.clip);
         }
+    }
+
+    // ==========================================
+    // ループSE（文字送り等）専用の機能
+    // ==========================================
+    public void PlayLoopSE(SE seType)
+    {
+        SEDict data = seList.Find(x => x.seType == seType);
+        if (data != null && data.clip != null)
+        {
+            loopSeSource.clip = data.clip;
+            loopSeSource.loop = true;
+            loopSeSource.Play();
+        }
+    }
+
+    public void StopLoopSE()
+    {
+        loopSeSource.Stop();
     }
 }
