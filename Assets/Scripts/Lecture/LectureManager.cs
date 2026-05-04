@@ -50,7 +50,7 @@ public class LectureManager : MonoBehaviour
             // --- 2. 授業本編 ---
             foreach (var step in currentLectureData.steps)
             {
-                teacherView.SetHandState(step.isFrogHandRaised);
+                teacherView.SetHandState(step.isFrogHandLowered);
 
                 if (step.newBoardItems != null && step.newBoardItems.Length > 0)
                 {

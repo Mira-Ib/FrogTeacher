@@ -11,7 +11,7 @@ public class TeacherView : MonoBehaviour, ILecturePlayable
 
     [Header("カエル先生の画像設定（授業用）")]
     [SerializeField] private Sprite normalSprite;
-    [SerializeField] private Sprite handRaisedSprite;
+    [SerializeField] private Sprite handLoweredSprite;
 
     [Header("登場アニメーション設定")]
     [SerializeField] private Vector2 startPosition;
@@ -41,10 +41,10 @@ public class TeacherView : MonoBehaviour, ILecturePlayable
         await _enterTween.ToUniTask(TweenCancelBehaviour.Kill, cancellationToken: token);
     }
 
-    public void SetHandState(bool isHandRaised)
+    public void SetHandState(bool isHandLowered)
     {
         // 授業中はここで画像が切り替わる（FrogTeacherがオフなので上書きされない）
-        teacherImage.sprite = isHandRaised ? handRaisedSprite : normalSprite;
+        teacherImage.sprite = isHandLowered ? handLoweredSprite : normalSprite;
     }
 
     public void FastForward()

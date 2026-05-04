@@ -14,9 +14,6 @@ public class BlackboardView : MonoBehaviour, ILecturePlayable
 
     private List<GameObject> _spawnedItems = new List<GameObject>();
 
-    /// <summary>
-    /// 指定されたアイテム群を黒板に即座に追加する（同期処理）
-    /// </summary>
     public void AddItems(BlackboardItemData[] items)
     {
         if (items == null || items.Length == 0) return;
@@ -29,12 +26,27 @@ public class BlackboardView : MonoBehaviour, ILecturePlayable
 
             RectTransform rect = spawnedObj.GetComponent<RectTransform>();
             rect.anchoredPosition = itemData.anchoredPosition;
-            // アニメーションなしで即座に等倍にする
             rect.localScale = Vector3.one;
 
             if (itemData.itemType == BoardItemType.Text)
             {
-                spawnedObj.GetComponent<TextMeshProUGUI>().text = itemData.textContent;
+                // TextMeshProUGUIコンポーネントを取得
+                TextMeshProUGUI textComponent = spawnedObj.GetComponent<TextMeshProUGUI>();
+
+                // テキスト内容をセット
+                textComponent.text = itemData.textContent;
+
+                // ★追加：フォントサイズが0より大きい場合のみ上書きする
+                if (itemData.fontSize > 0f)
+                {
+                    textComponent.fontSize = itemData.fontSize;
+                }
+
+                // ★追加：色の上書き（チェックが入っている場合のみ）
+                if (itemData.overrideColor)
+                {
+                    textComponent.color = itemData.textColor;
+                }
             }
             else if (itemData.itemType == BoardItemType.Image)
             {
@@ -54,7 +66,6 @@ public class BlackboardView : MonoBehaviour, ILecturePlayable
 
     public void FastForward()
     {
-        // アニメーションがないので、今回は特に何もする必要はありません
-        // （将来的に何か状態をリセットする必要が出た時のために空のメソッドとして残します）
+        // アニメーションなし
     }
 }

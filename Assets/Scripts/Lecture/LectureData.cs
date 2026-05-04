@@ -16,6 +16,12 @@ public struct BlackboardItemData
     [Header("Text要素の場合")]
     [TextArea(1, 3)]
     public string textContent;
+    public float fontSize; // ←★ここを追加！
+
+    [Header("テキスト色設定")]
+    [Tooltip("チェックを入れると下の色が適用されます（チェックなしならプレハブのまま）")]
+    public bool overrideColor;
+    public Color textColor;
 
     [Header("Image要素の場合")]
     public Sprite imageContent;
@@ -30,7 +36,7 @@ public struct LectureStep
 {
     [TextArea(2, 3)]
     public string dialogueText;    // カエル先生のセリフ
-    public bool isFrogHandRaised;  // 先生の手を上げるか下ろすか
+    public bool isFrogHandLowered;  // 先生の手を上げるか下ろすか
     public bool playChalkSound;    // このセリフでチョークの音を鳴らすか
 
     [Header("このステップで黒板に追加する要素")]
