@@ -55,17 +55,21 @@ public class LectureManager : MonoBehaviour
                 if (step.newBoardItems != null && step.newBoardItems.Length > 0)
                 {
                     if (step.playChalkSound) AudioManager.Instance.PlaySE(SE.Chalk);
-                    blackboardView.AddItems(step.newBoardItems); // アニメーションなし即時表示
+                    blackboardView.AddItems(step.newBoardItems);
                 }
 
-                // セリフの表示
                 await dialogueController.PlayDialogueStepAsync(step.dialogueText, token);
             }
 
             // --- 3. 終了演出 ---
-            await bubbleView.HideBubbleAsync(token);
-
             AudioManager.Instance.FadeOutBGM(1.0f);
+
+            // ★修正ポイント：吹き出しと黒板を同時にフェードアウトさせる
+            await UniTask.WhenAll(
+                bubbleView.HideBubbleAsync(token),
+                blackboardView.HideAndClearBoardAsync(token) // ここを追加！
+            );
+
             CompleteLecture();
         }
         catch (OperationCanceledException)

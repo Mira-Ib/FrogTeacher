@@ -1,6 +1,9 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using DG.Tweening;
+using Cysharp.Threading.Tasks;
+using System.Threading;
 using System.Collections.Generic;
 
 public class BlackboardView : MonoBehaviour, ILecturePlayable
@@ -12,7 +15,21 @@ public class BlackboardView : MonoBehaviour, ILecturePlayable
     [Header("黒板の親オブジェクト")]
     [SerializeField] private RectTransform boardContentParent;
 
+    [Header("フェード演出設定")]
+    [SerializeField] private float fadeDuration = 0.5f; // フェードにかかる秒数
+
     private List<GameObject> _spawnedItems = new List<GameObject>();
+    private CanvasGroup _contentCanvasGroup;
+
+    private void Awake()
+    {
+        // 親オブジェクトに CanvasGroup が付いていなければ自動で追加する
+        _contentCanvasGroup = boardContentParent.GetComponent<CanvasGroup>();
+        if (_contentCanvasGroup == null)
+        {
+            _contentCanvasGroup = boardContentParent.gameObject.AddComponent<CanvasGroup>();
+        }
+    }
 
     public void AddItems(BlackboardItemData[] items)
     {
@@ -20,6 +37,7 @@ public class BlackboardView : MonoBehaviour, ILecturePlayable
 
         foreach (var itemData in items)
         {
+            // (以前のままの生成処理...)
             GameObject prefabToSpawn = itemData.itemType == BoardItemType.Text ? textPrefab : imagePrefab;
             GameObject spawnedObj = Instantiate(prefabToSpawn, boardContentParent);
             _spawnedItems.Add(spawnedObj);
@@ -27,49 +45,60 @@ public class BlackboardView : MonoBehaviour, ILecturePlayable
             RectTransform rect = spawnedObj.GetComponent<RectTransform>();
             rect.anchoredPosition = itemData.anchoredPosition;
 
-            // 一旦、基本のスケールを1倍に設定しておく
-            rect.localScale = Vector3.one;
-
             if (itemData.itemType == BoardItemType.Text)
             {
-                // (テキストの処理...変更なし)
                 TextMeshProUGUI textComponent = spawnedObj.GetComponent<TextMeshProUGUI>();
                 textComponent.text = itemData.textContent;
+                if (itemData.fontSize > 0f) textComponent.fontSize = itemData.fontSize;
+                if (itemData.overrideColor) textComponent.color = itemData.textColor;
 
-                if (itemData.fontSize > 0f)
-                {
-                    textComponent.fontSize = itemData.fontSize;
-                }
-
-                if (itemData.overrideColor)
-                {
-                    textComponent.color = itemData.textColor;
-                }
+                // スケールを1倍に
+                rect.localScale = Vector3.one;
             }
             else if (itemData.itemType == BoardItemType.Image)
             {
-                // 画像をセット
                 spawnedObj.GetComponent<Image>().sprite = itemData.imageContent;
-
-                // ★追加：画像スケールの適用
-                // 0より大きければその倍率を、0（設定忘れ）なら1倍を適用する
                 float targetScale = itemData.imageScale > 0f ? itemData.imageScale : 1f;
                 rect.localScale = new Vector3(targetScale, targetScale, 1f);
             }
         }
     }
 
+    /// <summary>
+    /// 黒板の中身をフェードアウトさせ、完全に消えたらDestroyする
+    /// </summary>
+    public async UniTask HideAndClearBoardAsync(CancellationToken token)
+    {
+        if (_spawnedItems.Count == 0) return;
+
+        // 1. 親オブジェクトの透明度を0（透明）にするアニメーション
+        await _contentCanvasGroup.DOFade(0f, fadeDuration)
+                                 .SetEase(Ease.OutQuad)
+                                 .ToUniTask(TweenCancelBehaviour.Kill, cancellationToken: token);
+
+        // 2. 完全に透明になったら中身をDestroyする
+        ClearBoard();
+
+        // 3. 次の授業（またはリトライ時）のために、親の透明度を1（不透明）に戻しておく
+        _contentCanvasGroup.alpha = 1f;
+    }
+
     public void ClearBoard()
     {
         foreach (var item in _spawnedItems)
         {
-            Destroy(item);
+            if (item != null) Destroy(item);
         }
         _spawnedItems.Clear();
     }
 
     public void FastForward()
     {
-        // アニメーションなし
+        // 進行中のフェードアウトアニメーションがあれば即座に強制終了
+        _contentCanvasGroup.DOKill();
+
+        // スキップされたら即座に中身を消去し、透明度を戻す
+        ClearBoard();
+        _contentCanvasGroup.alpha = 1f;
     }
 }

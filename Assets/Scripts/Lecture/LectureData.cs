@@ -25,6 +25,8 @@ public struct BlackboardItemData
 
     [Header("Image要素の場合")]
     public Sprite imageContent;
+    [Tooltip("画像の表示倍率（0のままだと自動的に1倍になります）")]
+    public float imageScale;
 
     [Header("レイアウト設定")]
     public Vector2 anchoredPosition; // 黒板の中心からの相対座標など
