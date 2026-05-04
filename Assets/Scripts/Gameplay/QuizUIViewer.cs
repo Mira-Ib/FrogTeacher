@@ -10,6 +10,9 @@ public class QuizUIViewer : MonoBehaviour
     [Header("UIフェード用")]
     [Tooltip("吹き出し全体の透明度を制御するCanvasGroup")]
     [SerializeField] private CanvasGroup bubbleCanvasGroup;
+    [Header("追加UIのフェード用CanvasGroup")]
+    [SerializeField] private CanvasGroup speedGaugeCanvasGroup;
+    [SerializeField] private CanvasGroup buttonsCanvasGroup;
 
     [Header("ルビ対応メインテキスト")]
     [SerializeField] private TextMeshProRuby rubyInput;
@@ -39,6 +42,7 @@ public class QuizUIViewer : MonoBehaviour
 
         // 2. 「なるほど！」をセット
         rubyInput.Text = "なるほど！";
+        await UniTask.Delay(100, cancellationToken: token);
 
         // 3. 吹き出し本体と「なるほど！」を同時にフェードイン
         await DOTween.Sequence()
@@ -62,13 +66,20 @@ public class QuizUIViewer : MonoBehaviour
         if (!firstQuestion.useAutoSizing) _mainTextComponent.fontSize = firstQuestion.fontSize;
 
         // 6. 順番にフェードイン（時間差）
-        await introTextDisplay.DOFade(1f, 0.4f).ToUniTask(TweenCancelBehaviour.Kill, cancellationToken: token);
-        await UniTask.Delay(300, cancellationToken: token); // 間をとる
-
-        await _mainTextComponent.DOFade(1f, 0.4f).ToUniTask(TweenCancelBehaviour.Kill, cancellationToken: token);
+        await introTextDisplay.DOFade(1f, 0.5f).ToUniTask(TweenCancelBehaviour.Kill, cancellationToken: token);
         await UniTask.Delay(400, cancellationToken: token); // 間をとる
 
-        await outroTextDisplay.DOFade(1f, 0.4f).ToUniTask(TweenCancelBehaviour.Kill, cancellationToken: token);
+        await _mainTextComponent.DOFade(1f, 0.5f).ToUniTask(TweenCancelBehaviour.Kill, cancellationToken: token);
+        await UniTask.Delay(400, cancellationToken: token); // 間をとる
+
+        await outroTextDisplay.DOFade(1f, 0.5f).ToUniTask(TweenCancelBehaviour.Kill, cancellationToken: token);
+        await UniTask.Delay(100, cancellationToken: token); // 間をとる
+
+        // ★追加：テキストが全て出終わった後、ゲージとボタンをフェードイン
+        await UniTask.WhenAll(
+            speedGaugeCanvasGroup.DOFade(1f, 0.5f).ToUniTask(TweenCancelBehaviour.Kill, cancellationToken: token),
+            buttonsCanvasGroup.DOFade(1f, 0.5f).ToUniTask(TweenCancelBehaviour.Kill, cancellationToken: token)
+        );
 
         // 全て表示完了！
     }

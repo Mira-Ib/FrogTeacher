@@ -2459,8 +2459,7 @@ RectTransform:
   - {fileID: 1139194135}
   - {fileID: 1011624414}
   - {fileID: 1102728642}
-  - {fileID: 2395539774486819810}
-  - {fileID: 1825137877}
+  - {fileID: 1442210274}
   m_Father: {fileID: 301674577}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -2688,7 +2687,7 @@ CanvasGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 703355758}
   m_Enabled: 1
-  m_Alpha: 1
+  m_Alpha: 0
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
@@ -5347,6 +5346,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1139194135}
   - component: {fileID: 1139194136}
+  - component: {fileID: 1139194137}
   m_Layer: 5
   m_Name: SpeedGauge
   m_TagString: Untagged
@@ -5389,6 +5389,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   yellowGauge: {fileID: 1485153389}
   redGauge: {fileID: 102654331}
+--- !u!225 &1139194137
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1139194134}
+  m_Enabled: 1
+  m_Alpha: 0
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1001 &1170041708
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5671,6 +5683,7 @@ MonoBehaviour:
   quiz: {fileID: 644860057}
   result: {fileID: 1058866012}
   bonusTimeLimit: 5
+  teacherView: {fileID: 1529969547}
 --- !u!114 &1195605871
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6570,6 +6583,56 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 3932694583034090830, guid: f46b85a60bfc74b4baea467972b8ae41, type: 3}
   m_PrefabInstance: {fileID: 1396889835}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1442210273
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1442210274}
+  - component: {fileID: 1442210275}
+  m_Layer: 5
+  m_Name: Button
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1442210274
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1442210273}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 2395539774486819810}
+  - {fileID: 1825137877}
+  m_Father: {fileID: 644860058}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!225 &1442210275
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1442210273}
+  m_Enabled: 1
+  m_Alpha: 0
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1001 &1468934029
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8702,6 +8765,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bubbleCanvasGroup: {fileID: 703355762}
+  speedGaugeCanvasGroup: {fileID: 1139194137}
+  buttonsCanvasGroup: {fileID: 1442210275}
   rubyInput: {fileID: 7755190}
   introTextDisplay: {fileID: 921625842}
   outroTextDisplay: {fileID: 913725295}
@@ -9588,7 +9653,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 644860058}
+    m_TransformParent: {fileID: 1442210274}
     m_Modifications:
     - target: {fileID: 674190486542648566, guid: a01c1e325286b3948aa92198aa5fe9a1, type: 3}
       propertyPath: m_Name
@@ -9694,7 +9759,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 644860058}
+    m_TransformParent: {fileID: 1442210274}
     m_Modifications:
     - target: {fileID: 3243866064051024444, guid: 17a27b7d9c3908b4ab8453e8d64e6a3f, type: 3}
       propertyPath: m_Name

@@ -31,6 +31,9 @@ public class QuizDirector : MonoBehaviour
     [Header("Settings")]
     [SerializeField] private float bonusTimeLimit = 5.0f; // ボーナスが減りきるまでの時間
 
+    // ★追加：TeacherViewへの参照（インスペクタからアタッチしてください）
+    [SerializeField] private TeacherView teacherView;
+
     private float elapsedBonusTime; // 経過時間
     private bool isQuizActive = false;
 
@@ -57,23 +60,27 @@ public class QuizDirector : MonoBehaviour
     /// </summary>
     public async UniTask BeginQuizPhaseAsync(CancellationToken token)
     {
-        // 1. ループの準備（問題をキューに入れる）
         StartNewLoop();
-
-        // 2. 最初の問題データを取り出す（まだ画面には出さない）
         currentQuestionData = currentSequence.Dequeue();
 
-        // 3. UIViewerにイントロ演出（なるほど！〜フェードイン）を依頼し、完了を待つ
+        // 1. UIのフェードイン演出（ボタン表示まで）を待つ
         await uiViewer.PlayIntroSequenceAsync(currentQuestionData, token);
 
-        // 4. 演出が全て終わったら、いよいよゲーム開始！
+        // 2. ★要望：UI表示後、少し待機する
+        await UniTask.Delay(400, cancellationToken: token);
+
+        // 3. ★要望：この瞬間にカエル先生をクイズモード（ダンス）に切り替える
+        if (teacherView != null)
+        {
+            teacherView.SwitchToQuizMode();
+        }
+
+        // 4. ゲーム本編開始！
         totalAnsweredCount++;
         isQuizActive = true;
         elapsedBonusTime = 0f;
 
-        // BGMとタイマーを開始
         AudioManager.Instance.PlayBGM(BGM.Quiz, false);
-        // ※もしMusicTimer（時間管理）の開始メソッドがあればここで呼び出します
     }
 
     private void Update()

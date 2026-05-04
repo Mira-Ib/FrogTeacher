@@ -112,7 +112,6 @@ public class LectureManager : MonoBehaviour
     private void CompleteLecture()
     {
         Debug.Log("授業終了！クイズ本編へ移行します。");
-        teacherView.SwitchToQuizMode();
 
         // ★追加：クイズパートへの遷移処理を開始
         TransitionToQuizAsync().Forget();
@@ -132,6 +131,5 @@ public class LectureManager : MonoBehaviour
 
         // クイズ側のUIViewerにイントロ演出をさせ、完了したらゲーム開始させる
         await quizDirector.BeginQuizPhaseAsync(token);
-        teacherView.SwitchToQuizMode();
     }
 }
