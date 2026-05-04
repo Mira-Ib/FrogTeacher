@@ -26,23 +26,21 @@ public class BlackboardView : MonoBehaviour, ILecturePlayable
 
             RectTransform rect = spawnedObj.GetComponent<RectTransform>();
             rect.anchoredPosition = itemData.anchoredPosition;
+
+            // 一旦、基本のスケールを1倍に設定しておく
             rect.localScale = Vector3.one;
 
             if (itemData.itemType == BoardItemType.Text)
             {
-                // TextMeshProUGUIコンポーネントを取得
+                // (テキストの処理...変更なし)
                 TextMeshProUGUI textComponent = spawnedObj.GetComponent<TextMeshProUGUI>();
-
-                // テキスト内容をセット
                 textComponent.text = itemData.textContent;
 
-                // ★追加：フォントサイズが0より大きい場合のみ上書きする
                 if (itemData.fontSize > 0f)
                 {
                     textComponent.fontSize = itemData.fontSize;
                 }
 
-                // ★追加：色の上書き（チェックが入っている場合のみ）
                 if (itemData.overrideColor)
                 {
                     textComponent.color = itemData.textColor;
@@ -50,7 +48,13 @@ public class BlackboardView : MonoBehaviour, ILecturePlayable
             }
             else if (itemData.itemType == BoardItemType.Image)
             {
+                // 画像をセット
                 spawnedObj.GetComponent<Image>().sprite = itemData.imageContent;
+
+                // ★追加：画像スケールの適用
+                // 0より大きければその倍率を、0（設定忘れ）なら1倍を適用する
+                float targetScale = itemData.imageScale > 0f ? itemData.imageScale : 1f;
+                rect.localScale = new Vector3(targetScale, targetScale, 1f);
             }
         }
     }
