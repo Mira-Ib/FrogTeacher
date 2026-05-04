@@ -38,7 +38,7 @@ public class TeacherView : MonoBehaviour, ILecturePlayable
         _enterTween = teacherRect.DOAnchorPos(endPosition, enterDuration)
                                  .SetEase(Ease.Linear);
 
-        await _enterTween.ToUniTask(TweenCancelBehaviour.Kill, cancellationToken: token);
+        await _enterTween.ToUniTask(TweenCancelBehaviour.CancelAwait, cancellationToken: token);
     }
 
     public void SetHandState(bool isHandLowered)
@@ -49,7 +49,10 @@ public class TeacherView : MonoBehaviour, ILecturePlayable
 
     public void FastForward()
     {
-        _enterTween?.Kill();
+        if (_enterTween != null && _enterTween.IsActive())
+        {
+            _enterTween.Kill();
+        }
         teacherRect.anchoredPosition = endPosition;
     }
 

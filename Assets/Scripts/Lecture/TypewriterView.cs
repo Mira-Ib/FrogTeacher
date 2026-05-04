@@ -48,12 +48,16 @@ public class TypewriterView : MonoBehaviour, ILecturePlayable
             duration
         ).SetEase(Ease.Linear);
 
-        await _typewriterTween.ToUniTask(TweenCancelBehaviour.Kill, cancellationToken: token);
+        await _typewriterTween.ToUniTask(TweenCancelBehaviour.CancelAwait, cancellationToken: token);
     }
 
     public void FastForward()
     {
         _typewriterTween?.Kill();
+        if (_typewriterTween != null && _typewriterTween.IsActive())
+        {
+            _typewriterTween.Kill();
+        }
 
         // スキップ時は「純粋な表示文字数」を代入して全表示する
         if (_mainText != null && _mainText.textInfo != null)

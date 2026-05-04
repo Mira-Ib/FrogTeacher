@@ -36,7 +36,7 @@ public class BubbleAnimView : MonoBehaviour, ILecturePlayable
             // SetEaseにインスペクタで設定したEaseを適用
             .Append(bubbleRect.DOScale(Vector3.one, showDuration).SetEase(showEase));
 
-        await _currentSequence.ToUniTask(TweenCancelBehaviour.Kill, cancellationToken: token);
+        await _currentSequence.ToUniTask(TweenCancelBehaviour.CancelAwait, cancellationToken: token);
     }
 
     public async UniTask HideBubbleAsync(CancellationToken token)
@@ -49,12 +49,15 @@ public class BubbleAnimView : MonoBehaviour, ILecturePlayable
                 _canvasGroup.alpha = 1f;
             });
 
-        await _currentSequence.ToUniTask(TweenCancelBehaviour.Kill, cancellationToken: token);
+        await _currentSequence.ToUniTask(TweenCancelBehaviour.CancelAwait, cancellationToken: token);
     }
 
     public void FastForward()
     {
-        _currentSequence?.Kill();
+        if (_currentSequence != null && _currentSequence.IsActive())
+        {
+            _currentSequence.Kill();
+        }
 
         bubbleRect.gameObject.SetActive(false);
         _canvasGroup.alpha = 1f;

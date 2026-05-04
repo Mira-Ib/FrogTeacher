@@ -21,6 +21,9 @@ public class BlackboardView : MonoBehaviour, ILecturePlayable
     private List<GameObject> _spawnedItems = new List<GameObject>();
     private CanvasGroup _contentCanvasGroup;
 
+    // ★追加：フェードアニメーションを保持する変数
+    private Tween _fadeTween;
+
     private void Awake()
     {
         // 親オブジェクトに CanvasGroup が付いていなければ自動で追加する
@@ -72,9 +75,8 @@ public class BlackboardView : MonoBehaviour, ILecturePlayable
         if (_spawnedItems.Count == 0) return;
 
         // 1. 親オブジェクトの透明度を0（透明）にするアニメーション
-        await _contentCanvasGroup.DOFade(0f, fadeDuration)
-                                 .SetEase(Ease.OutQuad)
-                                 .ToUniTask(TweenCancelBehaviour.Kill, cancellationToken: token);
+        _fadeTween = _contentCanvasGroup.DOFade(0f, fadeDuration).SetEase(Ease.OutQuad);
+        await _fadeTween.ToUniTask(TweenCancelBehaviour.CancelAwait, cancellationToken: token);
 
         // 2. 完全に透明になったら中身をDestroyする
         ClearBoard();
@@ -94,8 +96,11 @@ public class BlackboardView : MonoBehaviour, ILecturePlayable
 
     public void FastForward()
     {
-        // 進行中のフェードアウトアニメーションがあれば即座に強制終了
-        _contentCanvasGroup.DOKill();
+        // ★修正：大雑把な DOKill() をやめ、変数の生存確認をしてから Kill する
+        if (_fadeTween != null && _fadeTween.IsActive())
+        {
+            _fadeTween.Kill();
+        }
 
         // スキップされたら即座に中身を消去し、透明度を戻す
         ClearBoard();
