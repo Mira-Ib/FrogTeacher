@@ -1,60 +1,108 @@
-﻿using TMP_Ruby; // 以前解決した名前空間
+﻿using TMP_Ruby;
 using TMPro;
 using UnityEngine;
+using Cysharp.Threading.Tasks;
+using DG.Tweening;
+using System.Threading;
 
 public class QuizUIViewer : MonoBehaviour
 {
+    [Header("UIフェード用")]
+    [Tooltip("吹き出し全体の透明度を制御するCanvasGroup")]
+    [SerializeField] private CanvasGroup bubbleCanvasGroup;
+
     [Header("ルビ対応メインテキスト")]
     [SerializeField] private TextMeshProRuby rubyInput;
 
     [Header("前後定型文（通常のTMP）")]
-    [SerializeField] private TextMeshProUGUI introTextDisplay; // 「つまり…」「じゃあ…」
-    [SerializeField] private TextMeshProUGUI outroTextDisplay; // 「ということですか！？」
+    [SerializeField] private TextMeshProUGUI introTextDisplay;
+    [SerializeField] private TextMeshProUGUI outroTextDisplay;
 
- 
+    // メインテキストの実体（アルファ値操作用）
+    private TMP_Text _mainTextComponent;
+
+    private void Awake()
+    {
+        _mainTextComponent = rubyInput.GetComponent<TMP_Text>();
+    }
+
     /// <summary>
-    /// クイズUIのセットアップ
+    /// ★追加：クイズ開始時の「なるほど！」から始まる一連のフェードイン演出
     /// </summary>
-    /// <param name="data">問題データ</param>
-    /// <param name="answeredCount">現在の回答済み数（0なら1問目）</param>
+    public async UniTask PlayIntroSequenceAsync(QuestionData firstQuestion, CancellationToken token)
+    {
+        // 1. 全てを透明に初期化
+        bubbleCanvasGroup.alpha = 0f;
+        introTextDisplay.alpha = 0f;
+        outroTextDisplay.alpha = 0f;
+        _mainTextComponent.alpha = 0f;
+
+        // 2. 「なるほど！」をセット
+        rubyInput.Text = "なるほど！";
+
+        // 3. 吹き出し本体と「なるほど！」を同時にフェードイン
+        await DOTween.Sequence()
+            .Join(bubbleCanvasGroup.DOFade(1f, 0.5f))
+            .Join(_mainTextComponent.DOFade(1f, 0.5f))
+            .ToUniTask(TweenCancelBehaviour.Kill, cancellationToken: token);
+
+        // 少し余韻（「なるほど！」を読ませる時間）
+        await UniTask.Delay(800, cancellationToken: token);
+
+        // 4. 「なるほど！」をフェードアウト
+        await _mainTextComponent.DOFade(0f, 0.3f).ToUniTask(TweenCancelBehaviour.Kill, cancellationToken: token);
+
+        // 5. 最初の問題テキストをセット（まだ透明）
+        introTextDisplay.text = "つまり…";
+        rubyInput.Text = firstQuestion.questionText; // 「たし算はじゃんけんと同じ」など
+        outroTextDisplay.text = "ということですか！？";
+
+        // フォントサイズの設定
+        _mainTextComponent.enableAutoSizing = firstQuestion.useAutoSizing;
+        if (!firstQuestion.useAutoSizing) _mainTextComponent.fontSize = firstQuestion.fontSize;
+
+        // 6. 順番にフェードイン（時間差）
+        await introTextDisplay.DOFade(1f, 0.4f).ToUniTask(TweenCancelBehaviour.Kill, cancellationToken: token);
+        await UniTask.Delay(300, cancellationToken: token); // 間をとる
+
+        await _mainTextComponent.DOFade(1f, 0.4f).ToUniTask(TweenCancelBehaviour.Kill, cancellationToken: token);
+        await UniTask.Delay(400, cancellationToken: token); // 間をとる
+
+        await outroTextDisplay.DOFade(1f, 0.4f).ToUniTask(TweenCancelBehaviour.Kill, cancellationToken: token);
+
+        // 全て表示完了！
+    }
+
+    /// <summary>
+    /// 2問目以降の通常のセットアップ（即時表示）
+    /// </summary>
     public void SetupQuestionUI(QuestionData data, int answeredCount)
     {
-        // 1. 前後の定型文を制御
+        // 即座に不透明にする
+        bubbleCanvasGroup.alpha = 1f;
+        introTextDisplay.alpha = 1f;
+        outroTextDisplay.alpha = 1f;
+        _mainTextComponent.alpha = 1f;
+
         introTextDisplay.text = (answeredCount == 0) ? "つまり…" : "じゃあ…";
         outroTextDisplay.text = "ということですか！？";
 
-        // 2. メインのTMP設定（フォントサイズなど）
-        var mainText = rubyInput.GetComponent<TMP_Text>();
-        mainText.enableAutoSizing = data.useAutoSizing;
+        _mainTextComponent.enableAutoSizing = data.useAutoSizing;
         if (!data.useAutoSizing)
         {
-            mainText.fontSize = data.fontSize;
+            _mainTextComponent.fontSize = data.fontSize;
         }
 
-        // 3. ルビ付きテキストを流し込む（大文字の Text プロパティを使用）
         rubyInput.Text = data.questionText;
     }
 
+    private void OnEnable() { MusicTimer.OnGameEnded += ShowTimeUp; }
+    private void OnDisable() { MusicTimer.OnGameEnded -= ShowTimeUp; }
 
-    private void OnEnable()
-    {
-        // クイズ開始前（有効化時）に登録
-        MusicTimer.OnGameEnded += ShowTimeUp;
-    }
-
-    private void OnDisable()
-    {
-        // 無効化時に解除（メモリリークやエラー防止の鉄則）
-        MusicTimer.OnGameEnded -= ShowTimeUp;
-    }
-    /// <summary>
-    /// ゲーム終了時の演出（イベントから呼ばれる想定）
-    /// </summary>
     public void ShowTimeUp()
     {
         introTextDisplay.text = "";
         outroTextDisplay.text = "";
-        // メインテキストに赤文字で表示
         rubyInput.Text = "時間だ！";
     }
 }

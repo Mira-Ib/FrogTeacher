@@ -2615,6 +2615,7 @@ GameObject:
   - component: {fileID: 703355759}
   - component: {fileID: 703355761}
   - component: {fileID: 703355760}
+  - component: {fileID: 703355762}
   m_Layer: 5
   m_Name: fukidashi
   m_TagString: Untagged
@@ -2679,6 +2680,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 703355758}
   m_CullTransparentMesh: 1
+--- !u!225 &703355762
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 703355758}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1001 &728923810
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5625,7 +5638,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1195605869
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8313,6 +8326,8 @@ MonoBehaviour:
   bubbleView: {fileID: 119938893}
   teacherView: {fileID: 1529969547}
   blackboardView: {fileID: 1647634587}
+  quizRootObject: {fileID: 644860057}
+  quizDirector: {fileID: 1195605870}
 --- !u!224 &1825137877 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 4637116570746068104, guid: a01c1e325286b3948aa92198aa5fe9a1, type: 3}
@@ -8686,6 +8701,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b5c4ddc891e61b4eb3a17ca372811cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bubbleCanvasGroup: {fileID: 703355762}
   rubyInput: {fileID: 7755190}
   introTextDisplay: {fileID: 921625842}
   outroTextDisplay: {fileID: 913725295}

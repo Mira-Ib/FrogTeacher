@@ -14,7 +14,11 @@ public class LectureManager : MonoBehaviour
     [SerializeField] private TeacherView teacherView;
     [SerializeField] private BlackboardView blackboardView;
 
-    // ※ [SerializeField] private LectureAudioManager audioManager; は削除しました
+    // --- ★追加：クイズパート連携用の変数 ---
+    [Header("クイズパート連携")]
+    [SerializeField] private GameObject quizRootObject;
+    [SerializeField] private QuizDirector quizDirector;
+    // ----------------------------------------
 
     private CancellationTokenSource _cts;
 
@@ -107,6 +111,27 @@ public class LectureManager : MonoBehaviour
 
     private void CompleteLecture()
     {
-        Debug.Log("授業終了！クイズ本編へ移行！");
+        Debug.Log("授業終了！クイズ本編へ移行します。");
+        teacherView.SwitchToQuizMode();
+
+        // ★追加：クイズパートへの遷移処理を開始
+        TransitionToQuizAsync().Forget();
+    }
+
+    // --- ★追加：クイズパートへの遷移を管理する非同期メソッド ---
+    private async UniTaskVoid TransitionToQuizAsync()
+    {
+        // 授業用のトークン(_cts)は破棄されているため、このManager自体の寿命に紐づく安全なトークンを使います
+        var token = this.GetCancellationTokenOnDestroy();
+
+        // 黒板が消えた後、少しだけ間を空ける（シーンの余韻）
+        await UniTask.Delay(1000, cancellationToken: token);
+
+        // クイズオブジェクトをアクティブにする（QuizDirectorのStart関数は消してある前提です）
+        quizRootObject.SetActive(true);
+
+        // クイズ側のUIViewerにイントロ演出をさせ、完了したらゲーム開始させる
+        await quizDirector.BeginQuizPhaseAsync(token);
+        teacherView.SwitchToQuizMode();
     }
 }

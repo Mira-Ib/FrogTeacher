@@ -1,6 +1,7 @@
-﻿using UnityEngine;
+﻿using Cysharp.Threading.Tasks;
 using System.Collections.Generic;
-using Cysharp.Threading.Tasks;
+using System.Threading;
+using UnityEngine;
 public struct QuizResultData
 {
     public bool isCorrect;
@@ -39,13 +40,6 @@ public class QuizDirector : MonoBehaviour
     // --- 追加：演出用のイベント ---
     public static System.Action<QuizResultData> OnCorrect; // 正解した時（データを渡す）
     public static System.Action OnWrong;                   // 不正解の時
-
-    private void Start()
-    {
-        StartNewLoop();
-        ShowNextQuestion();
-        AudioManager.Instance.PlayBGM(BGM.Quiz, false);
-    }
     void OnEnable()
     {
         MusicTimer.OnGameProgressed += ShuffleQueue;
@@ -57,6 +51,31 @@ public class QuizDirector : MonoBehaviour
         MusicTimer.OnGameProgressed -= ShuffleQueue;
         MusicTimer.OnGameEnded -= GameEnd;
     }
+
+    /// <summary>
+    /// ★追加：外部（LectureManager等）から呼ばれる、クイズパートの開始地点
+    /// </summary>
+    public async UniTask BeginQuizPhaseAsync(CancellationToken token)
+    {
+        // 1. ループの準備（問題をキューに入れる）
+        StartNewLoop();
+
+        // 2. 最初の問題データを取り出す（まだ画面には出さない）
+        currentQuestionData = currentSequence.Dequeue();
+
+        // 3. UIViewerにイントロ演出（なるほど！〜フェードイン）を依頼し、完了を待つ
+        await uiViewer.PlayIntroSequenceAsync(currentQuestionData, token);
+
+        // 4. 演出が全て終わったら、いよいよゲーム開始！
+        totalAnsweredCount++;
+        isQuizActive = true;
+        elapsedBonusTime = 0f;
+
+        // BGMとタイマーを開始
+        AudioManager.Instance.PlayBGM(BGM.Quiz, false);
+        // ※もしMusicTimer（時間管理）の開始メソッドがあればここで呼び出します
+    }
+
     private void Update()
     {
         if (!isQuizActive || isGameEnded) return;

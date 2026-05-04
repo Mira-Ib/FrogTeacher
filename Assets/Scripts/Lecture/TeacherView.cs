@@ -62,8 +62,6 @@ public class TeacherView : MonoBehaviour, ILecturePlayable
         if (frogTeacherScript != null)
         {
             frogTeacherScript.enabled = true;
-            // 必要に応じてタイマーやフレームを初期化
-            frogTeacherScript.HandleGameProgressed();
         }
     }
 }
