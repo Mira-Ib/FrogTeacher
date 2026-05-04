@@ -96,8 +96,8 @@ public class LectureManager : MonoBehaviour
         blackboardView.FastForward();
         dialogueController.FastForward();
 
-        // AudioManagerの強制停止処理（ILecturePlayableの代わり）
-        AudioManager.Instance.StopLoopSE();
+        // ★修正：スキップ時は true を渡して強制的に即時停止させる
+        AudioManager.Instance.StopLoopSE(true);
         AudioManager.Instance.StopBGMImmediate();
     }
 

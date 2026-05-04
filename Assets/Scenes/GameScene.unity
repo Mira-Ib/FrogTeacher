@@ -648,6 +648,72 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 108543670}
   m_CullTransparentMesh: 1
+--- !u!1 &119938891
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 119938892}
+  - component: {fileID: 119938894}
+  - component: {fileID: 119938893}
+  m_Layer: 5
+  m_Name: fukidashi
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &119938892
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 119938891}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1274173483}
+  m_Father: {fileID: 1820816145}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &119938893
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 119938891}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e8c73c8c1e8e3b4e9ad895078bcc338, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bubbleRect: {fileID: 1274173483}
+  showEase: 27
+  showDuration: 0.5
+  hideDuration: 0.5
+--- !u!225 &119938894
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 119938891}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &184244559
 GameObject:
   m_ObjectHideFlags: 0
@@ -4025,7 +4091,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1094058785}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -4034,8 +4100,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -17.7482, y: -7.2606}
-  m_SizeDelta: {x: 584.0105, y: 103.2456}
+  m_AnchoredPosition: {x: -27.4291, y: -12.101}
+  m_SizeDelta: {x: 835.7151, y: 166.172}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1094058788
 MonoBehaviour:
@@ -4057,7 +4123,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "<line-height=1.000em>\u305D\u308C\u3058\u3083\u3042\u3001\u4ECA\u65E5<space=-1.75em><voffset=1em><size=50%>\u304D\u3087\u3046</size></voffset><space=0.25em>\u306F\u305F\u3057\u7B97<space=-1.00em><voffset=1em><size=50%>\u3056\u3093</size></voffset>\u306B\u3064\u3044\u3066<br>\u8AAC\u660E<space=-2.00em><voffset=1em><size=50%>\u305B\u3064\u3081\u3044</size></voffset>\u3057\u3066\u3044\u304F\u30B1\u30ED\u3002"
+  m_text: <line-height=1.000em>
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b07bce67210878440848b7321c73e1a8, type: 2}
   m_sharedMaterial: {fileID: 6872325252274991182, guid: b07bce67210878440848b7321c73e1a8, type: 2}
@@ -4084,8 +4150,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 28
-  m_fontSizeBase: 28
+  m_fontSize: 40
+  m_fontSizeBase: 40
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -4162,7 +4228,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tmpText: {fileID: 1094058788}
-  text: "\u305D\u308C\u3058\u3083\u3042\u3001<r=\u304D\u3087\u3046>\u4ECA\u65E5</r>\u306F\u305F\u3057<r=\u3056\u3093>\u7B97</r>\u306B\u3064\u3044\u3066<br><r=\u305B\u3064\u3081\u3044>\u8AAC\u660E</r>\u3057\u3066\u3044\u304F\u30B1\u30ED\u3002"
+  text: 
   fixedLineHeight: 1
   autoMarginTop: 0
 --- !u!1 &1097077272
@@ -5117,15 +5183,13 @@ GameObject:
   - component: {fileID: 1274173483}
   - component: {fileID: 1274173487}
   - component: {fileID: 1274173486}
-  - component: {fileID: 1274173485}
-  - component: {fileID: 1274173484}
   m_Layer: 5
-  m_Name: fukidashi
+  m_Name: Frame
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1274173483
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5135,45 +5199,17 @@ RectTransform:
   m_GameObject: {fileID: 1274173482}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.5, y: 1.5, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1094058786}
-  m_Father: {fileID: 1820816145}
+  m_Father: {fileID: 119938892}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -224.2685, y: -330.42026}
-  m_SizeDelta: {x: 754.9753, y: 170.2271}
+  m_SizeDelta: {x: 1101, y: 250.5}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1274173484
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1274173482}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6e8c73c8c1e8e3b4e9ad895078bcc338, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bubbleRect: {fileID: 1274173483}
-  showEase: 27
-  showDuration: 0.5
-  hideDuration: 0.5
---- !u!225 &1274173485
-CanvasGroup:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1274173482}
-  m_Enabled: 1
-  m_Alpha: 1
-  m_Interactable: 1
-  m_BlocksRaycasts: 1
-  m_IgnoreParentGroups: 0
 --- !u!114 &1274173486
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6323,8 +6359,8 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1647634586}
-  - {fileID: 1274173483}
   - {fileID: 2002172974}
+  - {fileID: 119938892}
   m_Father: {fileID: 301674577}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -6344,7 +6380,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22366c6a7de517e43abf612f4192eada, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  typewriter: {fileID: 0}
+  typewriter: {fileID: 1094058790}
 --- !u!114 &1820816147
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6357,9 +6393,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 702241eea4b6d1c45923406c28a77d33, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentLectureData: {fileID: 0}
+  currentLectureData: {fileID: 11400000, guid: c3d6472b51ef6bd46b0ce9cf814e9bb3, type: 2}
   dialogueController: {fileID: 1820816146}
-  bubbleView: {fileID: 1274173484}
+  bubbleView: {fileID: 119938893}
   teacherView: {fileID: 1529969547}
   blackboardView: {fileID: 1647634587}
 --- !u!224 &1825137877 stripped
@@ -7191,7 +7227,7 @@ MonoBehaviour:
   bgmSource: {fileID: 766155764}
   seSource: {fileID: 1230937158}
   pauseseSource: {fileID: 1101265313}
-  loopSeSource: {fileID: 0}
+  loopSeSource: {fileID: 397420602}
   bgmList:
   - bgmType: 0
     clip: {fileID: 8300000, guid: 4dca3acd92f747146b1fe6d6f2a8f23d, type: 3}
@@ -7218,6 +7254,10 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: e9f6a7308dc4c6b41a525e1118478aa3, type: 3}
   - seType: 12
     clip: {fileID: 8300000, guid: 56ea8a96dbbc9634bb125a8f475a6433, type: 3}
+  - seType: 13
+    clip: {fileID: 8300000, guid: 1541eae7764dc564191a25c98893dc10, type: 3}
+  - seType: 2
+    clip: {fileID: 8300000, guid: 1dc99d2b77f9b8145af2d686dc576876, type: 3}
 --- !u!4 &2052186381
 Transform:
   m_ObjectHideFlags: 0

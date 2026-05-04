@@ -15,20 +15,15 @@ public class DialogueController : MonoBehaviour, ILecturePlayable
     {
         try
         {
-            // 1. 文字送り開始と同時に喋りSE（ループ）を再生
             AudioManager.Instance.PlayLoopSE(SE.Talking);
-
-            // 2. 文字送り再生
             await typewriter.PlayTypewriterAsync(line, token);
         }
         finally
         {
-            // try-finallyブロックを使うことで、文字送りが「正常終了」しても
-            // 「スキップで中断（例外発生）」しても、絶対にSEが止まるようにします。
+            // ここは引数なしでOK（自然に鳴り終わる）
             AudioManager.Instance.StopLoopSE();
         }
 
-        // 3. 入力待ち（決定キー or クリック）
         await WaitForClickOrKeyAsync(token);
     }
 
