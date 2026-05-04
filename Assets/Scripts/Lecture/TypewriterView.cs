@@ -1,39 +1,64 @@
 ﻿using UnityEngine;
 using TMPro;
+using TMP_Ruby; // 以前解決した名前空間
 using DG.Tweening;
 using Cysharp.Threading.Tasks;
 using System.Threading;
 
+// このスクリプトをアタッチすると、必要なコンポーネントも自動で追加されます
+[RequireComponent(typeof(TextMeshProRuby))]
+[RequireComponent(typeof(TextMeshProUGUI))]
 public class TypewriterView : MonoBehaviour, ILecturePlayable
 {
-    [SerializeField] private TextMeshProUGUI textMesh;
     [SerializeField] private float charactersPerSecond = 20f;
 
+    private TextMeshProRuby _rubyText;
+    private TextMeshProUGUI _mainText;
     private Tween _typewriterTween;
+
+    private void Awake()
+    {
+        // GetComponentで同じオブジェクトについているコンポーネントを取得
+        _rubyText = GetComponent<TextMeshProRuby>();
+        _mainText = GetComponent<TextMeshProUGUI>();
+    }
 
     public async UniTask PlayTypewriterAsync(string content, CancellationToken token)
     {
-        textMesh.text = content;
-        textMesh.maxVisibleCharacters = 0;
+        // 1. 以前のスクリプト同様、大文字の Text プロパティに文字列を流し込む
+        _rubyText.Text = content;
 
-        // 全文字表示にかかる時間を計算
-        float duration = content.Length / charactersPerSecond;
+        // 2. 【超重要】タグを除外した文字数を正確に取得するため、一度メッシュを強制更新する
+        _mainText.ForceMeshUpdate();
 
-        // DOTweenでmaxVisibleCharactersを0から文字数まで変化させる
+        // 3. タグ（<ruby>や<color>など）を除外した「純粋な表示文字数」を取得
+        int totalVisibleChars = _mainText.textInfo.characterCount;
+
+        // 4. 初期状態：文字をすべて隠す
+        _mainText.maxVisibleCharacters = 0;
+
+        // 5. アニメーション時間の計算（純粋な文字数を使うことでテンポが崩れない）
+        float duration = totalVisibleChars / charactersPerSecond;
+
+        // 6. DOTweenで文字送り
         _typewriterTween = DOTween.To(
-            () => textMesh.maxVisibleCharacters,
-            x => textMesh.maxVisibleCharacters = x,
-            content.Length,
+            () => _mainText.maxVisibleCharacters,
+            x => _mainText.maxVisibleCharacters = x,
+            totalVisibleChars,
             duration
         ).SetEase(Ease.Linear);
 
-        // 再生終了またはキャンセルを待機
-        await _typewriterTween.WithCancellation(token);
+        await _typewriterTween.ToUniTask(TweenCancelBehaviour.Kill, cancellationToken: token);
     }
 
     public void FastForward()
     {
         _typewriterTween?.Kill();
-        textMesh.maxVisibleCharacters = textMesh.text.Length;
+
+        // スキップ時は「純粋な表示文字数」を代入して全表示する
+        if (_mainText != null && _mainText.textInfo != null)
+        {
+            _mainText.maxVisibleCharacters = _mainText.textInfo.characterCount;
+        }
     }
 }
