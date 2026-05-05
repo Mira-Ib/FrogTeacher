@@ -20,15 +20,15 @@ public static class ResultProcessor
 
         // ランク判定（10段階の例：スコアに応じてインデックスを決定）
         int rankIndex = 0;
-        if (totalScore <= 100) { rankIndex = 0; }
-        else if (totalScore <= 150) { rankIndex = 1; }
-        else if (totalScore <= 200) { rankIndex = 2; }
-        else if (totalScore <= 250) { rankIndex = 3; }
-        else if (totalScore <= 300) { rankIndex = 4; }
-        else if (totalScore <= 350) { rankIndex = 5; }
-        else if (totalScore <= 400) { rankIndex = 6; }
-        else if (totalScore <= 450) { rankIndex = 7; }
-        else if (totalScore <= 500) { rankIndex = 8; }
+        if (totalScore < 300) { rankIndex = 0; }
+        else if (totalScore < 500) { rankIndex = 1; }
+        else if (totalScore < 700) { rankIndex = 2; }
+        else if (totalScore < 900) { rankIndex = 3; }
+        else if (totalScore < 1100) { rankIndex = 4; }
+        else if (totalScore < 1300) { rankIndex = 5; }
+        else if (totalScore < 1500) { rankIndex = 6; }
+        else if (totalScore < 2000) { rankIndex = 7; }
+        else if (totalScore < 3000) { rankIndex = 8; }
         else { rankIndex = 9; }
 
         string rank = Ranks[rankIndex];

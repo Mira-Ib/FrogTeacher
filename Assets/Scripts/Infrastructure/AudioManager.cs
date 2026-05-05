@@ -5,7 +5,7 @@ using DG.Tweening; // DOTweenを追加
 
 public enum BGM { Title, Lecture, Quiz }
 // SEに「Talking」を追加しました
-public enum SE { Click, Transition, Chalk, Chime, Correct_1, Correct_2, Correct_3, Correct_4, Correct_5, Correct_6, Correct_7, Correct_8, Wrong, Talking }
+public enum SE { Click, Talking, Chalk, Chime, Correct_1, Correct_2, Correct_3, Correct_4, Correct_5, Correct_6, Correct_7, Correct_8, Wrong }
 
 public class AudioManager : MonoBehaviour
 {

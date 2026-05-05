@@ -5217,7 +5217,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1128516982
 RectTransform:
   m_ObjectHideFlags: 0
@@ -9250,7 +9250,7 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: e9f6a7308dc4c6b41a525e1118478aa3, type: 3}
   - seType: 12
     clip: {fileID: 8300000, guid: 56ea8a96dbbc9634bb125a8f475a6433, type: 3}
-  - seType: 13
+  - seType: 1
     clip: {fileID: 8300000, guid: 1541eae7764dc564191a25c98893dc10, type: 3}
   - seType: 2
     clip: {fileID: 8300000, guid: 1dc99d2b77f9b8145af2d686dc576876, type: 3}

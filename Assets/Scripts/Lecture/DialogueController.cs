@@ -6,8 +6,6 @@ public class DialogueController : MonoBehaviour, ILecturePlayable
 {
     [SerializeField] private TypewriterView typewriter;
 
-    private bool _isWaitingForInput;
-
     /// <summary>
     /// Managerから呼ばれる、1ステップ（1文）分のセリフ表示処理
     /// </summary>
@@ -29,20 +27,15 @@ public class DialogueController : MonoBehaviour, ILecturePlayable
 
     private async UniTask WaitForClickOrKeyAsync(CancellationToken token)
     {
-        _isWaitingForInput = true;
-
         await UniTask.WaitUntil(() =>
             Input.GetKeyDown(KeyCode.Return) ||
             Input.GetKeyDown(KeyCode.Space) ||
             Input.GetMouseButtonDown(0),
             cancellationToken: token);
-
-        _isWaitingForInput = false;
     }
 
     public void FastForward()
     {
         typewriter.FastForward();
-        _isWaitingForInput = false;
     }
 }
