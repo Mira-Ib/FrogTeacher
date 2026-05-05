@@ -1,16 +1,8 @@
-using UnityEngine;
+﻿using UnityEngine;
 
-public class FormulaData : MonoBehaviour
+[CreateAssetMenu(fileName = "NewFormulaData", menuName = "GameData/FormulaData")]
+public class FormulaData : ScriptableObject
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    public bool isMainFormula; // 1+1=3 かどうかの判定用
+    public Sprite[] frames;    // 11枚の画像
 }
