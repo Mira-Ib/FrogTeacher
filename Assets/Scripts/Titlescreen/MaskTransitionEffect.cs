@@ -13,18 +13,47 @@ public class MaskTransitionEffect : MonoBehaviour
     [Tooltip("画面全体を左から右に消すマスク（maskedContainerにアタッチされている想定）")]
     [SerializeField] private HorizontalWipeMask backgroundWipeMask;
 
-    // 引数で「ユーザーが選んだ選択肢」と「カエル先生」のGameObjectを受け取る
+    // ★追加：どのUIを避難させたか記憶しておく変数
+    private GameObject escapedMenu;
+    private GameObject escapedFrog;
+
     public async UniTask EraseBackgroundExceptAsync(GameObject selectedMenu, GameObject frogTeacher, CancellationToken token)
     {
-        // 1. 選ばれたメニューとカエル先生を、マスクの外（safeContainer）に避難させる
-        // 第二引数の true は「見た目の位置（WorldPosition）を維持する」という意味です
-        if (selectedMenu != null)
-            selectedMenu.transform.SetParent(safeContainer, true);
+        // 避難させるオブジェクトを変数に記憶しておく
+        escapedMenu = selectedMenu;
+        escapedFrog = frogTeacher;
 
-        if (frogTeacher != null)
-            frogTeacher.transform.SetParent(safeContainer, true);
+        // マスクの外（safeContainer）に避難させる
+        if (escapedMenu != null)
+            escapedMenu.transform.SetParent(safeContainer, true);
 
-        // 2. 背景（残された未選択のメニュー等を含む）を左から右へ消去
+        if (escapedFrog != null)
+            escapedFrog.transform.SetParent(safeContainer, true);
+
+        // 背景を消去
         await backgroundWipeMask.WipeOutAsync(1.0f, token);
+    }
+
+    // ★追加：タイトルに戻ってきた時のリセット処理
+    public void ResetMaskAndParents()
+    {
+        // 1. 避難させていたUIを、元の階層（maskedContainer）に戻す
+        if (escapedMenu != null)
+        {
+            escapedMenu.transform.SetParent(maskedContainer, true);
+            escapedMenu = null; // 戻したら空にする
+        }
+
+        if (escapedFrog != null)
+        {
+            escapedFrog.transform.SetParent(maskedContainer, true);
+            escapedFrog = null;
+        }
+
+        // 2. 画面全体を覆っていたマスクを全開（初期状態）に戻す
+        if (backgroundWipeMask != null)
+        {
+            backgroundWipeMask.ResetMask();
+        }
     }
 }

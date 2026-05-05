@@ -11,7 +11,7 @@ public class HorizontalWipeMask : MonoBehaviour
 
     [Header("アニメーション設定")]
     [Tooltip("消去時のイージング（変化のスピード感）")]
-    [SerializeField] private Ease wipeEase = Ease.OutCubic; // ★追加：インスペクタから選べるように
+    [SerializeField] private Ease wipeEase = Ease.Linear; // ★追加：インスペクタから選べるように
 
     private void Awake()
     {

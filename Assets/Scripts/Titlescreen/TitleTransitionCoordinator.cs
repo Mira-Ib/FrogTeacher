@@ -1,91 +1,123 @@
-﻿using System.Threading;
+﻿using System.Collections.Generic;
+using System.Linq;
+using System.Threading;
 using UnityEngine;
 using Cysharp.Threading.Tasks;
+using DG.Tweening;
 
 public class TitleTransitionCoordinator : MonoBehaviour
 {
     [Header("背景・演出の参照")]
     [SerializeField] private BlackboardDirector blackboardDirector;
     [SerializeField] private MaskTransitionEffect maskTransitionEffect;
+    [SerializeField] private FrogTeacherAnimator frogTeacherAnimator;
+    [SerializeField] private TitleMenuController titleMenuController;
 
-    // 【未実装のためコメントアウト】
-    // [SerializeField] private FrogTeacherAnimator frogTeacherAnimator;
-    // [SerializeField] private TitleMenuController titleMenuController; 
-    // [SerializeField] private NextScreenPanel nextScreenPanel;
-
-    [Header("UIとキャラクターのGameObject")]
-    [Tooltip("選ばれたメニューとカエル先生を保護するために参照します")]
+    [Header("タイトル画面の制御")]
+    [Tooltip("タイトル画面の親（MaskedContainer）")]
+    [SerializeField] private GameObject titleMaskedContainer;
+    [Tooltip("決定演出で避難させる用")]
     [SerializeField] private GameObject frogTeacherObject;
 
-    // 黒板アニメーションのキャンセル制御用
+    [Tooltip("タイトル復帰時に、上から降らせたいオブジェクトをここに登録します（MenuListやFrogTeacherなど）")]
+    [SerializeField] private List<RectTransform> titleDropInElements;
+
     private CancellationTokenSource backgroundAnimationCts;
     private bool isTransitioning = false;
 
     private void Start()
     {
-        // 起動時に黒板のループアニメーションを開始
+        StartBackgroundAnimation();
+    }
+
+    private void StartBackgroundAnimation()
+    {
+        if (backgroundAnimationCts != null) return;
         backgroundAnimationCts = new CancellationTokenSource();
         blackboardDirector.PlayBlackboardLoopAsync(backgroundAnimationCts.Token).Forget();
     }
 
-    /// <summary>
-    /// UIの選択肢が決定された時に呼ばれるエントリーポイント
-    /// </summary>
-    public void OnMenuSelected(GameObject selectedMenuObject)
+    // === 行きの演出（タイトル → 各画面） ===
+    public void OnMenuSelected(GameObject selectedMenuObject, NextScreenPanel targetPanel)
     {
-        // 多重押し防止
         if (isTransitioning) return;
         isTransitioning = true;
-
-        // シーケンスを開始
-        PlayTransitionSequenceAsync(selectedMenuObject).Forget();
+        PlayTransitionSequenceAsync(selectedMenuObject, targetPanel).Forget();
     }
 
-    private async UniTask PlayTransitionSequenceAsync(GameObject selectedMenuObject)
+    private async UniTask PlayTransitionSequenceAsync(GameObject selectedMenuObject, NextScreenPanel targetPanel)
     {
-        // このGameObjectが破棄された時に安全に止めるためのトークン
         var sequenceToken = this.GetCancellationTokenOnDestroy();
 
-        // --- 0. 背景のループアニメーションを停止 ---
-        if (backgroundAnimationCts != null)
-        {
-            backgroundAnimationCts.Cancel();
-            backgroundAnimationCts.Dispose();
-            backgroundAnimationCts = null;
-        }
-
-        // --- 1. 背景の消去 ---
-        // 選んだ選択肢とカエル先生「以外」をマスクで左から右へ消去
+        // 1. アニメーション停止とマスク消去
+        backgroundAnimationCts?.Cancel();
+        backgroundAnimationCts?.Dispose();
+        backgroundAnimationCts = null;
         await maskTransitionEffect.EraseBackgroundExceptAsync(selectedMenuObject, frogTeacherObject, sequenceToken);
 
-        // ==========================================
-        // 以下、未実装クラスの演出処理は一旦コメントアウト
-        // ==========================================
-        /*
-        // --- 2. カエル先生の退場 ---
-        // その場で飛び上がり、右へ等速で退場するまで待機
+        // 2. カエル退場
         await frogTeacherAnimator.JumpAndExitAsync(sequenceToken);
 
-        // --- 3. 画面の落下（同時実行） ---
-        // 選択肢の落下と、次画面（ステージ選択等）の降下を「同時に」実行する
+        // 3. メニュー落下 ＆ 次画面が降ってくる
+        targetPanel.ResetToStartPos();
         await UniTask.WhenAll(
             titleMenuController.DropSelectedMenuAsync(selectedMenuObject, sequenceToken),
-            nextScreenPanel.DropInAsync(sequenceToken)
+            targetPanel.DropInAsync(sequenceToken)
         );
-        */
 
-        // --- 4. 完了後の処理 ---
-        // 動作確認用のログ
-        Debug.Log("背景の消去まで完了しました。以降の演出は未実装です。");
+        // 行き終わったらタイトル画面自体を完全に非アクティブにする
+        titleMaskedContainer.SetActive(false);
+        isTransitioning = false;
     }
 
-    private void OnDestroy()
+    // === 帰りの演出（各画面 → タイトル） ===
+    public void ReturnToTitle(NextScreenPanel currentPanel)
     {
-        // オブジェクトが破棄される際の安全なクリーンアップ
-        if (backgroundAnimationCts != null)
+        if (isTransitioning) return;
+        isTransitioning = true;
+        PlayReturnSequenceAsync(currentPanel).Forget();
+    }
+
+    private async UniTask PlayReturnSequenceAsync(NextScreenPanel currentPanel)
+    {
+        var sequenceToken = this.GetCancellationTokenOnDestroy();
+
+        // 1. 現在の画面を左から右へマスク消去
+        await currentPanel.WipeOutAsync(sequenceToken);
+
+        // 2. タイトルの状態をリセット（避難したUIをMaskedContainerに戻し、マスクを全開にする）
+        ResetTitleState();
+
+        // 3. インスペクタで指定した要素（MenuListなど）を上空へ移動させる
+        foreach (var element in titleDropInElements)
         {
-            backgroundAnimationCts.Cancel();
-            backgroundAnimationCts.Dispose();
+            element.anchoredPosition = new Vector2(element.anchoredPosition.x, 1500f);
         }
+
+        // タイトル画面を表示
+        titleMaskedContainer.SetActive(true);
+
+        // 4. 指定した要素を一斉に降らせる
+        var dropTasks = titleDropInElements.Select(element =>
+            element.DOAnchorPosY(0f, 0.8f).SetEase(Ease.OutBack).WithCancellation(sequenceToken)
+        );
+        await UniTask.WhenAll(dropTasks);
+
+        // 5. 黒板アニメーション再開
+        StartBackgroundAnimation();
+
+        isTransitioning = false;
+    }
+
+    private void ResetTitleState()
+    {
+        // 1. 落下させたすべての選択肢（ボタン）のY座標を初期位置に戻し、再び押せるようにする
+        titleMenuController.ResetMenuPositions();
+
+        // 2. 画面右外へ退場したカエル先生のX座標を初期位置に戻す
+        frogTeacherAnimator.ResetPosition();
+
+        // 3. 避難させていたUIを元の階層に戻し、全体のマスクを全開にする
+        maskTransitionEffect.ResetMaskAndParents();
     }
 }
