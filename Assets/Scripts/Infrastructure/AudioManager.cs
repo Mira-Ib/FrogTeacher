@@ -1,7 +1,9 @@
-﻿using System;
+﻿using Cysharp.Threading.Tasks;
+using DG.Tweening; // DOTweenを追加
+using Mono.Cecil;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
-using DG.Tweening; // DOTweenを追加
 
 public enum BGM { Title, Lecture, Quiz }
 // SEに「Talking」を追加しました
@@ -137,5 +139,39 @@ public class AudioManager : MonoBehaviour
             // これにより、今再生されているフレーズの最後まで鳴り切ってから美しく停止します。
             loopSeSource.loop = false;
         }
+    }
+    /// <summary>
+    /// BGMのテスト音声を再生し、終了後に元のBGMを再開する
+    /// </summary>
+    public async UniTask PlayBgmTestAudioAsync(AudioClip testClip)
+    {
+        // 1. 現在のBGMの状態を保存する
+        AudioClip currentClip = bgmSource.clip;
+        float currentTime = bgmSource.time;
+        bool wasPlaying = bgmSource.isPlaying;
+
+        // 2. BGMソースをテスト音声で上書きして再生
+        bgmSource.clip = testClip;
+        bgmSource.time = 0f;
+        bgmSource.Play();
+
+        // 3. テスト音声が鳴り終わるまで待機
+        // ※testClip.length だと少し余裕がない場合があるので、僅かにバッファを持たせても良いです
+        await UniTask.Delay(System.TimeSpan.FromSeconds(testClip.length));
+
+        // 4. 元の状態を復元して再開
+        bgmSource.clip = currentClip;
+        if (wasPlaying)
+        {
+            bgmSource.time = currentTime;
+            bgmSource.Play();
+        }
+    }
+
+    // AudioManager.cs に追記
+    public void PlaySeTestAudio(AudioClip testClip)
+    {
+        // 現在のSEの音量設定（_seSource.volume）に従って、一回だけ再生する
+        seSource.PlayOneShot(testClip);
     }
 }
