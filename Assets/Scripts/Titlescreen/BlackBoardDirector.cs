@@ -57,4 +57,14 @@ public class BlackboardDirector : MonoBehaviour
         result.AddRange(others);
         return result;
     }
+
+    // BlackboardDirector.cs に追加
+    public void ResetAllToBlank()
+    {
+        formulaView.ResetToBlank();
+        foreach (var symbol in symbolAnimators)
+        {
+            symbol.ResetToBlank();
+        }
+    }
 }

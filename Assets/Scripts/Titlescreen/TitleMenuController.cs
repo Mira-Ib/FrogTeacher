@@ -1,9 +1,10 @@
-﻿using System.Collections.Generic;
+﻿using Cysharp.Threading.Tasks;
+using DG.Tweening;
+using System.Collections.Generic;
 using System.Threading;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
-using Cysharp.Threading.Tasks;
-using DG.Tweening;
 
 public class TitleMenuController : MonoBehaviour
 {
@@ -14,6 +15,11 @@ public class TitleMenuController : MonoBehaviour
     [SerializeField] private float dropDistance = 1500f;
     [SerializeField] private float dropDuration = 0.6f;
     [SerializeField] private Ease dropEase = Ease.InQuad;
+
+    // ★追加：タイトルに戻った時にフォーカスを当てるUI
+    [Header("UIナビゲーション")]
+    [Tooltip("タイトル画面で最初に選択状態にするボタン")]
+    [SerializeField] private GameObject defaultSelectedButton;
 
     // タイトルに戻ってきた時に位置を戻すため、初期Y座標を記憶しておく辞書
     private Dictionary<RectTransform, float> originalYPositions = new Dictionary<RectTransform, float>();
@@ -78,6 +84,18 @@ public class TitleMenuController : MonoBehaviour
         }
     }
 
+    // ★追加：デフォルトのボタンを選択状態にするメソッド
+    public async UniTask SelectDefaultButtonAsync() // 名前をAsyncに変更
+    {
+        if (defaultSelectedButton != null)
+        {
+            // ★重要：1フレーム待つことで、Unityに「UIがアクティブになったこと」を認識させる
+            await UniTask.Yield(PlayerLoopTiming.Update);
+
+            EventSystem.current.SetSelectedGameObject(null);
+            EventSystem.current.SetSelectedGameObject(defaultSelectedButton);
+        }
+    }
     private void DisableAllButtons()
     {
         var buttons = GetComponentsInChildren<Button>();

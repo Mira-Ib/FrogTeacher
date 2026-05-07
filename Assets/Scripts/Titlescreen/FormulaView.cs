@@ -31,4 +31,10 @@ public class FormulaView : MonoBehaviour
 
         targetImage.enabled = false;
     }
+    public void ResetToBlank()
+    {
+        wipeMask.ResetMask();
+        targetImage.enabled = false;
+        targetImage.sprite = null;
+    }
 }

@@ -51,4 +51,9 @@ public class SymbolAnimator : MonoBehaviour
         }
         catch (System.OperationCanceledException) { }
     }
+    public void ResetToBlank()
+    {
+        wipeMask.ResetMask();
+        targetImage.enabled = false;
+    }
 }
