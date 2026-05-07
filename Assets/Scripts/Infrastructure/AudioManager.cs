@@ -1,9 +1,9 @@
 ﻿using Cysharp.Threading.Tasks;
 using DG.Tweening; // DOTweenを追加
-using Mono.Cecil;
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 
 public enum BGM { Title, Lecture, Quiz }
 // SEに「Talking」を追加しました
@@ -39,6 +39,26 @@ public class AudioManager : MonoBehaviour
     [SerializeField] private List<BGMDict> bgmList = new List<BGMDict>();
     [SerializeField] private List<SEDict> seList = new List<SEDict>();
 
+    [Header("Audio Mixer (使用している場合のみアタッチ)")]
+    [SerializeField] private AudioMixer _audioMixer;
+    [SerializeField] private string _bgmExposedParam = "BgmVolume";
+    [SerializeField] private string _seExposedParam = "SeVolume";
+
+    [Header("Volume Mapping (0〜7段階のdB設定)")]
+    [Tooltip("インデックス0がミュート、7が最大音量。後からインスペクタで微調整できます。")]
+    [SerializeField]
+    private float[] _volumeDbSteps = new float[8]
+    {
+        -80f, // 0: ミュート (AudioMixerの最低値)
+        -30f, // 1: かなり小さめ
+        -20f, // 2
+        -14f, // 3
+        -9f,  // 4
+        -5f,  // 5
+        -2f,  // 6
+         0f   // 7: 最大音量 (原音そのまま)
+    };
+
     private Tween _bgmFadeTween; // BGMフェード用のTweenを保持
 
     private void Awake()
@@ -51,6 +71,40 @@ public class AudioManager : MonoBehaviour
         else
         {
             Destroy(gameObject);
+        }
+    }
+
+    // ==========================================
+    // 音量設定メソッド (Controllerから呼ばれる)
+    // ==========================================
+
+    /// <summary>
+    /// BGMの音量を0〜7の段階で設定する
+    /// </summary>
+    public void SetBgmVolume(int level)
+    {
+        // 念のため配列の範囲外アクセスを防ぐ
+        level = Mathf.Clamp(level, 0, _volumeDbSteps.Length - 1);
+        float dbVolume = _volumeDbSteps[level];
+
+        if (_audioMixer != null)
+        {
+            // AudioMixerが設定されている場合は、Exposed Parameter経由でdBを直接流し込む
+            _audioMixer.SetFloat(_bgmExposedParam, dbVolume);
+        }
+    }
+
+    /// <summary>
+    /// SEの音量を0〜7の段階で設定する
+    /// </summary>
+    public void SetSeVolume(int level)
+    {
+        level = Mathf.Clamp(level, 0, _volumeDbSteps.Length - 1);
+        float dbVolume = _volumeDbSteps[level];
+
+        if (_audioMixer != null)
+        {
+            _audioMixer.SetFloat(_seExposedParam, dbVolume);
         }
     }
 
@@ -143,28 +197,38 @@ public class AudioManager : MonoBehaviour
     /// <summary>
     /// BGMのテスト音声を再生し、終了後に元のBGMを再開する
     /// </summary>
+    // ★追加：テスト再生中かを判定するフラグ
+    private bool _isPlayingBgmTest = false;
     public async UniTask PlayBgmTestAudioAsync(AudioClip testClip)
     {
-        // 1. 現在のBGMの状態を保存する
-        AudioClip currentClip = bgmSource.clip;
-        float currentTime = bgmSource.time;
-        bool wasPlaying = bgmSource.isPlaying;
+        // ★追加：すでにテスト再生中なら、何もしない（連打防止）
+        if (_isPlayingBgmTest) return;
 
-        // 2. BGMソースをテスト音声で上書きして再生
-        bgmSource.clip = testClip;
-        bgmSource.time = 0f;
-        bgmSource.Play();
+        _isPlayingBgmTest = true; // フラグを立てる
 
-        // 3. テスト音声が鳴り終わるまで待機
-        // ※testClip.length だと少し余裕がない場合があるので、僅かにバッファを持たせても良いです
-        await UniTask.Delay(System.TimeSpan.FromSeconds(testClip.length));
-
-        // 4. 元の状態を復元して再開
-        bgmSource.clip = currentClip;
-        if (wasPlaying)
+        try
         {
-            bgmSource.time = currentTime;
+            AudioClip currentClip = bgmSource.clip;
+            float currentTime = bgmSource.time;
+            bool wasPlaying = bgmSource.isPlaying;
+
+            bgmSource.clip = testClip;
+            bgmSource.time = 0f;
             bgmSource.Play();
+
+            await UniTask.Delay(System.TimeSpan.FromSeconds(testClip.length));
+
+            bgmSource.clip = currentClip;
+            if (wasPlaying)
+            {
+                bgmSource.time = currentTime;
+                bgmSource.Play();
+            }
+        }
+        finally
+        {
+            // ★追加：エラーが起きても途中でキャンセルされても、必ずフラグを下ろす
+            _isPlayingBgmTest = false;
         }
     }
 

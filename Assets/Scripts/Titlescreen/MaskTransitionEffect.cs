@@ -1,4 +1,5 @@
-﻿using System.Threading;
+﻿using System.Collections.Generic;
+using System.Threading;
 using UnityEngine;
 using Cysharp.Threading.Tasks;
 
@@ -10,47 +11,64 @@ public class MaskTransitionEffect : MonoBehaviour
     [Tooltip("マスクの影響を受けない、上の階層にある親")]
     [SerializeField] private RectTransform safeContainer;
 
-    [Tooltip("画面全体を左から右に消すマスク（maskedContainerにアタッチされている想定）")]
+    [Tooltip("画面全体を左から右に消すマスク")]
     [SerializeField] private HorizontalWipeMask backgroundWipeMask;
 
-    // ★追加：どのUIを避難させたか記憶しておく変数
-    private GameObject escapedMenu;
-    private GameObject escapedFrog;
+    // ★変更：Listではなく、Dictionaryを使って「GameObject」と「元の親Transform」をセットで記憶する
+    private Dictionary<GameObject, Transform> _originalParents = new Dictionary<GameObject, Transform>();
 
-    public async UniTask EraseBackgroundExceptAsync(GameObject selectedMenu, GameObject frogTeacher, CancellationToken token)
+    /// <summary>
+    /// 指定したオブジェクトを SafeContainer に避難させる
+    /// </summary>
+    public void ProtectObjects(params GameObject[] targetsToProtect)
     {
-        // 避難させるオブジェクトを変数に記憶しておく
-        escapedMenu = selectedMenu;
-        escapedFrog = frogTeacher;
+        foreach (var obj in targetsToProtect)
+        {
+            // まだ辞書に登録されていなければ（重複登録防止）
+            if (obj != null && !_originalParents.ContainsKey(obj))
+            {
+                // ★追加：避難させる「前」に、現在の親（Buttonsなど）を記憶しておく
+                _originalParents[obj] = obj.transform.parent;
 
-        // マスクの外（safeContainer）に避難させる
-        if (escapedMenu != null)
-            escapedMenu.transform.SetParent(safeContainer, true);
-
-        if (escapedFrog != null)
-            escapedFrog.transform.SetParent(safeContainer, true);
-
-        // 背景を消去
-        await backgroundWipeMask.WipeOutAsync(1.0f, token);
+                // 避難先に移動させる
+                obj.transform.SetParent(safeContainer, true);
+            }
+        }
     }
 
-    // ★追加：タイトルに戻ってきた時のリセット処理
+    /// <summary>
+    /// マスクアニメーションを実行する
+    /// </summary>
+    public async UniTask WipeOutAsync(float duration, CancellationToken token)
+    {
+        if (backgroundWipeMask != null)
+        {
+            await backgroundWipeMask.WipeOutAsync(duration, token);
+        }
+    }
+
+    /// <summary>
+    /// 避難していたUIを元の階層に戻し、マスクをリセットする
+    /// </summary>
     public void ResetMaskAndParents()
     {
-        // 1. 避難させていたUIを、元の階層（maskedContainer）に戻す
-        if (escapedMenu != null)
+        // 1. 記憶しているすべてのUIを、それぞれ固有の「元の親」に戻す
+        foreach (var kvp in _originalParents)
         {
-            escapedMenu.transform.SetParent(maskedContainer, true);
-            escapedMenu = null; // 戻したら空にする
+            GameObject obj = kvp.Key;
+            Transform originalParent = kvp.Value;
+
+            if (obj != null && originalParent != null)
+            {
+                // まとめてmaskedContainerではなく、記憶していた元の親（Buttons等）に戻す
+                obj.transform.SetParent(originalParent, true);
+            }
         }
 
-        if (escapedFrog != null)
-        {
-            escapedFrog.transform.SetParent(maskedContainer, true);
-            escapedFrog = null;
-        }
+        // 戻し終わったら辞書を空にする
+        _originalParents.Clear();
 
-        // 2. 画面全体を覆っていたマスクを全開（初期状態）に戻す
+        // 2. マスクを全開（初期状態）に戻す
         if (backgroundWipeMask != null)
         {
             backgroundWipeMask.ResetMask();

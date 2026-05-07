@@ -27,24 +27,33 @@ public class MenuVisualFeedback : MonoBehaviour, ISelectHandler, IDeselectHandle
     // マウスが乗った時の処理
     public void OnPointerEnter(PointerEventData eventData)
     {
-        // マウスホバーで、Unity標準の「選択状態」にする（これでOnSelectが呼ばれます）
+        // マウスホバーで、Unity標準の「選択状態」にする
         EventSystem.current.SetSelectedGameObject(gameObject);
     }
 
     // 選択状態になった時（キーボード操作時もここが呼ばれる）
     public void OnSelect(BaseEventData eventData)
     {
-        // 1. 少し大きくなる
+        // 1. ボタンが少し大きくなる演出
         transform.DOScale(originalScale * scaleUpSize, animationDuration).SetEase(Ease.OutQuad);
 
         // 2. 矢印を自分の横へ移動させる
         if (arrowObject != null)
         {
-            // ★追加：矢印が非アクティブなら、ここで表示をオンにする
+            // --- ★修正ポイントここから ---
+
+            // ① 矢印を表示状態にする
             arrowObject.gameObject.SetActive(true);
 
+            // ② 矢印をヒエラルキーの「一番下」に移動させ、強制的に最前面に描画する
+            // （uGUIでは同じ親の中では下にあるものほど手前に表示されるため）
+            arrowObject.SetAsLastSibling();
+
+            // ③ 矢印の移動アニメーション
             arrowObject.DOAnchorPosY(myRectTransform.anchoredPosition.y, animationDuration)
                        .SetEase(Ease.OutCubic);
+
+            // --- ★修正ポイントここまで ---
         }
     }
 

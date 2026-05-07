@@ -600,6 +600,18 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: 1541eae7764dc564191a25c98893dc10, type: 3}
   - seType: 2
     clip: {fileID: 8300000, guid: 1dc99d2b77f9b8145af2d686dc576876, type: 3}
+  _audioMixer: {fileID: 24100000, guid: ae0fdf50c6d55c049985fcf772fd433c, type: 2}
+  _bgmExposedParam: BGM
+  _seExposedParam: SE
+  _volumeDbSteps:
+  - -80
+  - -30
+  - -20
+  - -14
+  - -9
+  - -5
+  - -2
+  - 0
 --- !u!114 &4594399630822921771
 MonoBehaviour:
   m_ObjectHideFlags: 0
