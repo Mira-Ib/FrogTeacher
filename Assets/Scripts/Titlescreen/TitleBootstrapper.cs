@@ -61,13 +61,20 @@ public class TitleBootstrapper : MonoBehaviour
         await bootCanvasGroup.DOFade(0f, screenFadeDuration).WithCancellation(token);
 
         // ==================================================
-        // ★ここから下が、明転し終わった瞬間に「同時」に実行されます
+        // ★追加：起動時に設定をロードして音量に反映する
         // ==================================================
+        var settings = new SettingsManager(new JsonSettingsRepository("settings.json"));
 
-        // 6. BGMの再生開始！
+        // 6. 音マネージャーに現在の設定値を反映し、BGMを流す
         if (AudioManager.Instance != null)
         {
-            AudioManager.Instance.PlayBGM(titleBGM, true);
+            AudioManager.Instance.SetBgmVolume(settings.CurrentData.BgmVolume);
+            AudioManager.Instance.SetSeVolume(settings.CurrentData.SeVolume);
+
+            if (AudioManager.Instance != null)
+            {
+                AudioManager.Instance.PlayBGM(titleBGM, true);
+            }
         }
 
         // 7. 黒板アニメーションの開始合図を送る！

@@ -14,23 +14,17 @@ public class TitleTransitionCoordinator : MonoBehaviour
     [SerializeField] private TitleMenuController titleMenuController;
 
     [Header("タイトル画面の制御")]
-    [Tooltip("タイトル画面の親（MaskedContainer）")]
     [SerializeField] private GameObject titleMaskedContainer;
-    [Tooltip("決定演出で避難させる用")]
     [SerializeField] private GameObject frogTeacherObject;
-
-    [Tooltip("タイトル復帰時に、上から降らせたいオブジェクトをここに登録します（MenuListやFrogTeacherなど）")]
     [SerializeField] private List<RectTransform> titleDropInElements;
 
     private CancellationTokenSource backgroundAnimationCts;
     private bool isTransitioning = false;
-
-    // 起動時の正しいY座標を記憶するための辞書
     private Dictionary<RectTransform, float> _originalYPositions = new Dictionary<RectTransform, float>();
 
-    private void Start()
+    // ★修正：Startより早いAwakeで初期位置を確実に記憶する
+    private void Awake()
     {
-        // ゲームが起動した瞬間の、各オブジェクトの正しいY座標を記憶しておく
         foreach (var element in titleDropInElements)
         {
             if (element != null)
@@ -40,7 +34,7 @@ public class TitleTransitionCoordinator : MonoBehaviour
         }
     }
 
-    // === 背景アニメーションの制御 ===
+    // === 背景アニメーションの制御（変更なし） ===
     public void StartBackgroundAnimation()
     {
         if (backgroundAnimationCts != null) return;
@@ -56,11 +50,10 @@ public class TitleTransitionCoordinator : MonoBehaviour
             backgroundAnimationCts.Dispose();
             backgroundAnimationCts = null;
         }
-        // アニメーションを停止した瞬間に、画像を非表示にしてまっさらな黒板にする
         blackboardDirector.ResetAllToBlank();
     }
 
-    // === 行きの演出（タイトル → 各画面） ===
+    // === 行きの演出（変更なし） ===
     public void OnMenuSelected(GameObject selectedMenuObject, NextScreenPanel targetPanel)
     {
         if (isTransitioning) return;
@@ -72,17 +65,14 @@ public class TitleTransitionCoordinator : MonoBehaviour
     {
         var sequenceToken = this.GetCancellationTokenOnDestroy();
 
-        // 1. 背景アニメーション停止とまっさらな状態へのリセット
         StopBackgroundAnimation();
-
-        // 2. 保護とマスク消去・カエル退場を同時実行
         maskTransitionEffect.ProtectObjects(selectedMenuObject, frogTeacherObject);
+
         await UniTask.WhenAll(
             maskTransitionEffect.WipeOutAsync(1.0f, sequenceToken),
             frogTeacherAnimator.JumpAndExitAsync(sequenceToken)
         );
 
-        // 3. メニュー落下 ＆ 次画面の降下を同時実行
         targetPanel.ResetToStartPos();
         await UniTask.WhenAll(
             titleMenuController.DropSelectedMenuAsync(selectedMenuObject, sequenceToken),
@@ -93,48 +83,48 @@ public class TitleTransitionCoordinator : MonoBehaviour
         isTransitioning = false;
     }
 
-    // === 帰りの演出（各画面 → タイトル） ===
-    public void ReturnToTitle(NextScreenPanel currentPanel)
+    // === 帰りの演出（★ここがアーキテクチャの要） ===
+
+    /// <summary>
+    /// タイトル画面への復帰シーケンスを完全自動で実行します。
+    /// 外部で同時に実行したいアニメーションがある場合は extraParallelTask に渡すことができます。
+    /// </summary>
+    public async UniTask ReturnToTitleAsync(NextScreenPanel currentPanel, UniTask extraParallelTask = default)
     {
         if (isTransitioning) return;
         isTransitioning = true;
-        PlayReturnSequenceAsync(currentPanel).Forget();
-    }
 
-    private async UniTask PlayReturnSequenceAsync(NextScreenPanel currentPanel)
-    {
         var sequenceToken = this.GetCancellationTokenOnDestroy();
 
-        // 1. 現在の画面を左から右へマスク消去
+        // 1. 現在の画面を消去
         await currentPanel.WipeOutAsync(sequenceToken);
 
         // 2. タイトルの状態をリセットし、降下準備をする
         PrepareForReturn();
 
-        // 3. 指定した要素を一斉に降らせる（記憶した正しいY座標へ）
-        await ExecuteDropInAsync(sequenceToken);
+        // 3. 指定した要素を一斉に降らせる ＋ 外部のタスク（ボタン落下など）を【完全に同期】させる
+        await UniTask.WhenAll(
+            ExecuteDropInAsync(sequenceToken),
+            extraParallelTask
+        );
 
         // 4. 黒板アニメーション再開
         StartBackgroundAnimation();
 
         // 5. タイトルが復帰したらフォーカスを当てる
-        // 警告が出ないよう、1フレーム待機が含まれる処理を await で待つ
         await titleMenuController.SelectDefaultButtonAsync();
 
         isTransitioning = false;
     }
 
-    // === 内部処理用のヘルパーメソッド ===
-    public void PrepareForReturn()
-    {
-        // 避難したUIの帰還とマスクの全開
-        maskTransitionEffect.ResetMaskAndParents();
+    // === 内部処理用のヘルパーメソッド（★外部から呼べないように private に隠蔽！） ===
 
-        // カエルとメニューの位置リセット
+    private void PrepareForReturn()
+    {
+        maskTransitionEffect.ResetMaskAndParents();
         titleMenuController.ResetMenuPositions();
         frogTeacherAnimator.ResetPosition();
 
-        // 降ってくる要素を上空へ配置
         foreach (var element in titleDropInElements)
         {
             if (element != null)
@@ -146,13 +136,11 @@ public class TitleTransitionCoordinator : MonoBehaviour
         titleMaskedContainer.SetActive(true);
     }
 
-    public async UniTask ExecuteDropInAsync(CancellationToken token)
+    private async UniTask ExecuteDropInAsync(CancellationToken token)
     {
         var dropTasks = titleDropInElements.Select(element =>
         {
             if (element == null) return UniTask.CompletedTask;
-
-            // 0f固定ではなく、辞書に記憶しておいた正しいY座標を取得して降下させる
             float targetY = _originalYPositions.TryGetValue(element, out float y) ? y : 0f;
             return element.DOAnchorPosY(targetY, 0.8f)
                 .SetEase(Ease.OutBack)

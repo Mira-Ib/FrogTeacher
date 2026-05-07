@@ -27,9 +27,9 @@ public class OptionScreenController : IDisposable
     private readonly NextScreenPanel _optionsContentPanel;
     private readonly RectTransform _submitButtonRect;
     private readonly MaskTransitionEffect _maskTransitionEffect;
-    private readonly TitleTransitionCoordinator _titleCoordinator; // ★追加：タイトル画面のリセット用
+    private readonly TitleTransitionCoordinator _titleCoordinator;
     private readonly CancellationToken _token;
-    private readonly float _submitButtonDefaultPosY; // ★復活：決定ボタンの元の高さを記憶する
+    private readonly float _submitButtonDefaultPosY;
 
     /// <summary>
     /// コンストラクタ：必要な参照を全て外部から注入する (Dependency Injection)
@@ -45,7 +45,7 @@ public class OptionScreenController : IDisposable
         NextScreenPanel optionsContentPanel,
         RectTransform submitButtonRect,
         MaskTransitionEffect maskTransitionEffect,
-        TitleTransitionCoordinator titleCoordinator, // ★追加
+        TitleTransitionCoordinator titleCoordinator,
         CancellationToken token)
     {
         _bgmView = bgmView;
@@ -58,11 +58,12 @@ public class OptionScreenController : IDisposable
         _optionsContentPanel = optionsContentPanel;
         _submitButtonRect = submitButtonRect;
         _maskTransitionEffect = maskTransitionEffect;
-        _titleCoordinator = titleCoordinator; // ★追加
+        _titleCoordinator = titleCoordinator;
         _token = token;
 
-        // ★追加：起動時の正しいY座標を記憶する
+        // 起動時の正しいY座標を記憶する
         _submitButtonDefaultPosY = _submitButtonRect.anchoredPosition.y;
+
         // 初期化処理の実行
         BindEvents();
         InitializeViews();
@@ -76,8 +77,8 @@ public class OptionScreenController : IDisposable
         // --- BGMのイベント ---
         _bgmView.OnVolumeChanged += volume =>
         {
-            _settingsManager.UpdateBgmVolume(volume); // データ保存
-            _audioManager.SetBgmVolume(volume);       // 実際の音量に反映
+            _settingsManager.UpdateBgmVolume(volume);
+            _audioManager.SetBgmVolume(volume);
         };
         _bgmView.OnTestPlayClicked += () => _audioManager.PlayBgmTestAudioAsync(_bgmTestClip).Forget();
 
@@ -90,7 +91,6 @@ public class OptionScreenController : IDisposable
         _seView.OnTestPlayClicked += () => _audioManager.PlaySeTestAudio(_seTestClip);
 
         // --- 決定ボタンのイベント ---
-        // 非同期メソッドを呼ぶため、ラムダ式でラップしてForget()をつける
         _submitButton.onClick.AddListener(() => OnSubmitClickedAsync().Forget());
     }
 
@@ -108,10 +108,8 @@ public class OptionScreenController : IDisposable
     /// </summary>
     public void SetInitialFocus()
     {
-        // EventSystemが存在し、かつBGMスライダーのGameObjectが存在するか確認
         if (EventSystem.current != null)
         {
-            // EventSystem に「最初からBGMスライダーを選択状態にして」と命令する
             EventSystem.current.SetSelectedGameObject(_bgmView.GetSliderGameObject());
         }
     }
@@ -121,39 +119,21 @@ public class OptionScreenController : IDisposable
     /// </summary>
     private async UniTaskVoid OnSubmitClickedAsync()
     {
-        // 1. ボタン連打防止
         _submitButton.interactable = false;
-
-        // 2. タイトルのUIをSafeContainerから回収し、タイトル画面を上空にセットする
-        _titleCoordinator.PrepareForReturn();
-
-        // 3. 今度は決定ボタンをSafeContainerへ避難させる
         _maskTransitionEffect.ProtectObjects(_submitButtonRect.gameObject);
 
-        // ==========================================
-        // ★修正：アニメーションの順番を変更
-        // ==========================================
+        // 決定ボタンを落下させるアニメーション（UniTask化）
+        UniTask buttonDropTask = _submitButtonRect.DOAnchorPosY(_submitButtonDefaultPosY - 1000f, 0.4f)
+            .SetEase(Ease.InQuad)
+            .WithCancellation(_token);
 
-        // ① まず、オプション画面の中身をマスクで消去し、完全に終わるまで待機する
-        await _optionsContentPanel.WipeOutAsync(_token);
+        // コーディネーターにお任せ！（ボタン落下のタスクを一緒に渡す）
+        await _titleCoordinator.ReturnToTitleAsync(_optionsContentPanel, buttonDropTask);
 
-        // ② その後、決定ボタンの落下 と タイトル画面の降下 を同時に行う
-        await UniTask.WhenAll(
-            _submitButtonRect.DOAnchorPosY(_submitButtonRect.anchoredPosition.y - 1000f, 0.4f).SetEase(Ease.InQuad).WithCancellation(_token),
-            _titleCoordinator.ExecuteDropInAsync(_token)
-        );
-
-        // ==========================================
-
-        // 4. 黒板のアニメーションを再開
-        _titleCoordinator.StartBackgroundAnimation();
-
-        // ★追加：次回開く時のために、決定ボタンを元の階層・座標・状態にリセットする
-        _maskTransitionEffect.ResetMaskAndParents(); // 決定ボタンをオプションパネル内に戻す
-        _submitButtonRect.anchoredPosition = new Vector2(_submitButtonRect.anchoredPosition.x, _submitButtonDefaultPosY); // 座標を元に戻す
-        _submitButton.interactable = true; // ボタンを再び押せるようにする
-
-        Debug.Log("タイトル画面への遷移演出が完了しました");
+        // お掃除
+        _maskTransitionEffect.ResetMaskAndParents();
+        _submitButtonRect.anchoredPosition = new Vector2(_submitButtonRect.anchoredPosition.x, _submitButtonDefaultPosY);
+        _submitButton.interactable = true;
     }
 
     /// <summary>
@@ -163,7 +143,7 @@ public class OptionScreenController : IDisposable
     {
         if (_bgmView != null)
         {
-            _bgmView.ClearAllEvents(); // VolumeItemView側に追加したクリアメソッド
+            _bgmView.ClearAllEvents();
         }
 
         if (_seView != null)

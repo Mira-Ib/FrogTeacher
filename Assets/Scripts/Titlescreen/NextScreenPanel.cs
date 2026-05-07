@@ -1,6 +1,6 @@
 ﻿using System.Threading;
 using UnityEngine;
-// ★追加：EventSystemを使うために必要です
+using UnityEngine.UI; // ★追加：Buttonコンポーネントを操作するために必要です
 using UnityEngine.EventSystems;
 using Cysharp.Threading.Tasks;
 using DG.Tweening;
@@ -18,14 +18,41 @@ public class NextScreenPanel : MonoBehaviour
     [Header("マスクの参照")]
     [SerializeField] private HorizontalWipeMask wipeMask;
 
-    // ★追加：この画面が開いた時にフォーカスを当てるUI
     [Header("UIナビゲーション")]
     [Tooltip("この画面が開ききった時に最初に選択状態にするUI（スライダーや戻るボタン等）")]
     [SerializeField] private GameObject firstSelectedElement;
 
+    // ★追加：2回目以降の表示バグを防ぐための設定
+    [Header("リセット設定")]
+    [Tooltip("この画面の『決定ボタン』または『戻るボタン』を登録します")]
+    [SerializeField] private RectTransform submitButton;
+    private float _defaultButtonY;
+
     private void Awake()
     {
         EnsureInitialized();
+
+        // ★追加：起動時のボタンの正しいY座標を記憶しておく
+        if (submitButton != null)
+        {
+            _defaultButtonY = submitButton.anchoredPosition.y;
+        }
+    }
+
+    // ★追加：画面が有効（SetActive(true)）になった瞬間に自動でリセットを実行
+    private void OnEnable()
+    {
+        if (submitButton != null)
+        {
+            // 1. ボタンを元の高さに強制的に戻す（落下したままになるのを防ぐ）
+            Vector2 pos = submitButton.anchoredPosition;
+            pos.y = _defaultButtonY;
+            submitButton.anchoredPosition = pos;
+
+            // 2. ボタンを再び押せるようにする
+            var btn = submitButton.GetComponent<Button>();
+            if (btn != null) btn.interactable = true;
+        }
     }
 
     private void EnsureInitialized()
@@ -39,17 +66,20 @@ public class NextScreenPanel : MonoBehaviour
     public async UniTask DropInAsync(CancellationToken token)
     {
         EnsureInitialized();
-        gameObject.SetActive(true);
-        wipeMask.ResetMask();
 
+        // SetActive(true) により、上記の OnEnable リセット処理が自動的に走ります
+        gameObject.SetActive(true);
+
+        if (wipeMask != null) wipeMask.ResetMask();
+
+        // 上から降ってくるアニメーション
         await rectTransform.DOAnchorPosY(targetPosY, animationDuration)
             .SetEase(Ease.OutBack)
             .WithCancellation(token);
 
-        // ★追加：アニメーションが終わって画面が定位置についたらフォーカスを当てる
-        if (firstSelectedElement != null)
+        // アニメーションが終わったらフォーカスを当てる
+        if (firstSelectedElement != null && EventSystem.current != null)
         {
-            // 一旦nullを入れてリセットしてから設定すると、より確実にフォーカスが切り替わります
             EventSystem.current.SetSelectedGameObject(null);
             EventSystem.current.SetSelectedGameObject(firstSelectedElement);
         }
@@ -58,7 +88,10 @@ public class NextScreenPanel : MonoBehaviour
     public async UniTask WipeOutAsync(CancellationToken token)
     {
         EnsureInitialized();
-        await wipeMask.WipeOutAsync(animationDuration, token);
+        if (wipeMask != null)
+        {
+            await wipeMask.WipeOutAsync(animationDuration, token);
+        }
         gameObject.SetActive(false);
     }
 

@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.EventSystems;
 using DG.Tweening;
-using TMPro; // ★追加：TextMeshProを操作するために必要です
+using TMPro;
 
 [RequireComponent(typeof(RectTransform))]
 public class MenuVisualFeedback : MonoBehaviour, ISelectHandler, IDeselectHandler, IPointerEnterHandler
@@ -20,7 +20,6 @@ public class MenuVisualFeedback : MonoBehaviour, ISelectHandler, IDeselectHandle
     [Header("選択解除時の設定")]
     [SerializeField] private bool hideVisualsOnDeselect = false;
 
-    // ★新たに追加した設定
     [Header("テキストの装飾設定")]
     [Tooltip("選択時に下線を付けたいテキスト（不要な場合は空欄）")]
     [SerializeField] private TextMeshProUGUI targetTextToUnderline;
@@ -41,7 +40,7 @@ public class MenuVisualFeedback : MonoBehaviour, ISelectHandler, IDeselectHandle
 
     public void OnSelect(BaseEventData eventData)
     {
-        // 1. 少し大きくなる
+        // 1. 拡大演出
         if (useScale)
         {
             transform.DOScale(originalScale * scaleUpSize, animationDuration)
@@ -49,28 +48,31 @@ public class MenuVisualFeedback : MonoBehaviour, ISelectHandler, IDeselectHandle
                      .SetUpdate(true);
         }
 
-        // 2. 矢印を移動
+        // 2. 矢印の移動（★変更：DOTweenを使った滑らかなアニメーションに戻す）
         if (arrowObject != null)
         {
             arrowObject.gameObject.SetActive(true);
+            arrowObject.SetAsLastSibling(); // 最前面へ
+
+            // DOTweenでスムーズに追従させる
             arrowObject.DOAnchorPosY(myRectTransform.anchoredPosition.y, animationDuration)
                        .SetEase(Ease.OutCubic)
                        .SetUpdate(true);
         }
 
-        // 3. 正方形枠を移動
+        // 3. 正方形枠の移動（要望通り、ここは直接座標を代入して瞬時に移動）
         if (squareFrameObject != null)
         {
             squareFrameObject.gameObject.SetActive(true);
-            squareFrameObject.DOAnchorPos(myRectTransform.anchoredPosition, animationDuration)
-                             .SetEase(Ease.OutCubic)
-                             .SetUpdate(true);
+            squareFrameObject.SetAsLastSibling();
+
+            // アニメーションなしで即座に吸い付く
+            squareFrameObject.anchoredPosition = myRectTransform.anchoredPosition;
         }
 
-        // ★追加：4. テキストに下線を付ける
+        // 4. テキストに下線を付ける
         if (targetTextToUnderline != null)
         {
-            // | (OR演算子) を使うことで、元の太字などの設定を壊さずに下線だけを追加します
             targetTextToUnderline.fontStyle |= FontStyles.Underline;
         }
     }
@@ -85,17 +87,16 @@ public class MenuVisualFeedback : MonoBehaviour, ISelectHandler, IDeselectHandle
                      .SetUpdate(true);
         }
 
-        // 選択が外れたらカーソルや枠を隠す
+        // 選択が外れた時の表示制御
         if (hideVisualsOnDeselect)
         {
             if (arrowObject != null) arrowObject.gameObject.SetActive(false);
             if (squareFrameObject != null) squareFrameObject.gameObject.SetActive(false);
         }
 
-        // ★追加：テキストの下線を外す
+        // テキストの下線を外す
         if (targetTextToUnderline != null)
         {
-            // & ~ (AND NOT演算子) を使うことで、下線だけを綺麗に取り除きます
             targetTextToUnderline.fontStyle &= ~FontStyles.Underline;
         }
     }
