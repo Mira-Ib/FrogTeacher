@@ -12,6 +12,7 @@ public struct QuizResultData
     public int totalScore;
 }
 
+
 public class QuizDirector : MonoBehaviour
 {
     [SerializeField] private QuestionLibrary questionLibrary;
@@ -46,6 +47,9 @@ public class QuizDirector : MonoBehaviour
 
     // 現在の問題データを保持
     private QuestionData currentQuestionData;
+
+    // ★追加：外部から「現在の問題」を読み取れるようにする（読み取り専用なので安全です）
+    public QuestionData CurrentQuestionData => currentQuestionData;
 
     void OnEnable()
     {

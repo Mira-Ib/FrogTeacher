@@ -1,31 +1,37 @@
 fileFormatVersion: 2
-guid: a536cb4c3490dd74dadc71fce64d0fab
+guid: 8416c548f1455374d966d9d73dced5ab
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 8600144181593331685
-    second: sokka_0
+      213: 3989339245589679849
+    second: Reaction2_6_0
   - first:
-      213: 8745860957429136343
-    second: sokka_1
+      213: 7554454298402254836
+    second: Reaction2_6_1
   - first:
-      213: -6534136234329396428
-    second: sokka_2
+      213: 8734786232017644150
+    second: Reaction2_6_2
   - first:
-      213: -7485285980013823742
-    second: sokka_3
+      213: -2987676178163325367
+    second: Reaction2_6_3
   - first:
-      213: 6462152374753674386
-    second: sokka_4
+      213: 6933097716684697088
+    second: Reaction2_6_4
   - first:
-      213: 418954796418072125
-    second: sokka_5
+      213: 5940224476647326727
+    second: Reaction2_6_5
   - first:
-      213: -532192021172318717
-    second: sokka_6
+      213: 6576107573415417923
+    second: Reaction2_6_6
   - first:
-      213: 3802778518307846336
-    second: sokka_7
+      213: -4330942361172167552
+    second: Reaction2_6_7
+  - first:
+      213: 6305035353530142562
+    second: Reaction2_6_8
+  - first:
+      213: 8248910471176149616
+    second: Reaction2_6_9
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -121,13 +127,57 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: sokka_0
+      name: Reaction2_6_0
       rect:
         serializedVersion: 2
-        x: 30
-        y: 62
+        x: 29
+        y: 90
+        width: 43
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9eec5ed48eafc5730800000000000000
+      internalID: 3989339245589679849
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Reaction2_6_1
+      rect:
+        serializedVersion: 2
+        x: 117
+        y: 36
+        width: 76
+        height: 82
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4ff6030c820d6d860800000000000000
+      internalID: 7554454298402254836
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Reaction2_6_2
+      rect:
+        serializedVersion: 2
+        x: 314
+        y: 45
         width: 66
-        height: 67
+        height: 81
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -136,20 +186,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 5e753015199d95770800000000000000
-      internalID: 8600144181593331685
+      spriteID: 67a62649cc1383970800000000000000
+      internalID: 8734786232017644150
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sokka_1
+      name: Reaction2_6_3
       rect:
         serializedVersion: 2
-        x: 185
-        y: 62
-        width: 39
-        height: 58
+        x: 359
+        y: 75
+        width: 42
+        height: 19
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -158,20 +208,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 7db7586043a8f5970800000000000000
-      internalID: 8745860957429136343
+      spriteID: 946ada86854a986d0800000000000000
+      internalID: -2987676178163325367
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sokka_2
+      name: Reaction2_6_4
       rect:
         serializedVersion: 2
-        x: 220
-        y: 84
-        width: 24
-        height: 36
+        x: 443
+        y: 40
+        width: 78
+        height: 91
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -180,20 +230,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 43ba9c6d6b51255a0800000000000000
-      internalID: -6534136234329396428
+      spriteID: 00e2014e3af473060800000000000000
+      internalID: 6933097716684697088
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sokka_3
+      name: Reaction2_6_5
       rect:
         serializedVersion: 2
-        x: 268
-        y: 46
-        width: 46
-        height: 65
+        x: 541
+        y: 50
+        width: 93
+        height: 68
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -202,20 +252,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 20970175f0cee1890800000000000000
-      internalID: -7485285980013823742
+      spriteID: 70405a850baef6250800000000000000
+      internalID: 5940224476647326727
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sokka_4
+      name: Reaction2_6_6
       rect:
         serializedVersion: 2
-        x: 354
-        y: 84
-        width: 12
-        height: 10
+        x: 35
+        y: 64
+        width: 36
+        height: 25
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -224,20 +274,42 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 294c3adc85d2ea950800000000000000
-      internalID: 6462152374753674386
+      spriteID: 3489e2e0ff6034b50800000000000000
+      internalID: 6576107573415417923
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sokka_5
+      name: Reaction2_6_7
+      rect:
+        serializedVersion: 2
+        x: 219
+        y: 33
+        width: 60
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 08434ab6ed665e3c0800000000000000
+      internalID: -4330942361172167552
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Reaction2_6_8
       rect:
         serializedVersion: 2
         x: 370
-        y: 85
-        width: 13
-        height: 11
+        y: 45
+        width: 51
+        height: 20
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -246,41 +318,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: d3ef179ea2d60d500800000000000000
-      internalID: 418954796418072125
+      spriteID: 26f817f9f3cff7750800000000000000
+      internalID: 6305035353530142562
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sokka_6
+      name: Reaction2_6_9
       rect:
         serializedVersion: 2
-        x: 395
-        y: 85
-        width: 11
-        height: 11
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 30e0ab92d264d98f0800000000000000
-      internalID: -532192021172318717
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: sokka_7
-      rect:
-        serializedVersion: 2
-        x: 112
-        y: 49
-        width: 35
+        x: 14
+        y: 27
+        width: 57
         height: 35
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -290,8 +340,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 0c8b9371aee26c430800000000000000
-      internalID: 3802778518307846336
+      spriteID: 07a54727e540a7270800000000000000
+      internalID: 8248910471176149616
       vertices: []
       indices: 
       edges: []
@@ -309,15 +359,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      sokka_0: 8600144181593331685
-      sokka_1: 8745860957429136343
-      sokka_2: -6534136234329396428
-      sokka_3: -7485285980013823742
-      sokka_4: 6462152374753674386
-      sokka_5: 418954796418072125
-      sokka_6: -532192021172318717
-      sokka_7: 3802778518307846336
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

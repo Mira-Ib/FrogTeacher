@@ -24,10 +24,7 @@ public class ResultView : MonoBehaviour
     private Vector2 _originalButtonPos;
 
     [Header("Transition")]
-    // ★追加：暗転演出用のキャンバスグループ
     [SerializeField] private CanvasGroup blackoutCanvasGroup;
-
-    // --- 変更点：個別の AudioSource 参照を削除しました ---
 
     private void Start()
     {
@@ -41,7 +38,7 @@ public class ResultView : MonoBehaviour
             buttonCanvasGroup.interactable = false;
             buttonCanvasGroup.blocksRaycasts = false;
         }
-        // ★追加：もう一度ボタンにイベントを登録
+
         if (retryButton != null)
         {
             retryButton.onClick.AddListener(() => OnRetryClickedAsync().Forget());
@@ -52,50 +49,16 @@ public class ResultView : MonoBehaviour
         }
     }
 
-    // ==========================================
-    // ★追加：やり直しボタンを押した時の処理
-    // ==========================================
     private async UniTaskVoid OnRetryClickedAsync()
     {
-        // 1. 連打防止（ボタン全体を操作不可にする）
         buttonCanvasGroup.interactable = false;
 
-        // 2. 音の演出（タイトル画面と全く同じ）
         if (AudioManager.Instance != null)
         {
             AudioManager.Instance.PlaySE(SE.Chime);
             AudioManager.Instance.FadeOutBGM(0.5f);
         }
 
-        // 3. 暗転演出（フェードアウト）
-        if (blackoutCanvasGroup != null)
-        {
-            blackoutCanvasGroup.gameObject.SetActive(true);
-            blackoutCanvasGroup.blocksRaycasts = true; // 他の操作をブロック
-            await blackoutCanvasGroup.DOFade(1f, 1.0f).WithCancellation(this.GetCancellationTokenOnDestroy());
-        }
-
-        // 4. シーンの再読み込み
-        // ※GameSessionData は静的（Static）なので、破棄されずそのまま残っています。
-        // そのため、LectureManager は自動的に同じステージデータを読み込んで明転・開始します！
-        await SceneManager.LoadSceneAsync("GameScene").ToUniTask(cancellationToken: this.GetCancellationTokenOnDestroy());
-    }
-
-    // ==========================================
-    // ★新規追加：タイトルに戻るボタンを押した時の処理
-    // ==========================================
-    private async UniTaskVoid OnTitleClickedAsync()
-    {
-        // 1. 連打防止
-        buttonCanvasGroup.interactable = false;
-
-        // 2. 音の演出（戻る・キャンセルのSEなどを指定）
-        if (AudioManager.Instance != null)
-        {
-            AudioManager.Instance.FadeOutBGM(0.5f);
-        }
-
-        // 3. 暗転演出（フェードアウト）
         if (blackoutCanvasGroup != null)
         {
             blackoutCanvasGroup.gameObject.SetActive(true);
@@ -103,10 +66,28 @@ public class ResultView : MonoBehaviour
             await blackoutCanvasGroup.DOFade(1f, 1.0f).WithCancellation(this.GetCancellationTokenOnDestroy());
         }
 
-        // 4. タイトルシーンをロード
-        // ※シーン名は実際のBuild Settingsの登録名に合わせてください（"TitleScene" または "Title" など）
+        await SceneManager.LoadSceneAsync("GameScene").ToUniTask(cancellationToken: this.GetCancellationTokenOnDestroy());
+    }
+
+    private async UniTaskVoid OnTitleClickedAsync()
+    {
+        buttonCanvasGroup.interactable = false;
+
+        if (AudioManager.Instance != null)
+        {
+            AudioManager.Instance.FadeOutBGM(0.5f);
+        }
+
+        if (blackoutCanvasGroup != null)
+        {
+            blackoutCanvasGroup.gameObject.SetActive(true);
+            blackoutCanvasGroup.blocksRaycasts = true;
+            await blackoutCanvasGroup.DOFade(1f, 1.0f).WithCancellation(this.GetCancellationTokenOnDestroy());
+        }
+
         await SceneManager.LoadSceneAsync("TitleScene").ToUniTask(cancellationToken: this.GetCancellationTokenOnDestroy());
     }
+
     public void ShowResult(int rawScore, int penalties)
     {
         var data = ResultProcessor.Process(rawScore, penalties);
@@ -119,7 +100,6 @@ public class ResultView : MonoBehaviour
 
         yield return null;
 
-        // 1. スコア類の表示
         baseScoreText.text = $"{data.GettingScore}pt";
         yield return new WaitForSeconds(interval);
 
@@ -133,10 +113,8 @@ public class ResultView : MonoBehaviour
         rankText.text = data.Rank;
         yield return new WaitForSeconds(0.5f);
 
-        // 2. カエル先生のコメント演出（AudioManagerによるループSE再生）
         yield return StartCoroutine(TypeTextWithSoundCoroutine(data.TeacherComment));
 
-        // 3. 喋り終わった後にボタンを表示
         if (buttonGroupRect != null)
         {
             buttonGroupRect.DOAnchorPos(_originalButtonPos, 0.7f)
@@ -144,29 +122,34 @@ public class ResultView : MonoBehaviour
                 .OnComplete(() => {
                     buttonCanvasGroup.interactable = true;
                     buttonCanvasGroup.blocksRaycasts = true;
+
+                    // ★追加：演出完了直後に初期フォーカスを設定
+                    FocusDefaultButton();
                 });
         }
     }
 
     private void Update()
     {
+        // 入力があった際に何も選択されていなければフォーカスを戻す
         if (IsKeyboardInputDetected())
         {
-            if (EventSystem.current.currentSelectedGameObject == null)
-                FocusDefaultButton();
+            if (EventSystem.current != null && EventSystem.current.currentSelectedGameObject == null)
+            {
+                // ボタンが表示（操作可能）な状態の時のみフォーカスする
+                if (buttonCanvasGroup.interactable)
+                {
+                    FocusDefaultButton();
+                }
+            }
         }
     }
 
-    // ==================================================
-    // ★リファクタリング：AudioManager のループ機能を使用
-    // ==================================================
     private IEnumerator TypeTextWithSoundCoroutine(string text)
     {
         teacherCommentText.text = text;
         teacherCommentText.maxVisibleCharacters = 0;
 
-        // 授業中と同じ SE（例：SE.Voice）をループ再生開始
-        // ※SEの列挙型名はプロジェクトの定義に合わせてください
         if (AudioManager.Instance != null)
         {
             AudioManager.Instance.PlayLoopSE(SE.Talking);
@@ -178,7 +161,6 @@ public class ResultView : MonoBehaviour
             yield return new WaitForSeconds(0.05f);
         }
 
-        // ループSEを停止
         if (AudioManager.Instance != null)
         {
             AudioManager.Instance.StopLoopSE();
@@ -187,7 +169,12 @@ public class ResultView : MonoBehaviour
 
     private void FocusDefaultButton()
     {
-        EventSystem.current.SetSelectedGameObject(retryButton.gameObject);
+        if (EventSystem.current != null && retryButton != null)
+        {
+            // 選択状態を確実に反映させるため、一度クリアしてからセットする
+            EventSystem.current.SetSelectedGameObject(null);
+            EventSystem.current.SetSelectedGameObject(retryButton.gameObject);
+        }
     }
 
     private void ClearUI()

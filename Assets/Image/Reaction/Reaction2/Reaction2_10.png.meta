@@ -1,40 +1,40 @@
 fileFormatVersion: 2
-guid: 23b221d41aaaf514399174a3d3dda062
+guid: ab999f5540158c44aabc9df0176a3a8a
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -3209828917593817063
-    second: naruhodo_0
+      213: -36610744524006485
+    second: Reaction2_10_0
   - first:
-      213: 3171520051007178900
-    second: naruhodo_1
+      213: -9201981275800891152
+    second: Reaction2_10_1
   - first:
-      213: -8735532254387301315
-    second: naruhodo_2
+      213: 2847947496656784735
+    second: Reaction2_10_2
   - first:
-      213: -6551840843659536160
-    second: naruhodo_3
+      213: 5146935118544591166
+    second: Reaction2_10_3
   - first:
-      213: 5962916940104777470
-    second: naruhodo_4
+      213: 2288890777485625955
+    second: Reaction2_10_4
   - first:
-      213: -410335988545443610
-    second: naruhodo_5
+      213: -7208951879252310946
+    second: Reaction2_10_5
   - first:
-      213: 3420267137118407707
-    second: naruhodo_6
+      213: -3739289666320837348
+    second: Reaction2_10_6
   - first:
-      213: 2449287292462616135
-    second: naruhodo_7
+      213: -7172907105269594885
+    second: Reaction2_10_7
   - first:
-      213: -8688913491387765311
-    second: naruhodo_8
+      213: 4637489932176486508
+    second: Reaction2_10_8
   - first:
-      213: -5904987114402514765
-    second: naruhodo_9
+      213: 3268419981835794043
+    second: Reaction2_10_9
   - first:
-      213: -524475991869749285
-    second: naruhodo_10
+      213: -6630916249849727896
+    second: Reaction2_10_10
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -130,13 +130,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: naruhodo_0
+      name: Reaction2_10_0
       rect:
         serializedVersion: 2
-        x: 47
-        y: 115
-        width: 81
-        height: 96
+        x: 10
+        y: 16
+        width: 72
+        height: 91
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -145,20 +145,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 9104b091b956473d0800000000000000
-      internalID: -3209828917593817063
+      spriteID: bab1fa9c8beed7ff0800000000000000
+      internalID: -36610744524006485
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: naruhodo_1
+      name: Reaction2_10_1
       rect:
         serializedVersion: 2
-        x: 134
-        y: 151
-        width: 41
-        height: 34
+        x: 138
+        y: 29
+        width: 70
+        height: 83
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -167,20 +167,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 498cf46dea0830c20800000000000000
-      internalID: 3171520051007178900
+      spriteID: 0f0971aa8cefb4080800000000000000
+      internalID: -9201981275800891152
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: naruhodo_2
+      name: Reaction2_10_2
       rect:
         serializedVersion: 2
-        x: 193
-        y: 46
-        width: 110
-        height: 152
+        x: 239
+        y: 37
+        width: 62
+        height: 78
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -189,20 +189,42 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: d34174d82b725c680800000000000000
-      internalID: -8735532254387301315
+      spriteID: f5dc03db821f58720800000000000000
+      internalID: 2847947496656784735
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: naruhodo_3
+      name: Reaction2_10_3
       rect:
         serializedVersion: 2
-        x: 350
-        y: 58
+        x: 367
+        y: 29
+        width: 72
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e3955de78369d6740800000000000000
+      internalID: 5146935118544591166
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Reaction2_10_4
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 45
         width: 51
-        height: 139
+        height: 60
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -211,20 +233,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 0e817c0477f2315a0800000000000000
-      internalID: -6551840843659536160
+      spriteID: 36ac2b9f806c3cf10800000000000000
+      internalID: 2288890777485625955
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: naruhodo_4
+      name: Reaction2_10_5
       rect:
         serializedVersion: 2
-        x: 401
-        y: 58
-        width: 112
-        height: 129
+        x: 511
+        y: 39
+        width: 63
+        height: 77
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -233,20 +255,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: efeba183d5980c250800000000000000
-      internalID: 5962916940104777470
+      spriteID: e540842e578a4fb90800000000000000
+      internalID: -7208951879252310946
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: naruhodo_5
+      name: Reaction2_10_6
       rect:
         serializedVersion: 2
-        x: 547
+        x: 600
         y: 62
-        width: 97
-        height: 118
+        width: 50
+        height: 78
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -255,20 +277,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 6e8a03ca7913e4af0800000000000000
-      internalID: -410335988545443610
+      spriteID: c1558ae2cdf5b1cc0800000000000000
+      internalID: -3739289666320837348
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: naruhodo_6
+      name: Reaction2_10_7
       rect:
         serializedVersion: 2
-        x: 631
-        y: 170
-        width: 35
-        height: 39
+        x: 85
+        y: 22
+        width: 34
+        height: 35
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -277,20 +299,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: b1c82e007da377f20800000000000000
-      internalID: 3420267137118407707
+      spriteID: bf4c78fcdf6b47c90800000000000000
+      internalID: -7172907105269594885
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: naruhodo_7
+      name: Reaction2_10_8
       rect:
         serializedVersion: 2
-        x: 667
-        y: 176
-        width: 33
-        height: 38
+        x: 312
+        y: 29
+        width: 31
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -299,20 +321,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 74ecc1cc0dd9df120800000000000000
-      internalID: 2449287292462616135
+      spriteID: c6074d8d58cab5040800000000000000
+      internalID: 4637489932176486508
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: naruhodo_8
+      name: Reaction2_10_9
       rect:
         serializedVersion: 2
-        x: 709
-        y: 137
-        width: 65
-        height: 75
+        x: 408
+        y: 29
+        width: 40
+        height: 22
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -321,20 +343,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 1cdabb52737ca6780800000000000000
-      internalID: -8688913491387765311
+      spriteID: b767c1a18a2cb5d20800000000000000
+      internalID: 3268419981835794043
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: naruhodo_9
+      name: Reaction2_10_10
       rect:
         serializedVersion: 2
-        x: 90
-        y: 81
-        width: 81
-        height: 68
+        x: 606
+        y: 25
+        width: 34
+        height: 36
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -343,30 +365,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 3b877c261854d0ea0800000000000000
-      internalID: -5904987114402514765
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: naruhodo_10
-      rect:
-        serializedVersion: 2
-        x: 720
-        y: 62
-        width: 46
-        height: 50
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: bd7026b3ddfa8b8f0800000000000000
-      internalID: -524475991869749285
+      spriteID: 86477588dc04af3a0800000000000000
+      internalID: -6630916249849727896
       vertices: []
       indices: 
       edges: []
@@ -384,18 +384,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      naruhodo_0: -3209828917593817063
-      naruhodo_1: 3171520051007178900
-      naruhodo_10: -524475991869749285
-      naruhodo_2: -8735532254387301315
-      naruhodo_3: -6551840843659536160
-      naruhodo_4: 5962916940104777470
-      naruhodo_5: -410335988545443610
-      naruhodo_6: 3420267137118407707
-      naruhodo_7: 2449287292462616135
-      naruhodo_8: -8688913491387765311
-      naruhodo_9: -5904987114402514765
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

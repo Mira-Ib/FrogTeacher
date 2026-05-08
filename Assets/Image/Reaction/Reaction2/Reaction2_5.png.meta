@@ -1,10 +1,22 @@
 fileFormatVersion: 2
-guid: 10790ac6468427d41a5837782544ab2e
+guid: ab8f70ef2459b0d449fc587ec8f06a69
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -4755767786611130756
-    second: StageBox_0
+      213: 2642422200049860495
+    second: Reaction2_5_0
+  - first:
+      213: 5783261602827600669
+    second: Reaction2_5_1
+  - first:
+      213: -6798232417972267581
+    second: Reaction2_5_2
+  - first:
+      213: 8573743226772639049
+    second: Reaction2_5_3
+  - first:
+      213: 848127573325562884
+    second: Reaction2_5_4
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +112,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: StageBox_0
+      name: Reaction2_5_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 742
-        height: 193
+        x: 27
+        y: 24
+        width: 94
+        height: 101
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +127,96 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: c7e3ccc256e100eb0800000000000000
-      internalID: -4755767786611130756
+      spriteID: f8ff394adf4cba420800000000000000
+      internalID: 2642422200049860495
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Reaction2_5_1
+      rect:
+        serializedVersion: 2
+        x: 142
+        y: 27
+        width: 80
+        height: 95
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d1302b769c5424050800000000000000
+      internalID: 5783261602827600669
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Reaction2_5_2
+      rect:
+        serializedVersion: 2
+        x: 249
+        y: 16
+        width: 75
+        height: 81
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3c5d73a62a3d7a1a0800000000000000
+      internalID: -6798232417972267581
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Reaction2_5_3
+      rect:
+        serializedVersion: 2
+        x: 306
+        y: 80
+        width: 21
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 94dc1330a0e0cf670800000000000000
+      internalID: 8573743226772639049
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Reaction2_5_4
+      rect:
+        serializedVersion: 2
+        x: 375
+        y: 51
+        width: 149
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 404c84cc88725cb00800000000000000
+      internalID: 848127573325562884
       vertices: []
       indices: 
       edges: []
@@ -134,8 +234,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      StageBox_0: -4755767786611130756
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
