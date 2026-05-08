@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3932694583034090830}
   - component: {fileID: 4923594421171375635}
+  - component: {fileID: 6273797695755648418}
   - component: {fileID: 530329456773729684}
   m_Layer: 5
   m_Name: BoardTextPrefab
@@ -45,6 +46,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 372072475859373685}
   m_CullTransparentMesh: 1
+--- !u!114 &6273797695755648418
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 372072475859373685}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8765114703be401999244387c19feb0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tmpText: {fileID: 530329456773729684}
+  text: "<u>\u305F\u3057\u7B97</u>"
+  fixedLineHeight: 0
+  autoMarginTop: 1
 --- !u!114 &530329456773729684
 MonoBehaviour:
   m_ObjectHideFlags: 0

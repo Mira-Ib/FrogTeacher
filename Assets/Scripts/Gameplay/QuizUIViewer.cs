@@ -14,6 +14,7 @@ public class QuizUIViewer : MonoBehaviour
     [SerializeField] private CanvasGroup speedGaugeCanvasGroup;
     [SerializeField] private CanvasGroup buttonsCanvasGroup;
     [SerializeField] private CanvasGroup optionButtonCanvasGroup;
+    [SerializeField] private CanvasGroup timerGaugeCanvasGroup;
 
     [Header("ルビ対応メインテキスト")]
     [SerializeField] private TextMeshProRuby rubyInput;
@@ -81,7 +82,8 @@ public class QuizUIViewer : MonoBehaviour
         await UniTask.WhenAll(
             speedGaugeCanvasGroup.DOFade(1f, 0.5f).ToUniTask(TweenCancelBehaviour.Kill, cancellationToken: token),
             buttonsCanvasGroup.DOFade(1f, 0.5f).ToUniTask(TweenCancelBehaviour.Kill, cancellationToken: token),
-            optionButtonCanvasGroup.DOFade(1f, 0.5f).ToUniTask(TweenCancelBehaviour.Kill, cancellationToken: token)
+            optionButtonCanvasGroup.DOFade(1f, 0.5f).ToUniTask(TweenCancelBehaviour.Kill, cancellationToken: token),
+            timerGaugeCanvasGroup.DOFade(1f, 0.5f).ToUniTask(TweenCancelBehaviour.Kill, cancellationToken: token)
         );
 
         // 全て表示完了！

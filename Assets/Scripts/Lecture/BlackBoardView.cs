@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using TMP_Ruby; // ★追加：TMP_Rubyの名前空間
 using DG.Tweening;
 using Cysharp.Threading.Tasks;
 using System.Threading;
@@ -21,12 +22,10 @@ public class BlackboardView : MonoBehaviour, ILecturePlayable
     private List<GameObject> _spawnedItems = new List<GameObject>();
     private CanvasGroup _contentCanvasGroup;
 
-    // ★追加：フェードアニメーションを保持する変数
     private Tween _fadeTween;
 
     private void Awake()
     {
-        // 親オブジェクトに CanvasGroup が付いていなければ自動で追加する
         _contentCanvasGroup = boardContentParent.GetComponent<CanvasGroup>();
         if (_contentCanvasGroup == null)
         {
@@ -40,7 +39,6 @@ public class BlackboardView : MonoBehaviour, ILecturePlayable
 
         foreach (var itemData in items)
         {
-            // (以前のままの生成処理...)
             GameObject prefabToSpawn = itemData.itemType == BoardItemType.Text ? textPrefab : imagePrefab;
             GameObject spawnedObj = Instantiate(prefabToSpawn, boardContentParent);
             _spawnedItems.Add(spawnedObj);
@@ -50,12 +48,30 @@ public class BlackboardView : MonoBehaviour, ILecturePlayable
 
             if (itemData.itemType == BoardItemType.Text)
             {
-                TextMeshProUGUI textComponent = spawnedObj.GetComponent<TextMeshProUGUI>();
-                textComponent.text = itemData.textContent;
-                if (itemData.fontSize > 0f) textComponent.fontSize = itemData.fontSize;
-                if (itemData.overrideColor) textComponent.color = itemData.textColor;
+                // ==================================================
+                // ★修正：ルビ変換用(Ruby)と描画用(UGUI)を両方取得する
+                // ==================================================
+                TextMeshProRuby rubyComponent = spawnedObj.GetComponent<TextMeshProRuby>();
+                TextMeshProUGUI tmpComponent = spawnedObj.GetComponent<TextMeshProUGUI>();
 
-                // スケールを1倍に
+                if (rubyComponent != null)
+                {
+                    // テキストの内容はルビ変換コンポーネントに任せる
+                    // ※アセットのバージョンによっては .Text と大文字の場合があります。エラーが出たら直してください。
+                    rubyComponent.Text = itemData.textContent;
+                }
+                else
+                {
+                    Debug.LogWarning("黒板用のテキストプレハブに TextMeshProRuby がアタッチされていません！");
+                }
+
+                if (tmpComponent != null)
+                {
+                    // 色やフォントサイズなどの「見た目」は、実体の描画コンポーネントに直接指示する
+                    if (itemData.fontSize > 0f) tmpComponent.fontSize = itemData.fontSize;
+                    if (itemData.overrideColor) tmpComponent.color = itemData.textColor;
+                }
+
                 rect.localScale = Vector3.one;
             }
             else if (itemData.itemType == BoardItemType.Image)
@@ -67,21 +83,14 @@ public class BlackboardView : MonoBehaviour, ILecturePlayable
         }
     }
 
-    /// <summary>
-    /// 黒板の中身をフェードアウトさせ、完全に消えたらDestroyする
-    /// </summary>
     public async UniTask HideAndClearBoardAsync(CancellationToken token)
     {
         if (_spawnedItems.Count == 0) return;
 
-        // 1. 親オブジェクトの透明度を0（透明）にするアニメーション
         _fadeTween = _contentCanvasGroup.DOFade(0f, fadeDuration).SetEase(Ease.OutQuad);
         await _fadeTween.ToUniTask(TweenCancelBehaviour.CancelAwait, cancellationToken: token);
 
-        // 2. 完全に透明になったら中身をDestroyする
         ClearBoard();
-
-        // 3. 次の授業（またはリトライ時）のために、親の透明度を1（不透明）に戻しておく
         _contentCanvasGroup.alpha = 1f;
     }
 
@@ -96,13 +105,11 @@ public class BlackboardView : MonoBehaviour, ILecturePlayable
 
     public void FastForward()
     {
-        // ★修正：大雑把な DOKill() をやめ、変数の生存確認をしてから Kill する
         if (_fadeTween != null && _fadeTween.IsActive())
         {
             _fadeTween.Kill();
         }
 
-        // スキップされたら即座に中身を消去し、透明度を戻す
         ClearBoard();
         _contentCanvasGroup.alpha = 1f;
     }

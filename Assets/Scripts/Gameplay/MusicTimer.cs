@@ -15,6 +15,11 @@ public class MusicTimer : MonoBehaviour
     // タイマーを途中でキャンセルするためのトークン
     private CancellationTokenSource _cts;
 
+    // ==========================================
+    // ★追加：ゲージUIに開始を知らせるためのイベント（引数：何秒かけるか）
+    public static event Action<float> OnTimerStarted;
+    // ==========================================
+
     void OnEnable()
     {
         AudioManager.Instance.OnBGMStarted += StartTimer;
@@ -33,6 +38,13 @@ public class MusicTimer : MonoBehaviour
         {
             CancelTimer(); // 前のタイマーが動いていたらリセット
             _cts = new CancellationTokenSource();
+
+            // ==========================================
+            // ★追加：UIにタイマーの長さを伝えてゲージを動かし始める
+            // ※OnGameEndedが呼ばれるまでの「実質的な時間（曲の長さ - 1秒）」を渡す
+            float actualDuration = clip.length - 1.0f;
+            OnTimerStarted?.Invoke(actualDuration);
+            // ==========================================
 
             // 非同期でタイマーをスタート（完了を待たずに次の処理へ）
             RunTimerAsync(clip.length, _cts.Token).Forget();

@@ -110,7 +110,7 @@ public class LectureManager : MonoBehaviour
             await UniTask.WhenAll(
                 bubbleView.HideBubbleAsync(token),
                 blackboardView.HideAndClearBoardAsync(token), // ここを追加！
-                skipTextCanvasGroup.DOFade(0f, 1.0f).WithCancellation(token)
+                skipTextCanvasGroup.DOFade(0f, 0.5f).SetEase(Ease.OutQuad).WithCancellation(token)
             );
 
             CompleteLecture();
@@ -143,6 +143,17 @@ public class LectureManager : MonoBehaviour
         blackboardView.FastForward();
         dialogueController.FastForward();
         skipTextCanvasGroup.alpha = 0.0f;
+
+        // ==========================================
+        // ★追加：明転演出の強制完了（画面が暗いままになるバグを修正）
+        // ==========================================
+        if (blackoutCanvasGroup != null)
+        {
+            // 動いているフェードアニメーションがあれば強制停止
+            blackoutCanvasGroup.DOKill();
+            // 完全に透明にして、操作をブロックしないようにする
+            blackoutCanvasGroup.alpha = 0f;
+        }
 
         // ★修正：スキップ時は true を渡して強制的に即時停止させる
         AudioManager.Instance.StopLoopSE(true);
