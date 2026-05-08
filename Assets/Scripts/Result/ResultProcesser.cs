@@ -28,7 +28,7 @@ public static class ResultProcessor
         else if (totalScore < 1300) { rankIndex = 5; }
         else if (totalScore < 1500) { rankIndex = 6; }
         else if (totalScore < 2000) { rankIndex = 7; }
-        else if (totalScore < 3000) { rankIndex = 8; }
+        else if (totalScore < 2500) { rankIndex = 8; }
         else { rankIndex = 9; }
 
         string rank = Ranks[rankIndex];

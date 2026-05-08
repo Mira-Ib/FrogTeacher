@@ -18,6 +18,7 @@ public class LectureManager : MonoBehaviour
     // ★追加：明転・暗転用の黒い画面
     [Header("演出用")]
     [SerializeField] private CanvasGroup blackoutCanvasGroup;
+    [SerializeField] private CanvasGroup skipTextCanvasGroup;
 
     // --- ★追加：クイズパート連携用の変数 ---
     [Header("クイズパート連携")]
@@ -85,6 +86,7 @@ public class LectureManager : MonoBehaviour
             await teacherView.EnterTeacherAsync(token);
             await UniTask.Delay(TimeSpan.FromSeconds(5.5f), cancellationToken: token);
             await bubbleView.ShowBubbleAsync(token);
+            await UniTask.Delay(TimeSpan.FromSeconds(0.5f), cancellationToken: token);
             AudioManager.Instance.PlayBGM(BGM.Lecture);
 
             // --- 2. 授業本編 ---
@@ -107,7 +109,8 @@ public class LectureManager : MonoBehaviour
             // ★修正ポイント：吹き出しと黒板を同時にフェードアウトさせる
             await UniTask.WhenAll(
                 bubbleView.HideBubbleAsync(token),
-                blackboardView.HideAndClearBoardAsync(token) // ここを追加！
+                blackboardView.HideAndClearBoardAsync(token), // ここを追加！
+                skipTextCanvasGroup.DOFade(0f, 1.0f).WithCancellation(token)
             );
 
             CompleteLecture();
@@ -139,6 +142,7 @@ public class LectureManager : MonoBehaviour
         bubbleView.FastForward();
         blackboardView.FastForward();
         dialogueController.FastForward();
+        skipTextCanvasGroup.alpha = 0.0f;
 
         // ★修正：スキップ時は true を渡して強制的に即時停止させる
         AudioManager.Instance.StopLoopSE(true);

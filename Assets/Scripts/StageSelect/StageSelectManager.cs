@@ -3,13 +3,15 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using TMP_Ruby;
 
 [RequireComponent(typeof(NextScreenPanel))]
 public class StageSelectManager : MonoBehaviour
 {
     [Header("UIの参照")]
-    [SerializeField] private TextMeshProUGUI stageNameText;
-    [SerializeField] private TextMeshProUGUI descriptionText;
+    // ★ここも TextMeshRuby に書き換える
+    [SerializeField] private TextMeshProRuby stageNameText;
+    [SerializeField] private TextMeshProRuby descriptionText;
 
     [Header("ボタンの参照")]
     [SerializeField] private Button leftButton;

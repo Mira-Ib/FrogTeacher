@@ -29,6 +29,7 @@ public class QuizDirector : MonoBehaviour
     [SerializeField] private ScoreCalculator scoreCalculator;
     [SerializeField] private GameObject quiz;
     [SerializeField] private GameObject result;
+    [SerializeField] private GameObject frogTeacher;
 
     [Header("Settings")]
     [SerializeField] private float bonusTimeLimit = 5.0f;
@@ -56,13 +57,6 @@ public class QuizDirector : MonoBehaviour
     {
         MusicTimer.OnGameProgressed -= ShuffleQueue;
         MusicTimer.OnGameEnded -= GameEnd;
-    }
-
-    // ★改善2：シーンが破棄された時にイベントを確実にリセット（メモリリーク防止）
-    void OnDestroy()
-    {
-        OnCorrect = null;
-        OnWrong = null;
     }
 
     public async UniTask BeginQuizPhaseAsync(CancellationToken token)
@@ -229,6 +223,7 @@ public class QuizDirector : MonoBehaviour
             await UniTask.Delay(1000, cancellationToken: this.GetCancellationTokenOnDestroy());
 
             quiz.SetActive(false);
+            frogTeacher.SetActive(false);
             result.SetActive(true);
             resultView.ShowResult(gettingScore, penaltyCount);
         }

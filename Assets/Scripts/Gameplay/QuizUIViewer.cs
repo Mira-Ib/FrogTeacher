@@ -13,6 +13,7 @@ public class QuizUIViewer : MonoBehaviour
     [Header("追加UIのフェード用CanvasGroup")]
     [SerializeField] private CanvasGroup speedGaugeCanvasGroup;
     [SerializeField] private CanvasGroup buttonsCanvasGroup;
+    [SerializeField] private CanvasGroup optionButtonCanvasGroup;
 
     [Header("ルビ対応メインテキスト")]
     [SerializeField] private TextMeshProRuby rubyInput;
@@ -76,9 +77,11 @@ public class QuizUIViewer : MonoBehaviour
         await UniTask.Delay(100, cancellationToken: token); // 間をとる
 
         // ★追加：テキストが全て出終わった後、ゲージとボタンをフェードイン
+        optionButtonCanvasGroup.interactable = true;
         await UniTask.WhenAll(
             speedGaugeCanvasGroup.DOFade(1f, 0.5f).ToUniTask(TweenCancelBehaviour.Kill, cancellationToken: token),
-            buttonsCanvasGroup.DOFade(1f, 0.5f).ToUniTask(TweenCancelBehaviour.Kill, cancellationToken: token)
+            buttonsCanvasGroup.DOFade(1f, 0.5f).ToUniTask(TweenCancelBehaviour.Kill, cancellationToken: token),
+            optionButtonCanvasGroup.DOFade(1f, 0.5f).ToUniTask(TweenCancelBehaviour.Kill, cancellationToken: token)
         );
 
         // 全て表示完了！
