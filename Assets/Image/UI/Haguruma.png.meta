@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Haguruma_0: 6249560850714009282
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

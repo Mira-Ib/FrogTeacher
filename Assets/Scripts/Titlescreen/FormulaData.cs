@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-[CreateAssetMenu(fileName = "NewFormulaData", menuName = "GameData/FormulaData")]
+[CreateAssetMenu(fileName = "NewFormulaData", menuName = "Formula/FormulaData")]
 public class FormulaData : ScriptableObject
 {
     public bool isMainFormula; // 1+1=3 かどうかの判定用
