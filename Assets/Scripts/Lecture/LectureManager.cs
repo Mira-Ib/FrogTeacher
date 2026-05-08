@@ -1,7 +1,8 @@
-﻿using UnityEngine;
-using Cysharp.Threading.Tasks;
-using System.Threading;
+﻿using Cysharp.Threading.Tasks;
+using DG.Tweening;
 using System;
+using System.Threading;
+using UnityEngine;
 
 public class LectureManager : MonoBehaviour
 {
@@ -14,11 +15,16 @@ public class LectureManager : MonoBehaviour
     [SerializeField] private TeacherView teacherView;
     [SerializeField] private BlackboardView blackboardView;
 
+    // ★追加：明転・暗転用の黒い画面
+    [Header("演出用")]
+    [SerializeField] private CanvasGroup blackoutCanvasGroup;
+
     // --- ★追加：クイズパート連携用の変数 ---
     [Header("クイズパート連携")]
     [SerializeField] private GameObject quizRootObject;
     [SerializeField] private QuizDirector quizDirector;
     // ----------------------------------------
+
 
     private CancellationTokenSource _cts;
 
@@ -42,12 +48,42 @@ public class LectureManager : MonoBehaviour
 
         try
         {
+            // ==========================================
+            // ★追加1：タイトル画面からデータが渡ってきているか確認
+            // ==========================================
+            if (GameSessionData.SelectedStage != null && GameSessionData.SelectedStage.lectureData != null)
+            {
+                // 渡ってきていれば、インスペクタのデータを上書きする
+                currentLectureData = GameSessionData.SelectedStage.lectureData;
+                Debug.Log($"ステージ「{GameSessionData.SelectedStage.stageName}」の授業データを読み込みました！");
+            }
+            else
+            {
+                // データがない場合（GameSceneから直接再生した時など）は、インスペクタの default データをそのまま使う
+                Debug.Log("GameSessionDataが空のため、インスペクタの授業データをそのまま再生します（テストプレイモード）");
+            }
+
+            // ==========================================
+            // ★追加2：明転（フェードイン）演出
+            // ==========================================
+            if (blackoutCanvasGroup != null)
+            {
+                blackoutCanvasGroup.alpha = 1f; // 最初は真っ黒
+                blackoutCanvasGroup.gameObject.SetActive(true);
+
+                // チャイムの余韻を少し待ってから明転する
+                await UniTask.Delay(500, cancellationToken: token);
+                await blackoutCanvasGroup.DOFade(0f, 1.0f).WithCancellation(token);
+                blackoutCanvasGroup.blocksRaycasts = false;
+            }
+
             blackboardView.ClearBoard();
 
             // --- 1. 導入演出 ---
-            AudioManager.Instance.PlaySE(SE.Chime);
+            // ※ここで鳴らしていたチャイムはタイトル画面で鳴らすようにしたので、コメントアウトか削除します
+            // AudioManager.Instance.PlaySE(SE.Chime);
             await teacherView.EnterTeacherAsync(token);
-            await UniTask.Delay(TimeSpan.FromSeconds(0.3f), cancellationToken: token);
+            await UniTask.Delay(TimeSpan.FromSeconds(5.5f), cancellationToken: token);
             await bubbleView.ShowBubbleAsync(token);
             AudioManager.Instance.PlayBGM(BGM.Lecture);
 

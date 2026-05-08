@@ -50,7 +50,7 @@ public class MusicTimer : MonoBehaviour
             OnGameProgressed?.Invoke();
 
             // 2. 残りの時間（曲の全長 - 96秒）を計算して待つ
-            float remainingTime = totalLength - notifyTime - 2.5f;
+            float remainingTime = totalLength - notifyTime - 1.0f;
             if (remainingTime > 0)
             {
                 await UniTask.Delay(TimeSpan.FromSeconds(remainingTime), cancellationToken: token);

@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: aebd107f1983d8b4ba492b7a48524900, type: 3}
-  m_Name: tashizan
+  m_Name: Tashizan
   m_EditorClassIdentifier: 
   steps:
   - dialogueText: "\u305D\u308C\u3058\u3083\u3042\u3001<r=\u304D\u3087\u3046>\u4ECA\u65E5</r>\u306F\u305F\u3057<r=\u3056\u3093>\u7B97</r>\u306B\u3064\u3044\u3066<br><r=\u305B\u3064\u3081\u3044>\u8AAC\u660E</r>\u3057\u3066\u3044\u304F\u30B1\u30ED\u3002"

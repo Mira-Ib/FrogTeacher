@@ -596,10 +596,18 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: e9f6a7308dc4c6b41a525e1118478aa3, type: 3}
   - seType: 12
     clip: {fileID: 8300000, guid: 56ea8a96dbbc9634bb125a8f475a6433, type: 3}
-  - seType: 1
+  - seType: 13
     clip: {fileID: 8300000, guid: 1541eae7764dc564191a25c98893dc10, type: 3}
   - seType: 2
     clip: {fileID: 8300000, guid: 1dc99d2b77f9b8145af2d686dc576876, type: 3}
+  - seType: 3
+    clip: {fileID: 8300000, guid: 38b9f846a4909fd4c92d7a3cd78357db, type: 3}
+  - seType: 0
+    clip: {fileID: 8300000, guid: de815bf1c664f9340881677523b2ebf1, type: 3}
+  - seType: 1
+    clip: {fileID: 8300000, guid: 3989aa054e0cd414ba5aef6331151531, type: 3}
+  - seType: 14
+    clip: {fileID: 8300000, guid: dc7d247e9d72507428feb433ea39534c, type: 3}
   _audioMixer: {fileID: 24100000, guid: ae0fdf50c6d55c049985fcf772fd433c, type: 2}
   _bgmExposedParam: BGM
   _seExposedParam: SE
@@ -624,7 +632,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a2eda54b5935464aa727d60075c3521, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  notifyTime: 95
+  notifyTime: 96.5
 --- !u!114 &9208774083960410236
 MonoBehaviour:
   m_ObjectHideFlags: 0

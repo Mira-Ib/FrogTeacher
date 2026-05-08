@@ -8,7 +8,7 @@ public enum QuestionType
     Taboo        // 禁忌肢
 }
 
-[CreateAssetMenu(fileName = "NewQuestion", menuName = "Quiz/QuestionData")]
+[CreateAssetMenu(fileName = "NewQuestion", menuName = "Question/QuestionData")]
 public class QuestionData : ScriptableObject
 {
     [Header("基本データ")]

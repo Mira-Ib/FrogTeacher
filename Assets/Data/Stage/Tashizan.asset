@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stageName: "\u305F\u3057\u7B97"
   description: "\u3059\u3079\u3066\u306E\u8A08\u7B97\u306E\u30AD\u30DB\u30F3\u3068\u306A\u308B\u305F\u3057\u7B97\u3002\r\n\u5F62\u306E\u3042\u308B\u300C\u3082\u306E\u300D\u3068\u5F62\u306E\u306A\u3044\u300C\u6570\u5B57\u300D\u3092\r\n\u95A2\u9023\u4ED8\u3051\u3088\u3046\u3068\u3059\u308B\u30AB\u30A8\u30EB\u5148\u751F\u3067\u3059\u304C\u2026\uFF1F"
-  lessonDataId: 
-  quizDataId: 
+  lectureData: {fileID: 11400000, guid: c3d6472b51ef6bd46b0ce9cf814e9bb3, type: 2}
+  quizData: {fileID: 11400000, guid: 9564bf5939c242e4dab6d6b168ae33eb, type: 2}

@@ -45,7 +45,7 @@ public struct LectureStep
     public BlackboardItemData[] newBoardItems; // 同時に複数表示できるように配列にする
 }
 
-[CreateAssetMenu(fileName = "NewLectureData", menuName = "Lecture/Lecture Data")]
+[CreateAssetMenu(fileName = "NewLectureData", menuName = "Game/Lecture Data")]
 public class LectureData : ScriptableObject
 {
     public LectureStep[] steps;

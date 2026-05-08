@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-[CreateAssetMenu(fileName = "NewStageData", menuName = "Stage/Stage Data")]
+[CreateAssetMenu(fileName = "NewStageData", menuName = "Game/Stage Data")]
 public class StageData : ScriptableObject
 {
     [Header("ステージ表示情報")]
@@ -9,10 +9,8 @@ public class StageData : ScriptableObject
     [TextArea(3, 5)]
     public string description = "ステージの説明文をここに入力します。";
 
-    [Header("読み込み用データID（将来用）")]
-    [Tooltip("GameSceneで読み込む授業データのIDやファイル名")]
-    public string lessonDataId;
-
-    [Tooltip("GameSceneで読み込むクイズデータのIDやファイル名")]
-    public string quizDataId;
+    [Header("ゲーム本編のデータ")]
+    public LectureData lectureData;
+    // ★追加：このステージで使うクイズの100問セット
+    public QuizData quizData;
 }

@@ -20,6 +20,11 @@ public class StageSelectManager : MonoBehaviour
 
     [Header("システムの参照")]
     [SerializeField] private TitleTransitionCoordinator titleCoordinator;
+
+    // ★追加：暗転（フェードアウト）用のCanvasGroup
+    [Tooltip("暗転演出に使用する、画面全体を覆う黒いImageのCanvasGroup")]
+    [SerializeField] private CanvasGroup blackoutCanvasGroup;
+
     private NextScreenPanel _myPanel;
 
     [Header("ステージデータ")]
@@ -36,6 +41,7 @@ public class StageSelectManager : MonoBehaviour
     private void Start()
     {
         // Controllerを生成して全てを委譲する
+        // 引数の順番を StageSelectController のコンストラクタに合わせました
         _controller = new StageSelectController(
             stageNameText,
             descriptionText,
@@ -46,6 +52,7 @@ public class StageSelectManager : MonoBehaviour
             stageDataList,
             titleCoordinator,
             _myPanel,
+            blackoutCanvasGroup, // ★追加：CanvasGroupを渡す
             this.GetCancellationTokenOnDestroy()
         );
     }

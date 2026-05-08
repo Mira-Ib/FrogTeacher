@@ -5,6 +5,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using Cysharp.Threading.Tasks;
+using DG.Tweening; // ★追加：DOFade（暗転アニメーション）を使うために必要です
 
 public class StageSelectController : IDisposable
 {
@@ -20,6 +21,7 @@ public class StageSelectController : IDisposable
     private readonly List<StageData> _stageDataList;
     private readonly TitleTransitionCoordinator _titleCoordinator;
     private readonly NextScreenPanel _myPanel;
+    private readonly CanvasGroup _blackoutCanvasGroup; // ★追加：暗転用のキャンバスグループ
     private readonly CancellationToken _token;
 
     // --- 状態管理 ---
@@ -35,6 +37,7 @@ public class StageSelectController : IDisposable
         List<StageData> stageDataList,
         TitleTransitionCoordinator titleCoordinator,
         NextScreenPanel myPanel,
+        CanvasGroup blackoutCanvasGroup, // ★追加：Managerから受け取る
         CancellationToken token)
     {
         _stageNameText = stageNameText;
@@ -46,6 +49,7 @@ public class StageSelectController : IDisposable
         _stageDataList = stageDataList;
         _titleCoordinator = titleCoordinator;
         _myPanel = myPanel;
+        _blackoutCanvasGroup = blackoutCanvasGroup; // ★追加：変数に保存
         _token = token;
 
         BindEvents();
@@ -72,7 +76,7 @@ public class StageSelectController : IDisposable
             UpdateUI();
         });
 
-        // 決定ボタン（ステージ名）：GameSceneへ進む（※一旦ログ出力のみ）
+        // 決定ボタン（ステージ名）：GameSceneへ進む
         _submitButton.onClick.AddListener(() => OnSubmitClickedAsync().Forget());
 
         // 戻るボタン：タイトルへ戻る
@@ -106,13 +110,36 @@ public class StageSelectController : IDisposable
     private async UniTaskVoid OnSubmitClickedAsync()
     {
         _submitButton.interactable = false;
+        _leftButton.interactable = false;
+        _rightButton.interactable = false;
+        _backButton.interactable = false;
 
-        Debug.Log($"【仮実装】ステージ「{_stageDataList[_currentIndex].stageName}」が選択されました！");
-        Debug.Log("※ここに後ほど、チャイム再生 → 暗転 → GameSceneロード の処理を追加します");
+        // 1. 選択したステージデータを共有スペース（GameSessionData）に保存する！
+        if (_stageDataList.Count > 0)
+        {
+            GameSessionData.SelectedStage = _stageDataList[_currentIndex];
+        }
 
-        // 一旦ボタンを押せる状態に戻しておく（後でロード処理が入れば不要になります）
-        await UniTask.Delay(1000, cancellationToken: _token);
-        _submitButton.interactable = true;
+        // 2. チャイムを鳴らし、BGMをフェードアウトする
+        AudioManager.Instance.PlaySE(SE.Chime);
+        AudioManager.Instance.FadeOutBGM(0.5f);
+
+        // 3. 画面を暗転させる（フェードアウト）
+        if (_blackoutCanvasGroup != null)
+        {
+            _blackoutCanvasGroup.gameObject.SetActive(true);
+            await _blackoutCanvasGroup.DOFade(1f, 1.0f).WithCancellation(_token);
+        }
+        else
+        {
+            // パネルが無い場合は時間経過だけ待つ
+            await UniTask.Delay(1000, cancellationToken: _token);
+        }
+
+        // 4. GameSceneをロードする
+        // .ToUniTask() をつけることで、ロード完了を待機（await）できるようになります
+        await UnityEngine.SceneManagement.SceneManager.LoadSceneAsync("GameScene")
+            .ToUniTask(cancellationToken: _token);
     }
 
     public void Dispose()

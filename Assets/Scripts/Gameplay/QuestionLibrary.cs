@@ -5,7 +5,8 @@ using System.Linq;
 // 責務: 全問題データの保持と、条件に応じたリスト（プール）の作成
 public class QuestionLibrary : MonoBehaviour
 {
-    [SerializeField] private List<QuestionData> allMasterQuestions; // インスペクターで100問入れる
+    [Header("デフォルトデータ（テストプレイ用）")]
+    [SerializeField] private QuizData defaultQuizData;
 
     // 1周目の仕分け用プール
     private QuestionData firstQuestion;
@@ -15,23 +16,29 @@ public class QuestionLibrary : MonoBehaviour
     // 2周目以降用の全リスト
     private List<QuestionData> masterPool = new();
 
-    private void Awake()
+    // ★修正：Awakeを消して、外部から呼ばれるInitializeメソッドに変更
+    public void Initialize(QuizData externalData = null)
     {
-        InitializePools();
-    }
+        // 外部データ（タイトル画面から渡ってきたデータ）があればそれを使い、無ければテスト用を使う
+        QuizData currentData = externalData != null ? externalData : defaultQuizData;
 
-    private void InitializePools()
-    {
-        masterPool = new List<QuestionData>(allMasterQuestions);
+        if (currentData == null || currentData.questions.Count == 0)
+        {
+            Debug.LogError("QuestionLibrary: クイズデータが設定されていないか、中身が空です！");
+            return;
+        }
 
-        foreach (var q in allMasterQuestions)
+        masterPool = new List<QuestionData>(currentData.questions);
+        normalPool.Clear();
+        latePool.Clear();
+
+        foreach (var q in currentData.questions)
         {
             if (q.isFirstFixed) firstQuestion = q;
             else if (q.isLateGameOnly) latePool.Add(q);
             else normalPool.Add(q);
         }
 
-        // エラーチェック
         if (firstQuestion == null) Debug.LogError("1問目固定の問題が設定されていません");
     }
 
