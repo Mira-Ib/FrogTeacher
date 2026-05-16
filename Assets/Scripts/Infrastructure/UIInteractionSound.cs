@@ -24,7 +24,7 @@ public class UIInteractionSound : MonoBehaviour, IPointerEnterHandler, ISelectHa
     // 1. マウスが乗った時
     public void OnPointerEnter(PointerEventData eventData)
     {
-        PlayHoverSound();
+        
     }
 
     // 2. キーボードやコントローラーで選択された時

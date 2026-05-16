@@ -36,6 +36,7 @@ public class LectureManager : MonoBehaviour
 
     private void Update()
     {
+        if (Time.timeScale == 0f) return;
         if (Input.GetKeyDown(KeyCode.S))
         {
             SkipLecture();
