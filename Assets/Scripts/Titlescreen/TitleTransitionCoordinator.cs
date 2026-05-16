@@ -101,6 +101,7 @@ public class TitleTransitionCoordinator : MonoBehaviour
 
         // 2. タイトルの状態をリセットし、降下準備をする
         PrepareForReturn();
+        await titleMenuController.SelectDefaultButtonAsync();
 
         // 3. 指定した要素を一斉に降らせる ＋ 外部のタスク（ボタン落下など）を【完全に同期】させる
         await UniTask.WhenAll(
@@ -111,8 +112,8 @@ public class TitleTransitionCoordinator : MonoBehaviour
         // 4. 黒板アニメーション再開
         StartBackgroundAnimation();
 
-        // 5. タイトルが復帰したらフォーカスを当てる
-        await titleMenuController.SelectDefaultButtonAsync();
+        // 5. タイトルが復帰したらフォーカスを当てる（→2に移動）
+        
 
         isTransitioning = false;
     }
