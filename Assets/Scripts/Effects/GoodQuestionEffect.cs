@@ -65,6 +65,8 @@ public class GoodQuestionEffect : MonoBehaviour
         // 連続で呼ばれた場合、前のアニメーションを強制終了してリセット
         _sequenceTween?.Kill();
 
+        AudioManager.Instance.PlaySE(SE.Applause);
+
         // 1. 初期状態のセット（大きさ0、不透明度1）
         textCanvasGroup.transform.localScale = Vector3.zero;
         textCanvasGroup.alpha = 1f;

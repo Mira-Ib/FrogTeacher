@@ -608,6 +608,8 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: 3989aa054e0cd414ba5aef6331151531, type: 3}
   - seType: 14
     clip: {fileID: 8300000, guid: dc7d247e9d72507428feb433ea39534c, type: 3}
+  - seType: 15
+    clip: {fileID: 8300000, guid: 13b68ca0acffd1f48a4aa026d1674a12, type: 3}
   _audioMixer: {fileID: 24100000, guid: ae0fdf50c6d55c049985fcf772fd433c, type: 2}
   _bgmExposedParam: BGM
   _seExposedParam: SE
