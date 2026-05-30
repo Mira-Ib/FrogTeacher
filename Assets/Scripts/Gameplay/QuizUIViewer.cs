@@ -121,4 +121,14 @@ public class QuizUIViewer : MonoBehaviour
         outroTextDisplay.text = "";
         rubyInput.Text = "時間だ！";
     }
+
+    // ==========================================
+    // ★追加：禁忌肢を踏んだ時にメインテキストを書き換える
+    // ==========================================
+    public void ShowTabooMessage()
+    {
+        introTextDisplay.text = "";
+        outroTextDisplay.text = "";
+        rubyInput.Text = "ひどい！";
+    }
 }

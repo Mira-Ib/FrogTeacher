@@ -236,4 +236,11 @@ public class QuizDirector : MonoBehaviour
             // シーン遷移などでキャンセルされた場合は何もしない
         }
     }
+
+    // ★追加：禁忌肢などの演出時に、外部からクイズの進行を強制的にストップさせるため
+    public void ForceStopQuiz()
+    {
+        isGameEnded = true;
+        isQuizActive = false;
+    }
 }
