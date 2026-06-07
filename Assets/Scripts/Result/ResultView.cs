@@ -6,6 +6,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using unityroom.Api;
 
 public class ResultView : MonoBehaviour
 {
@@ -127,6 +128,7 @@ public class ResultView : MonoBehaviour
                     FocusDefaultButton();
                 });
         }
+        UnityroomApiClient.Instance.SendScore(1, data.TotalScore, ScoreboardWriteMode.HighScoreDesc);
     }
 
     private void Update()
