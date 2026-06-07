@@ -87,4 +87,9 @@ public class MusicTimer : MonoBehaviour
             _cts = null;
         }
     }
+
+    public void StopTimer()
+    {
+        CancelTimer();
+    }
 }

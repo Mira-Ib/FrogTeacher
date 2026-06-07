@@ -11,6 +11,8 @@ public class TabooGameOverHandler : MonoBehaviour
     [SerializeField] private QuizDirector quizDirector;
     // ★追加：メインテキストを書き換えるために参照します
     [SerializeField] private QuizUIViewer quizUIViewer;
+    // ★追加：MusicTimerを止めるためにインスペクタから参照を取得する
+    [SerializeField] private MusicTimer musicTimer;
 
     [Header("ゲームオーバーパネル（上から降ってくるUI）")]
     [SerializeField] private RectTransform gameOverPanelRect;
@@ -61,6 +63,10 @@ public class TabooGameOverHandler : MonoBehaviour
         if (quizDirector.CurrentQuestionData.questionType == QuestionType.Taboo)
         {
             quizDirector.ForceStopQuiz();
+            if (musicTimer != null)
+            {
+                musicTimer.StopTimer();
+            }
             PlayTabooGameOverSequenceAsync().Forget();
         }
     }
@@ -83,8 +89,8 @@ public class TabooGameOverHandler : MonoBehaviour
             quizUIViewer.ShowTabooMessage();
         }
 
-        // 3. 指定の0.5秒待機（テキストを読ませる時間）
-        await UniTask.Delay(System.TimeSpan.FromSeconds(0.5f), cancellationToken: token);
+        // 3. 指定の2.0秒待機（テキストを読ませる時間）
+        await UniTask.Delay(System.TimeSpan.FromSeconds(2.0f), cancellationToken: token);
 
         // 4. ゲームオーバーパネルが降ってくる演出
         if (gameOverPanelRect != null)
@@ -93,10 +99,11 @@ public class TabooGameOverHandler : MonoBehaviour
             {
                 panelCanvasGroup.interactable = true;
                 panelCanvasGroup.blocksRaycasts = true;
+                panelCanvasGroup.alpha = 1f;
             }
 
             await gameOverPanelRect.DOAnchorPos(_panelOriginalPos, panelDropDuration)
-                .SetEase(Ease.OutBounce)
+                .SetEase(Ease.OutCubic)
                 .ToUniTask(cancellationToken: token);
 
             FocusDefaultButton();
