@@ -67,6 +67,10 @@ public class TabooGameOverHandler : MonoBehaviour
             {
                 musicTimer.StopTimer();
             }
+            if (quizUIViewer != null)
+            {
+                quizUIViewer.DisableAllAnswerButtons();
+            }
             PlayTabooGameOverSequenceAsync().Forget();
         }
     }

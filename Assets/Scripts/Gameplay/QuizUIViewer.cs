@@ -131,4 +131,21 @@ public class QuizUIViewer : MonoBehaviour
         outroTextDisplay.text = "";
         rubyInput.Text = "ひどい！";
     }
+
+    // ==========================================
+    // ★追加：禁忌肢ゲームオーバー時に、回答ボタンの操作を完全にロックする
+    // ==========================================
+    public void DisableAllAnswerButtons()
+    {
+        if (buttonsCanvasGroup != null)
+        {
+            buttonsCanvasGroup.interactable = false;
+            buttonsCanvasGroup.blocksRaycasts = false;
+        }
+        if (optionButtonCanvasGroup != null)
+        {
+            optionButtonCanvasGroup.interactable = false;
+            optionButtonCanvasGroup.blocksRaycasts = false;
+        }
+    }
 }
