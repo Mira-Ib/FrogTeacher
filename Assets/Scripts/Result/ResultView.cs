@@ -128,7 +128,19 @@ public class ResultView : MonoBehaviour
                     FocusDefaultButton();
                 });
         }
-        UnityroomApiClient.Instance.SendScore(1, data.TotalScore, ScoreboardWriteMode.HighScoreDesc);
+        // ==========================================
+        // ★追加：ここでポーズ使用履歴を判定し、ランキング処理を分岐させます
+        // ==========================================
+        if (!GameSessionData.HasUsedPause)
+        {
+            UnityroomApiClient.Instance.SendScore(1, data.TotalScore, ScoreboardWriteMode.HighScoreDesc);
+            Debug.Log("<color=green>ポーズ未使用のため、ランキングにスコアを登録します！</color>");
+        }
+        else
+        {
+            // ポーズ使用時は送信処理を行いません
+            Debug.Log("<color=yellow>ポーズが使用されたため、ランキング登録の対象外です。</color>");
+        }
     }
 
     private void Update()

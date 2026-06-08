@@ -50,6 +50,7 @@ public class LectureManager : MonoBehaviour
 
         try
         {
+            GameSessionData.ResetSessionStatus();
             // ==========================================
             // ★追加1：タイトル画面からデータが渡ってきているか確認
             // ==========================================

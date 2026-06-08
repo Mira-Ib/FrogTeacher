@@ -31,6 +31,15 @@ public class PauseController : MonoBehaviour
     {
         _isPaused = !_isPaused;
 
+        // ==========================================
+        // ★追加：ポーズ画面が「開かれた（trueになった）」瞬間を検知してフラグを折る
+        // ==========================================
+        if (_isPaused)
+        {
+            GameSessionData.FlagAsPauseUsed();
+            Debug.Log("<color=orange>[Ranking] ポーズが使用されたため、このプレイはランキング対象外になります。</color>");
+        }
+
         // 三項演算子で、trueなら0(停止)、falseなら1(通常)を代入
         Time.timeScale = _isPaused ? 0f : 1f;
 
