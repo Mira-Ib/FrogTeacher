@@ -94,6 +94,25 @@ public class LectureManager : MonoBehaviour
             // --- 2. 授業本編 ---
             foreach (var step in currentLectureData.steps)
             {
+                // ★黒板の消去判定
+                switch (step.clearType)
+                {
+                    case BoardClearType.ClearAll:
+                        blackboardView.ClearBoard();
+                        break;
+
+                    case BoardClearType.RemoveGroup:
+                        blackboardView.RemoveGroups(step.targetGroups);
+                        break;
+
+                    case BoardClearType.KeepGroup:
+                        blackboardView.ClearExceptGroups(step.targetGroups);
+                        break;
+
+                    case BoardClearType.None:
+                    default:
+                        break;
+                }
                 teacherView.SetHandState(step.isFrogHandLowered);
 
                 if (step.newBoardItems != null && step.newBoardItems.Length > 0)

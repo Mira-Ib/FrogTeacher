@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b87b2555106e3924e9481efb678ee19c, type: 3}
+  m_Name: Q026
+  m_EditorClassIdentifier: 
+  questionText: "\u305F\u3057<r=\u3056\u3093>\u7B97</r>\u306E<r=\u3053\u305F>\u7B54</r>\u3048\u306F<color=red><r=\u304B\u304F\u308A\u3064>\u78BA\u7387</r></color>\u3067<r=\u304D>\u6C7A</r>\u307E\u308B"
+  isTrueKero: 0
+  isFirstFixed: 0
+  isLateGameOnly: 0
+  questionType: 0
+  fontSize: 75
+  useAutoSizing: 0

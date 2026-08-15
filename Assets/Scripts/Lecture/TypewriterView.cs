@@ -65,4 +65,19 @@ public class TypewriterView : MonoBehaviour, ILecturePlayable
             _mainText.maxVisibleCharacters = _mainText.textInfo.characterCount;
         }
     }
+    /// <summary>
+    /// 会話中のクリック入力時に、現在の1文だけを最後まで即座に表示する（専用追加）
+    /// </summary>
+    public void CompleteTypewriter()
+    {
+        if (_typewriterTween != null && _typewriterTween.IsActive())
+        {
+            _typewriterTween.Kill();
+        }
+
+        if (_mainText != null && _mainText.textInfo != null)
+        {
+            _mainText.maxVisibleCharacters = _mainText.textInfo.characterCount;
+        }
+    }
 }

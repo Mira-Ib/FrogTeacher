@@ -19,9 +19,15 @@ public class BlackboardView : MonoBehaviour, ILecturePlayable
     [Header("フェード演出設定")]
     [SerializeField] private float fadeDuration = 0.5f; // フェードにかかる秒数
 
-    private List<GameObject> _spawnedItems = new List<GameObject>();
+    // 生成オブジェクトとグループ名をセットで管理するためのクラス
+    private class SpawnedItem
+    {
+        public string groupName;
+        public GameObject gameObject;
+    }
+    private List<SpawnedItem> _spawnedItems = new List<SpawnedItem>();
+    
     private CanvasGroup _contentCanvasGroup;
-
     private Tween _fadeTween;
 
     private void Awake()
@@ -41,33 +47,29 @@ public class BlackboardView : MonoBehaviour, ILecturePlayable
         {
             GameObject prefabToSpawn = itemData.itemType == BoardItemType.Text ? textPrefab : imagePrefab;
             GameObject spawnedObj = Instantiate(prefabToSpawn, boardContentParent);
-            _spawnedItems.Add(spawnedObj);
+
+            // ★グループ名と一緒にリストへ保持
+            _spawnedItems.Add(new SpawnedItem
+            {
+                groupName = itemData.groupName,
+                gameObject = spawnedObj
+            });
 
             RectTransform rect = spawnedObj.GetComponent<RectTransform>();
             rect.anchoredPosition = itemData.anchoredPosition;
 
             if (itemData.itemType == BoardItemType.Text)
             {
-                // ==================================================
-                // ★修正：ルビ変換用(Ruby)と描画用(UGUI)を両方取得する
-                // ==================================================
                 TextMeshProRuby rubyComponent = spawnedObj.GetComponent<TextMeshProRuby>();
                 TextMeshProUGUI tmpComponent = spawnedObj.GetComponent<TextMeshProUGUI>();
 
                 if (rubyComponent != null)
                 {
-                    // テキストの内容はルビ変換コンポーネントに任せる
-                    // ※アセットのバージョンによっては .Text と大文字の場合があります。エラーが出たら直してください。
                     rubyComponent.Text = itemData.textContent;
-                }
-                else
-                {
-                    Debug.LogWarning("黒板用のテキストプレハブに TextMeshProRuby がアタッチされていません！");
                 }
 
                 if (tmpComponent != null)
                 {
-                    // 色やフォントサイズなどの「見た目」は、実体の描画コンポーネントに直接指示する
                     if (itemData.fontSize > 0f) tmpComponent.fontSize = itemData.fontSize;
                     if (itemData.overrideColor) tmpComponent.color = itemData.textColor;
                 }
@@ -83,6 +85,66 @@ public class BlackboardView : MonoBehaviour, ILecturePlayable
         }
     }
 
+    /// <summary>
+    /// 指定されたグループ名のアイテムのみを消去する
+    /// </summary>
+    public void RemoveGroups(string[] targetGroups)
+    {
+        if (targetGroups == null || targetGroups.Length == 0) return;
+
+        var targetSet = new HashSet<string>(targetGroups);
+
+        for (int i = _spawnedItems.Count - 1; i >= 0; i--)
+        {
+            if (targetSet.Contains(_spawnedItems[i].groupName))
+            {
+                if (_spawnedItems[i].gameObject != null)
+                {
+                    Destroy(_spawnedItems[i].gameObject);
+                }
+                _spawnedItems.RemoveAt(i);
+            }
+        }
+    }
+
+    /// <summary>
+    /// 指定されたグループ名「以外」のアイテムを消去する（＝指定グループを残す）
+    /// </summary>
+    public void ClearExceptGroups(string[] keepGroups)
+    {
+        if (keepGroups == null || keepGroups.Length == 0)
+        {
+            ClearBoard();
+            return;
+        }
+
+        var keepSet = new HashSet<string>(keepGroups);
+
+        for (int i = _spawnedItems.Count - 1; i >= 0; i--)
+        {
+            if (!keepSet.Contains(_spawnedItems[i].groupName))
+            {
+                if (_spawnedItems[i].gameObject != null)
+                {
+                    Destroy(_spawnedItems[i].gameObject);
+                }
+                _spawnedItems.RemoveAt(i);
+            }
+        }
+    }
+
+    /// <summary>
+    /// 黒板上の全アイテムを消去する
+    /// </summary>
+    public void ClearBoard()
+    {
+        foreach (var item in _spawnedItems)
+        {
+            if (item.gameObject != null) Destroy(item.gameObject);
+        }
+        _spawnedItems.Clear();
+    }
+
     public async UniTask HideAndClearBoardAsync(CancellationToken token)
     {
         if (_spawnedItems.Count == 0) return;
@@ -92,15 +154,6 @@ public class BlackboardView : MonoBehaviour, ILecturePlayable
 
         ClearBoard();
         _contentCanvasGroup.alpha = 1f;
-    }
-
-    public void ClearBoard()
-    {
-        foreach (var item in _spawnedItems)
-        {
-            if (item != null) Destroy(item);
-        }
-        _spawnedItems.Clear();
     }
 
     public void FastForward()

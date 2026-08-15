@@ -1,0 +1,2930 @@
+fileFormatVersion: 2
+guid: 90bd5694dbdf9b84ba372916a0b31746
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 8714301544144041043
+    second: bananapple_0
+  - first:
+      213: -8931500858801886030
+    second: bananapple_1
+  - first:
+      213: -8247942729787129461
+    second: bananapple_2
+  - first:
+      213: -6180616399628623258
+    second: bananapple_3
+  - first:
+      213: 5841774612243606549
+    second: bananapple_4
+  - first:
+      213: 6137520259675403690
+    second: bananapple_5
+  - first:
+      213: 3492112662289732390
+    second: bananapple_6
+  - first:
+      213: 2519835485643956409
+    second: bananapple_7
+  - first:
+      213: -1823956788065865749
+    second: bananapple_8
+  - first:
+      213: 124776871704359372
+    second: bananapple_9
+  - first:
+      213: -7730200552882285229
+    second: bananapple_10
+  - first:
+      213: 6551913941707423852
+    second: bananapple_11
+  - first:
+      213: 7622444802331852039
+    second: bananapple_12
+  - first:
+      213: 582560454322136753
+    second: bananapple_13
+  - first:
+      213: -3962619241570947908
+    second: bananapple_14
+  - first:
+      213: 1679630292082470383
+    second: bananapple_15
+  - first:
+      213: -8431308878368124652
+    second: bananapple_16
+  - first:
+      213: 1230244066947627297
+    second: bananapple_17
+  - first:
+      213: 7799175861981423384
+    second: bananapple_18
+  - first:
+      213: 1726190006202556545
+    second: bananapple_19
+  - first:
+      213: 5541198613371139021
+    second: bananapple_20
+  - first:
+      213: 1652011042200787255
+    second: bananapple_21
+  - first:
+      213: -6898775104471455285
+    second: bananapple_22
+  - first:
+      213: 1626137836018148796
+    second: bananapple_23
+  - first:
+      213: 6273992718888746377
+    second: bananapple_24
+  - first:
+      213: -4211760339195324569
+    second: bananapple_25
+  - first:
+      213: 3060794316553012041
+    second: bananapple_26
+  - first:
+      213: 1691146897781859788
+    second: bananapple_27
+  - first:
+      213: 1922609465466437592
+    second: bananapple_28
+  - first:
+      213: 715130517718647155
+    second: bananapple_29
+  - first:
+      213: 2046448483995789946
+    second: bananapple_30
+  - first:
+      213: 6878653997985719297
+    second: bananapple_31
+  - first:
+      213: 7757623543516600348
+    second: bananapple_32
+  - first:
+      213: 7308093082248810361
+    second: bananapple_33
+  - first:
+      213: 2764380488861090034
+    second: bananapple_34
+  - first:
+      213: 6420246752883074063
+    second: bananapple_35
+  - first:
+      213: -5295469007406916900
+    second: bananapple_36
+  - first:
+      213: 8024071867558119292
+    second: bananapple_37
+  - first:
+      213: -8698386262522366039
+    second: bananapple_38
+  - first:
+      213: -4795029767992786281
+    second: bananapple_39
+  - first:
+      213: -4007800923642979318
+    second: bananapple_40
+  - first:
+      213: 5604646064835824252
+    second: bananapple_41
+  - first:
+      213: 3518567132566259793
+    second: bananapple_42
+  - first:
+      213: -1432287714176790925
+    second: bananapple_43
+  - first:
+      213: 2998938426828501151
+    second: bananapple_44
+  - first:
+      213: -8135581689006918378
+    second: bananapple_45
+  - first:
+      213: 8511640650520365067
+    second: bananapple_46
+  - first:
+      213: 3108662949735792368
+    second: bananapple_47
+  - first:
+      213: -7551927761278112378
+    second: bananapple_48
+  - first:
+      213: 3560420584426787611
+    second: bananapple_49
+  - first:
+      213: 3944276814995817662
+    second: bananapple_50
+  - first:
+      213: -2357803871357158051
+    second: bananapple_51
+  - first:
+      213: -8106276338999390170
+    second: bananapple_52
+  - first:
+      213: 7179886554626607298
+    second: bananapple_53
+  - first:
+      213: -3132295138020527491
+    second: bananapple_54
+  - first:
+      213: 7529167457637561948
+    second: bananapple_55
+  - first:
+      213: 7296003180090801077
+    second: bananapple_56
+  - first:
+      213: -7179843684784092587
+    second: bananapple_57
+  - first:
+      213: -1761507363396504568
+    second: bananapple_58
+  - first:
+      213: -9071248312093653862
+    second: bananapple_59
+  - first:
+      213: 7604626594569536438
+    second: bananapple_60
+  - first:
+      213: 274863641929221795
+    second: bananapple_61
+  - first:
+      213: -1866867871605193456
+    second: bananapple_62
+  - first:
+      213: 5819224972347035684
+    second: bananapple_63
+  - first:
+      213: 6496056204234307483
+    second: bananapple_64
+  - first:
+      213: -6080343515186749684
+    second: bananapple_65
+  - first:
+      213: 220259841871509587
+    second: bananapple_66
+  - first:
+      213: 7324852124958703912
+    second: bananapple_67
+  - first:
+      213: 7391795528049767648
+    second: bananapple_68
+  - first:
+      213: 9064279441571061763
+    second: bananapple_69
+  - first:
+      213: -7968732343450991421
+    second: bananapple_70
+  - first:
+      213: -2420708433542255914
+    second: bananapple_71
+  - first:
+      213: -6106282680486089336
+    second: bananapple_72
+  - first:
+      213: -2266288354836508775
+    second: bananapple_73
+  - first:
+      213: -7755197017183498530
+    second: bananapple_74
+  - first:
+      213: -8497048654381263468
+    second: bananapple_75
+  - first:
+      213: 8850240691912179268
+    second: bananapple_76
+  - first:
+      213: -5077472871465217503
+    second: bananapple_77
+  - first:
+      213: -3891424013111809630
+    second: bananapple_78
+  - first:
+      213: 3359313745463541163
+    second: bananapple_79
+  - first:
+      213: 7381491971444763892
+    second: bananapple_80
+  - first:
+      213: 6085495408301078136
+    second: bananapple_81
+  - first:
+      213: -9036626030923797993
+    second: bananapple_82
+  - first:
+      213: -1050229128970003627
+    second: bananapple_83
+  - first:
+      213: -8823904362058299246
+    second: bananapple_84
+  - first:
+      213: -7304171906277305005
+    second: bananapple_85
+  - first:
+      213: -156361872103730673
+    second: bananapple_86
+  - first:
+      213: -6887515094982089294
+    second: bananapple_87
+  - first:
+      213: -6846683155222736404
+    second: bananapple_88
+  - first:
+      213: -9222731483364536644
+    second: bananapple_89
+  - first:
+      213: 9021350959653006201
+    second: bananapple_90
+  - first:
+      213: 3729617068498911067
+    second: bananapple_91
+  - first:
+      213: -1439243218624634937
+    second: bananapple_92
+  - first:
+      213: 1673178586012150871
+    second: bananapple_93
+  - first:
+      213: 3741362880007057642
+    second: bananapple_94
+  - first:
+      213: -7314607125403008006
+    second: bananapple_95
+  - first:
+      213: 3520698254588962985
+    second: bananapple_96
+  - first:
+      213: 6299009301619217611
+    second: bananapple_97
+  - first:
+      213: 3617867915149116886
+    second: bananapple_98
+  - first:
+      213: 8813208762992460297
+    second: bananapple_99
+  - first:
+      213: 3069766190310427344
+    second: bananapple_100
+  - first:
+      213: -1606491460644661310
+    second: bananapple_101
+  - first:
+      213: -5458469938718756847
+    second: bananapple_102
+  - first:
+      213: -6645040016293171122
+    second: bananapple_103
+  - first:
+      213: -3916837971067630537
+    second: bananapple_104
+  - first:
+      213: 7883094107113904196
+    second: bananapple_105
+  - first:
+      213: -8169162151718316925
+    second: bananapple_106
+  - first:
+      213: 2321737086504783455
+    second: bananapple_107
+  - first:
+      213: -2663467282791129632
+    second: bananapple_108
+  - first:
+      213: -5506288468036982981
+    second: bananapple_109
+  - first:
+      213: 8655587311376446232
+    second: bananapple_110
+  - first:
+      213: 5811180884506035655
+    second: bananapple_111
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 1
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: bananapple_0
+      rect:
+        serializedVersion: 2
+        x: 557
+        y: 559
+        width: 10
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 354f754851b6fe870800000000000000
+      internalID: 8714301544144041043
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bananapple_1
+      rect:
+        serializedVersion: 2
+        x: 565
+        y: 506
+        width: 60
+        height: 92
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2bc64004a4fec0480800000000000000
+      internalID: -8931500858801886030
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bananapple_2
+      rect:
+        serializedVersion: 2
+        x: 911
+        y: 537
+        width: 81
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b81c54769cb698d80800000000000000
+      internalID: -8247942729787129461
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bananapple_3
+      rect:
+        serializedVersion: 2
+        x: 984
+        y: 564
+        width: 11
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 662ae2f712a0a3aa0800000000000000
+      internalID: -6180616399628623258
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bananapple_4
+      rect:
+        serializedVersion: 2
+        x: 987
+        y: 548
+        width: 19
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 51cecac0f07221150800000000000000
+      internalID: 5841774612243606549
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bananapple_5
+      rect:
+        serializedVersion: 2
+        x: 1019
+        y: 522
+        width: 24
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aa537bf782adc2550800000000000000
+      internalID: 6137520259675403690
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bananapple_6
+      rect:
+        serializedVersion: 2
+        x: 527
+        y: 542
+        width: 26
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6235c6fd6f9767030800000000000000
+      internalID: 3492112662289732390
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bananapple_7
+      rect:
+        serializedVersion: 2
+        x: 546
+        y: 552
+        width: 18
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9b06b36060148f220800000000000000
+      internalID: 2519835485643956409
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bananapple_8
+      rect:
+        serializedVersion: 2
+        x: 510
+        y: 533
+        width: 26
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: befeba907f000b6e0800000000000000
+      internalID: -1823956788065865749
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bananapple_9
+      rect:
+        serializedVersion: 2
+        x: 1000
+        y: 539
+        width: 13
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cc17f1a57eb4bb100800000000000000
+      internalID: 124776871704359372
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bananapple_10
+      rect:
+        serializedVersion: 2
+        x: 485
+        y: 519
+        width: 12
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3555ce2bd8fc8b490800000000000000
+      internalID: -7730200552882285229
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bananapple_11
+      rect:
+        serializedVersion: 2
+        x: 495
+        y: 521
+        width: 18
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c60866634031dea50800000000000000
+      internalID: 6551913941707423852
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bananapple_12
+      rect:
+        serializedVersion: 2
+        x: 511
+        y: 529
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 70d330b892d58c960800000000000000
+      internalID: 7622444802331852039
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bananapple_13
+      rect:
+        serializedVersion: 2
+        x: 889
+        y: 518
+        width: 18
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1b6af0c85aba51800800000000000000
+      internalID: 582560454322136753
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bananapple_14
+      rect:
+        serializedVersion: 2
+        x: 901
+        y: 526
+        width: 18
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cbc290e6bc2f109c0800000000000000
+      internalID: -3962619241570947908
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bananapple_15
+      rect:
+        serializedVersion: 2
+        x: 431
+        y: 491
+        width: 33
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fedaf810ade3f4710800000000000000
+      internalID: 1679630292082470383
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bananapple_16
+      rect:
+        serializedVersion: 2
+        x: 464
+        y: 506
+        width: 29
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 41155410f39fdfa80800000000000000
+      internalID: -8431308878368124652
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bananapple_17
+      rect:
+        serializedVersion: 2
+        x: 852
+        y: 489
+        width: 30
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 129f175f574b21110800000000000000
+      internalID: 1230244066947627297
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bananapple_18
+      rect:
+        serializedVersion: 2
+        x: 879
+        y: 509
+        width: 19
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 817243aef1d3c3c60800000000000000
+      internalID: 7799175861981423384
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bananapple_19
+      rect:
+        serializedVersion: 2
+        x: 1016
+        y: 495
+        width: 14
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 18068863aa8a4f710800000000000000
+      internalID: 1726190006202556545
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bananapple_20
+      rect:
+        serializedVersion: 2
+        x: 1021
+        y: 505
+        width: 24
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dc3bfd3c7ca46ec40800000000000000
+      internalID: 5541198613371139021
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bananapple_21
+      rect:
+        serializedVersion: 2
+        x: 1046
+        y: 496
+        width: 15
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 73996674a4f1de610800000000000000
+      internalID: 1652011042200787255
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bananapple_22
+      rect:
+        serializedVersion: 2
+        x: 593
+        y: 494
+        width: 10
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bc9aba00890a240a0800000000000000
+      internalID: -6898775104471455285
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bananapple_23
+      rect:
+        serializedVersion: 2
+        x: 594
+        y: 499
+        width: 10
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cb52fa70fb3319610800000000000000
+      internalID: 1626137836018148796
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bananapple_24
+      rect:
+        serializedVersion: 2
+        x: 1050
+        y: 492
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 98d30c40323b11750800000000000000
+      internalID: 6273992718888746377
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bananapple_25
+      rect:
+        serializedVersion: 2
+        x: 396
+        y: 474
+        width: 36
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7671f2f4942dc85c0800000000000000
+      internalID: -4211760339195324569
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bananapple_26
+      rect:
+        serializedVersion: 2
+        x: 587
+        y: 471
+        width: 10
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9434da0d6302a7a20800000000000000
+      internalID: 3060794316553012041
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bananapple_27
+      rect:
+        serializedVersion: 2
+        x: 591
+        y: 482
+        width: 11
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cc5aa49b429287710800000000000000
+      internalID: 1691146897781859788
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bananapple_28
+      rect:
+        serializedVersion: 2
+        x: 793
+        y: 434
+        width: 59
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8df3ee65f1b7eaa10800000000000000
+      internalID: 1922609465466437592
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bananapple_29
+      rect:
+        serializedVersion: 2
+        x: 971
+        y: 461
+        width: 54
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 37149acba67ace900800000000000000
+      internalID: 715130517718647155
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bananapple_30
+      rect:
+        serializedVersion: 2
+        x: 1054
+        y: 463
+        width: 50
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a7aa4bbbd02766c10800000000000000
+      internalID: 2046448483995789946
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bananapple_31
+      rect:
+        serializedVersion: 2
+        x: 344
+        y: 451
+        width: 42
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 10462c2dd53e57f50800000000000000
+      internalID: 6878653997985719297
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bananapple_32
+      rect:
+        serializedVersion: 2
+        x: 386
+        y: 470
+        width: 11
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c18938cd28d98ab60800000000000000
+      internalID: 7757623543516600348
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bananapple_33
+      rect:
+        serializedVersion: 2
+        x: 577
+        y: 453
+        width: 15
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 97f0ee830ff8b6560800000000000000
+      internalID: 7308093082248810361
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bananapple_34
+      rect:
+        serializedVersion: 2
+        x: 331
+        y: 442
+        width: 14
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2f00696886d0d5620800000000000000
+      internalID: 2764380488861090034
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bananapple_35
+      rect:
+        serializedVersion: 2
+        x: 570
+        y: 432
+        width: 17
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f0463f3e76c491950800000000000000
+      internalID: 6420246752883074063
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bananapple_36
+      rect:
+        serializedVersion: 2
+        x: 1005
+        y: 451
+        width: 25
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cda9b6e8ef6b286b0800000000000000
+      internalID: -5295469007406916900
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bananapple_37
+      rect:
+        serializedVersion: 2
+        x: 1023
+        y: 439
+        width: 26
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c77c106a9da3b5f60800000000000000
+      internalID: 8024071867558119292
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bananapple_38
+      rect:
+        serializedVersion: 2
+        x: 1108
+        y: 451
+        width: 14
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9a7773fb7cf194780800000000000000
+      internalID: -8698386262522366039
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bananapple_39
+      rect:
+        serializedVersion: 2
+        x: 1116
+        y: 444
+        width: 15
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 792cd57c4d1a47db0800000000000000
+      internalID: -4795029767992786281
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bananapple_40
+      rect:
+        serializedVersion: 2
+        x: 305
+        y: 431
+        width: 14
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a0c17cf4b4e6168c0800000000000000
+      internalID: -4007800923642979318
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bananapple_41
+      rect:
+        serializedVersion: 2
+        x: 318
+        y: 438
+        width: 12
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c7a845ab6e3b7cd40800000000000000
+      internalID: 5604646064835824252
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bananapple_42
+      rect:
+        serializedVersion: 2
+        x: 326
+        y: 441
+        width: 9
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1580af63a2674d030800000000000000
+      internalID: 3518567132566259793
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bananapple_43
+      rect:
+        serializedVersion: 2
+        x: 807
+        y: 428
+        width: 11
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 37e065c99ed7f1ce0800000000000000
+      internalID: -1432287714176790925
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bananapple_44
+      rect:
+        serializedVersion: 2
+        x: 1125
+        y: 438
+        width: 13
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f90b1623c9e5e9920800000000000000
+      internalID: 2998938426828501151
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bananapple_45
+      rect:
+        serializedVersion: 2
+        x: 1133
+        y: 430
+        width: 13
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 615f199de8b981f80800000000000000
+      internalID: -8135581689006918378
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bananapple_46
+      rect:
+        serializedVersion: 2
+        x: 274
+        y: 407
+        width: 36
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b088a06331c6f1670800000000000000
+      internalID: 8511640650520365067
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bananapple_47
+      rect:
+        serializedVersion: 2
+        x: 554
+        y: 385
+        width: 16
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0fe7b6d7b70342b20800000000000000
+      internalID: 3108662949735792368
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bananapple_48
+      rect:
+        serializedVersion: 2
+        x: 561
+        y: 407
+        width: 10
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 68d6b9386b9223790800000000000000
+      internalID: -7551927761278112378
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bananapple_49
+      rect:
+        serializedVersion: 2
+        x: 566
+        y: 417
+        width: 12
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b135fb958a7296130800000000000000
+      internalID: 3560420584426787611
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bananapple_50
+      rect:
+        serializedVersion: 2
+        x: 812
+        y: 409
+        width: 19
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eb482a59dd2ecb630800000000000000
+      internalID: 3944276814995817662
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bananapple_51
+      rect:
+        serializedVersion: 2
+        x: 827
+        y: 395
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d5d37b50fd5674fd0800000000000000
+      internalID: -2357803871357158051
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bananapple_52
+      rect:
+        serializedVersion: 2
+        x: 1143
+        y: 388
+        width: 30
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 62099ca5e98b08f80800000000000000
+      internalID: -8106276338999390170
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bananapple_53
+      rect:
+        serializedVersion: 2
+        x: 174
+        y: 334
+        width: 33
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2c84f10e7c414a360800000000000000
+      internalID: 7179886554626607298
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bananapple_54
+      rect:
+        serializedVersion: 2
+        x: 212
+        y: 356
+        width: 47
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d727a96ea2ad784d0800000000000000
+      internalID: -3132295138020527491
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bananapple_55
+      rect:
+        serializedVersion: 2
+        x: 534
+        y: 341
+        width: 17
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c56fae659e9fc7860800000000000000
+      internalID: 7529167457637561948
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bananapple_56
+      rect:
+        serializedVersion: 2
+        x: 543
+        y: 360
+        width: 13
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5bbbe658c3c904560800000000000000
+      internalID: 7296003180090801077
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bananapple_57
+      rect:
+        serializedVersion: 2
+        x: 549
+        y: 375
+        width: 7
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 55acc9985321c5c90800000000000000
+      internalID: -7179843684784092587
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bananapple_58
+      rect:
+        serializedVersion: 2
+        x: 839
+        y: 384
+        width: 12
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8043487c26edd87e0800000000000000
+      internalID: -1761507363396504568
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bananapple_59
+      rect:
+        serializedVersion: 2
+        x: 842
+        y: 346
+        width: 13
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a94cb40c8b37c1280800000000000000
+      internalID: -9071248312093653862
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bananapple_60
+      rect:
+        serializedVersion: 2
+        x: 844
+        y: 371
+        width: 12
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6b34ec2c89f098960800000000000000
+      internalID: 7604626594569536438
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bananapple_61
+      rect:
+        serializedVersion: 2
+        x: 1161
+        y: 343
+        width: 11
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3a68cdaa60380d300800000000000000
+      internalID: 274863641929221795
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bananapple_62
+      rect:
+        serializedVersion: 2
+        x: 1162
+        y: 365
+        width: 12
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0150266df8d8716e0800000000000000
+      internalID: -1866867871605193456
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bananapple_63
+      rect:
+        serializedVersion: 2
+        x: 1162
+        y: 355
+        width: 11
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 420d3d0e74a02c050800000000000000
+      internalID: 5819224972347035684
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bananapple_64
+      rect:
+        serializedVersion: 2
+        x: 159
+        y: 320
+        width: 23
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b97bb5e33b0a62a50800000000000000
+      internalID: 6496056204234307483
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bananapple_65
+      rect:
+        serializedVersion: 2
+        x: 533
+        y: 333
+        width: 10
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c0f91f8b9c74e9ba0800000000000000
+      internalID: -6080343515186749684
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bananapple_66
+      rect:
+        serializedVersion: 2
+        x: 799
+        y: 287
+        width: 51
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 358f801c8258e0300800000000000000
+      internalID: 220259841871509587
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bananapple_67
+      rect:
+        serializedVersion: 2
+        x: 1156
+        y: 326
+        width: 14
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 821cd6ce23a17a560800000000000000
+      internalID: 7324852124958703912
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bananapple_68
+      rect:
+        serializedVersion: 2
+        x: 146
+        y: 311
+        width: 13
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0e43abd8edee49660800000000000000
+      internalID: 7391795528049767648
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bananapple_69
+      rect:
+        serializedVersion: 2
+        x: 517
+        y: 304
+        width: 17
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 30028b3a02acacd70800000000000000
+      internalID: 9064279441571061763
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bananapple_70
+      rect:
+        serializedVersion: 2
+        x: 1157
+        y: 320
+        width: 9
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3c4007e5720696190800000000000000
+      internalID: -7968732343450991421
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bananapple_71
+      rect:
+        serializedVersion: 2
+        x: 119
+        y: 295
+        width: 16
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6daebe1518ae76ed0800000000000000
+      internalID: -2420708433542255914
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bananapple_72
+      rect:
+        serializedVersion: 2
+        x: 132
+        y: 303
+        width: 17
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 88da18b2140224ba0800000000000000
+      internalID: -6106282680486089336
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bananapple_73
+      rect:
+        serializedVersion: 2
+        x: 514
+        y: 298
+        width: 11
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 99f8d53afb68c80e0800000000000000
+      internalID: -2266288354836508775
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bananapple_74
+      rect:
+        serializedVersion: 2
+        x: 1143
+        y: 297
+        width: 17
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: edecb93d661006490800000000000000
+      internalID: -7755197017183498530
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bananapple_75
+      rect:
+        serializedVersion: 2
+        x: 102
+        y: 282
+        width: 9
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 495d464a44b641a80800000000000000
+      internalID: -8497048654381263468
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bananapple_76
+      rect:
+        serializedVersion: 2
+        x: 110
+        y: 288
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 44ef12ac40f52da70800000000000000
+      internalID: 8850240691912179268
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bananapple_77
+      rect:
+        serializedVersion: 2
+        x: 111
+        y: 292
+        width: 11
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 12212a333513989b0800000000000000
+      internalID: -5077472871465217503
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bananapple_78
+      rect:
+        serializedVersion: 2
+        x: 459
+        y: 251
+        width: 59
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2a9ab0c4a72eef9c0800000000000000
+      internalID: -3891424013111809630
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bananapple_79
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 291
+        width: 10
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: badf0779d0eae9e20800000000000000
+      internalID: 3359313745463541163
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bananapple_80
+      rect:
+        serializedVersion: 2
+        x: 1120
+        y: 265
+        width: 30
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4fcec56d6d3507660800000000000000
+      internalID: 7381491971444763892
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bananapple_81
+      rect:
+        serializedVersion: 2
+        x: 86
+        y: 189
+        width: 45
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8767e0ed4d5047450800000000000000
+      internalID: 6085495408301078136
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bananapple_82
+      rect:
+        serializedVersion: 2
+        x: 797
+        y: 283
+        width: 10
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 71a2db2c084779280800000000000000
+      internalID: -9036626030923797993
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bananapple_83
+      rect:
+        serializedVersion: 2
+        x: 799
+        y: 277
+        width: 9
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 55b99faeb26dc61f0800000000000000
+      internalID: -1050229128970003627
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bananapple_84
+      rect:
+        serializedVersion: 2
+        x: 798
+        y: 265
+        width: 12
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 298ce77dbb13b8580800000000000000
+      internalID: -8823904362058299246
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bananapple_85
+      rect:
+        serializedVersion: 2
+        x: 800
+        y: 259
+        width: 12
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 35514f3b95e52aa90800000000000000
+      internalID: -7304171906277305005
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bananapple_86
+      rect:
+        serializedVersion: 2
+        x: 1114
+        y: 256
+        width: 13
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f0297dca4bd74ddf0800000000000000
+      internalID: -156361872103730673
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bananapple_87
+      rect:
+        serializedVersion: 2
+        x: 388
+        y: 236
+        width: 12
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2b5a3724381aa60a0800000000000000
+      internalID: -6887515094982089294
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bananapple_88
+      rect:
+        serializedVersion: 2
+        x: 398
+        y: 240
+        width: 8
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ce15c4312f1bbf0a0800000000000000
+      internalID: -6846683155222736404
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bananapple_89
+      rect:
+        serializedVersion: 2
+        x: 401
+        y: 236
+        width: 25
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cbece3b7496420080800000000000000
+      internalID: -9222731483364536644
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bananapple_90
+      rect:
+        serializedVersion: 2
+        x: 420
+        y: 240
+        width: 17
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 97b2f3096e6423d70800000000000000
+      internalID: 9021350959653006201
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bananapple_91
+      rect:
+        serializedVersion: 2
+        x: 426
+        y: 244
+        width: 41
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b5f7c14a6f242c330800000000000000
+      internalID: 3729617068498911067
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bananapple_92
+      rect:
+        serializedVersion: 2
+        x: 803
+        y: 227
+        width: 35
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7cf1d780be7c60ce0800000000000000
+      internalID: -1439243218624634937
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bananapple_93
+      rect:
+        serializedVersion: 2
+        x: 1084
+        y: 220
+        width: 36
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 75c6b012f03583710800000000000000
+      internalID: 1673178586012150871
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bananapple_94
+      rect:
+        serializedVersion: 2
+        x: 351
+        y: 228
+        width: 17
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ae037ae77bdfbe330800000000000000
+      internalID: 3741362880007057642
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bananapple_95
+      rect:
+        serializedVersion: 2
+        x: 368
+        y: 230
+        width: 12
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: af300dae29b4d7a90800000000000000
+      internalID: -7314607125403008006
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bananapple_96
+      rect:
+        serializedVersion: 2
+        x: 379
+        y: 231
+        width: 16
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9a8ec1ab8680cd030800000000000000
+      internalID: 3520698254588962985
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bananapple_97
+      rect:
+        serializedVersion: 2
+        x: 380
+        y: 236
+        width: 8
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bc415e316939a6750800000000000000
+      internalID: 6299009301619217611
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bananapple_98
+      rect:
+        serializedVersion: 2
+        x: 228
+        y: 206
+        width: 78
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6d50fb653bf353230800000000000000
+      internalID: 3617867915149116886
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bananapple_99
+      rect:
+        serializedVersion: 2
+        x: 312
+        y: 222
+        width: 10
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9028681fcaece4a70800000000000000
+      internalID: 8813208762992460297
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bananapple_100
+      rect:
+        serializedVersion: 2
+        x: 321
+        y: 222
+        width: 23
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0da05f4f5100a9a20800000000000000
+      internalID: 3069766190310427344
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bananapple_101
+      rect:
+        serializedVersion: 2
+        x: 838
+        y: 210
+        width: 32
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2c79391378894b9e0800000000000000
+      internalID: -1606491460644661310
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bananapple_102
+      rect:
+        serializedVersion: 2
+        x: 873
+        y: 199
+        width: 22
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 110358dc28e9f34b0800000000000000
+      internalID: -5458469938718756847
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bananapple_103
+      rect:
+        serializedVersion: 2
+        x: 983
+        y: 136
+        width: 106
+        height: 79
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e40f696ef4318c3a0800000000000000
+      internalID: -6645040016293171122
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bananapple_104
+      rect:
+        serializedVersion: 2
+        x: 1080
+        y: 214
+        width: 13
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 73c80cb1e9894a9c0800000000000000
+      internalID: -3916837971067630537
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bananapple_105
+      rect:
+        serializedVersion: 2
+        x: 129
+        y: 191
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 448df71f250666d60800000000000000
+      internalID: 7883094107113904196
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bananapple_106
+      rect:
+        serializedVersion: 2
+        x: 142
+        y: 190
+        width: 18
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 384934a1e4e41ae80800000000000000
+      internalID: -8169162151718316925
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bananapple_107
+      rect:
+        serializedVersion: 2
+        x: 169
+        y: 194
+        width: 44
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f5ec7fe3497783020800000000000000
+      internalID: 2321737086504783455
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bananapple_108
+      rect:
+        serializedVersion: 2
+        x: 902
+        y: 172
+        width: 33
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0ed1c523e96790bd0800000000000000
+      internalID: -2663467282791129632
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bananapple_109
+      rect:
+        serializedVersion: 2
+        x: 926
+        y: 160
+        width: 26
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b3763d7dfcbb593b0800000000000000
+      internalID: -5506288468036982981
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bananapple_110
+      rect:
+        serializedVersion: 2
+        x: 945
+        y: 149
+        width: 29
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 813b8f8ecc2de1870800000000000000
+      internalID: 8655587311376446232
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bananapple_111
+      rect:
+        serializedVersion: 2
+        x: 970
+        y: 147
+        width: 21
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7c5c58ab93675a050800000000000000
+      internalID: 5811180884506035655
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable: {}
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
