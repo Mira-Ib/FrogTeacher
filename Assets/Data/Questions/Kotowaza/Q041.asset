@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b87b2555106e3924e9481efb678ee19c, type: 3}
   m_Name: Q041
   m_EditorClassIdentifier: 
-  questionText: "<r=\u305B\u3093\u305B\u3044>\u5148\u751F</r>\u3068<r=\u3081>\u76EE</r>\u304C<color=red><r=\u3042>\u5408</r>\u3046</color>\u3068<r=\u305B\u3044\u304B\u3044>\u6B63\u89E3</r>\u306B\u306A\u308B"
+  questionText: "<r=\u306F\u3084>\u65E9</r><r=\u304A>\u8D77</r>\u304D\u3059\u308C\u3070<color=red>\u304A<r=\u304B\u306D>\u91D1</r><r=\u3082>\u6301</r>\u3061</color>\u306B\u306A\u308C\u308B"
   isTrueKero: 0
   isFirstFixed: 0
   isLateGameOnly: 0

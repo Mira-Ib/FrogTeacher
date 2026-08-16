@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b87b2555106e3924e9481efb678ee19c, type: 3}
   m_Name: Q068
   m_EditorClassIdentifier: 
-  questionText: 5 + 3 = <color=red>7</color>
+  questionText: "<r=\u306F\u306A>\u82B1</r>\u3092<r=\u3048\u3089>\u9078</r>\u3093\u3067\u306F\u3044\u3051\u306A\u3044\u3068\u3044\u3046<br><color=red>\u30EB\u30FC\u30EB</color>\u304C\u3042\u308B"
   isTrueKero: 0
   isFirstFixed: 0
   isLateGameOnly: 0
   questionType: 0
-  fontSize: 125
+  fontSize: 80
   useAutoSizing: 0

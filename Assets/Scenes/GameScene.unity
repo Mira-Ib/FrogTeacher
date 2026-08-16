@@ -177,7 +177,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 1 + 1 = <color=red>2</color>
+  m_text: "\u65E9<space=-1.00em><voffset=1em><size=50%>\u306F\u3084</size></voffset>\u8D77<space=-0.75em><voffset=1em><size=50%>\u304A</size></voffset><space=0.25em>\u304D\u3057\u3066\u3082<color=red>\u7720<space=-1.00em><voffset=1em><size=50%>\u306D\u3080</size></voffset>\u3044</color>\u3053\u3068\u306F\u3042\u308B"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 7673a5641aad6c1479563331224e625c, type: 2}
   m_sharedMaterial: {fileID: -1083039237076450415, guid: 7673a5641aad6c1479563331224e625c, type: 2}
@@ -204,8 +204,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 125
-  m_fontSizeBase: 125
+  m_fontSize: 80
+  m_fontSizeBase: 80
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -269,7 +269,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tmpText: {fileID: 7755188}
-  text: 1 + 1 = <color=red>2</color>
+  text: "<r=\u306F\u3084>\u65E9</r><r=\u304A>\u8D77</r>\u304D\u3057\u3066\u3082<color=red><r=\u306D\u3080>\u7720</r>\u3044</color>\u3053\u3068\u306F\u3042\u308B"
   fixedLineHeight: 0
   autoMarginTop: 1
 --- !u!1 &13696829
