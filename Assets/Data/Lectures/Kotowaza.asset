@@ -63,18 +63,24 @@ MonoBehaviour:
       textColor: {r: 0, g: 0, b: 0, a: 0}
       imageContent: {fileID: 21300000, guid: 90bd5694dbdf9b84ba372916a0b31746, type: 3}
       imageScale: 3
-      anchoredPosition: {x: -327, y: 58}
+      anchoredPosition: {x: -200, y: 58}
+  - clearType: 0
+    targetGroups: []
+    dialogueText: "\u3084\u3063\u3071\u308A\u3001<r=\u3069\u3046\u3058>\u540C\u6642</r>\u306B\u3084\u308B\u3068<br><r=\u3046>\u4E0A</r><r=\u307E>\u624B</r>\u304F\u3044\u304B\u306A\u304B\u3063\u305F\u30B1\u30ED\u3002"
+    isFrogHandLowered: 0
+    playChalkSound: 0
+    newBoardItems: []
   - clearType: 3
     targetGroups:
     - Title
-    dialogueText: "<r=\u3044\u3063\u304B\u3044>\u4E00\u56DE</r>\u3001<r=\u3053\u304F\u3070\u3093>\u9ED2\u677F</r>\u3092\u304D\u308C\u3044\u306B\u3059\u308B\u30B1\u30ED\u3002"
-    isFrogHandLowered: 0
+    dialogueText: "\u3053\u3068\u308F\u3056\u306F<r=\u307B\u304B>\u4ED6</r>\u306B\u3082\u3044\u308D\u3044\u308D\u3042\u308B\u30B1\u30ED\u3002"
+    isFrogHandLowered: 1
     playChalkSound: 0
     newBoardItems: []
   - clearType: 0
     targetGroups: []
-    dialogueText: "\u3053\u3068\u308F\u3056\u306F<r=\u307B\u304B>\u4ED6</r>\u306B\u3082\u3044\u308D\u3044\u308D\u3042\u308B\u30B1\u30ED\u3002"
-    isFrogHandLowered: 1
+    dialogueText: "\u304A\u3001<r=\u304A\u304A>\u591A</r>\u3044\u30B1\u30ED\u2026"
+    isFrogHandLowered: 0
     playChalkSound: 1
     newBoardItems:
     - groupName: Content_2
@@ -124,7 +130,7 @@ MonoBehaviour:
       anchoredPosition: {x: 44, y: -10}
     - groupName: Content_2
       itemType: 0
-      textContent: "\u30FB<r=\u306F\u306A>\u82B1</r>\u3088\u308A<r=\u3060\u3093\u3054>\u56E3\u5B50</r>\u2026<r=\u307F>\u898B</r>\u305F<r=\u3081>\u76EE</r>\u306E<r=\u3046\u3064\u304F>\u7F8E</r>\u3057\u3055\u3088\u308A\u3082<r=\u3058\u3064\u308A>\u5B9F\u5229</r>\u3092<r=\u3058\u3085\u3046\u3057>\u91CD\u8996</r>\u3059\u308B\u3053\u3068\u306E\u305F\u3068\u3048"
+      textContent: "\u30FB<r=\u3075\u304F\u3059\u3044>\u8986\u6C34</r><r=\u307C\u3093>\u76C6</r>\u306B<r=\u304B\u3048>\u8FD4</r>\u3089\u305A\u2026<r=\u3044\u3061\u3069>\u4E00\u5EA6</r><r=\u304A>\u8D77</r>\u304D\u3066\u3057\u307E\u3063\u305F\u3053\u3068\u306F<r=\u3082\u3068>\u5143</r>\u306B\u306F<r=\u3082\u3069>\u623B</r>\u3089\u306A\u3044\u3053\u3068\u306E\u305F\u3068\u3048"
       fontSize: 36
       overrideColor: 0
       textColor: {r: 0, g: 0, b: 0, a: 0}
@@ -133,7 +139,7 @@ MonoBehaviour:
       anchoredPosition: {x: 44, y: -95}
     - groupName: Content_2
       itemType: 0
-      textContent: "\u30FB<r=\u3075\u304F\u3059\u3044>\u8986\u6C34</r><r=\u307C\u3093>\u76C6</r>\u306B<r=\u304B\u3048>\u8FD4</r>\u3089\u305A\u2026<r=\u3044\u3061\u3069>\u4E00\u5EA6</r><r=\u304A>\u8D77</r>\u304D\u3066\u3057\u307E\u3063\u305F\u3053\u3068\u306F<r=\u3082\u3068>\u5143</r>\u306B\u306F<r=\u3082\u3069>\u623B</r>\u3089\u306A\u3044\u3053\u3068\u306E\u305F\u3068\u3048"
+      textContent: "\u30FB<r=\u306F\u306A>\u82B1</r>\u3088\u308A<r=\u3060\u3093\u3054>\u56E3\u5B50</r>\u2026<r=\u307F>\u898B</r>\u305F<r=\u3081>\u76EE</r>\u306E<r=\u3046\u3064\u304F>\u7F8E</r>\u3057\u3055\u3088\u308A\u3082<r=\u3058\u3064\u308A>\u5B9F\u5229</r>\u3092<r=\u3058\u3085\u3046\u3057>\u91CD\u8996</r>\u3059\u308B\u3053\u3068\u306E\u305F\u3068\u3048"
       fontSize: 36
       overrideColor: 0
       textColor: {r: 0, g: 0, b: 0, a: 0}
@@ -142,28 +148,28 @@ MonoBehaviour:
       anchoredPosition: {x: 44, y: -180}
   - clearType: 0
     targetGroups: []
-    dialogueText: "\u3042\u3068\u306F\u3001\u30B5\u30AF\u30C3\u3068<r=\u3044>\u610F</r><r=\u307F>\u5473</r>\u3092<r=\u3057\u3087\u3046\u304B\u3044>\u7D39\u4ECB</r>\u3059\u308B\u304B\u3089<br>\u307F\u3093\u306A\u3082<r=\u3050\u305F\u3044>\u5177\u4F53</r><r=\u308C\u3044>\u4F8B</r>\u3092<r=\u304B\u3093\u304C>\u8003</r>\u3048\u3066\u307F\u308B\u30B1\u30ED\u3002"
-    isFrogHandLowered: 0
+    dialogueText: "\u3042\u3068\u306F\u3001<r=\u3044>\u610F</r><r=\u307F>\u5473</r>\u3060\u3051<r=\u3057\u3087\u3046\u304B\u3044>\u7D39\u4ECB</r>\u3059\u308B\u304B\u3089<br>\u307F\u3093\u306A\u3082<r=\u3050\u305F\u3044>\u5177\u4F53</r><r=\u308C\u3044>\u4F8B</r>\u3092<r=\u304B\u3093\u304C>\u8003</r>\u3048\u3066\u307F\u308B\u30B1\u30ED\u3002"
+    isFrogHandLowered: 1
     playChalkSound: 0
     newBoardItems: []
   - clearType: 3
     targetGroups:
     - Title
-    dialogueText: "\u307E\u3060\u307E\u3060\u3042\u308B\u30B1\u30ED\uFF01<color=#00000000><r=a>
+    dialogueText: "\u3053\u3068\u308F\u3056\u306F\u307E\u3060\u307E\u3060\u3042\u308B\u30B1\u30ED\uFF01<color=#00000000><r=a>
       </r></color>"
-    isFrogHandLowered: 1
+    isFrogHandLowered: 0
     playChalkSound: 0
     newBoardItems: []
   - clearType: 0
     targetGroups: []
-    dialogueText: "<r=\u304D\u3087\u3046>\u4ECA\u65E5</r><r=\u3057\u3087\u3046\u304B\u3044>\u7D39\u4ECB</r>\u3059\u308B\u306E\u306F\u3053\u308C\u3067<r=\u305C\u3093\u3076>\u5168\u90E8</r>\u30B1\u30ED\u3002"
-    isFrogHandLowered: 0
+    dialogueText: "\u2026\u307E\u3041\u3001<r=\u3044\u3061\u3069>\u4E00\u5EA6</r>\u306B<r=\u305C\u3093\u3076>\u5168\u90E8</r><r=\u304A\u307C>\u899A</r>\u3048\u3088\u3046\u3068\u3057\u306A\u304F\u3066\u3082<br><r=\u3060\u3044\u3058\u3087\u3046\u3076>\u5927\u4E08\u592B</r>\u30B1\u30ED\uFF01"
+    isFrogHandLowered: 1
     playChalkSound: 1
     newBoardItems:
     - groupName: Content_3
       itemType: 0
-      textContent: "\u30FB<r=\u305F\u306A>\u68DA</r>\u304B\u3089\u307C\u305F<r=\u3082\u3061>\u9905</r>\u2026<r=\u304A\u3082>\u601D</r>\u3044\u304C\u3051\u306A\u3044<r=\u3053\u3046\u3046\u3093>\u5E78\u904B</r>\u306B<r=\u3081\u3050>\u6075</r>\u307E\u308C\u308B\u3053\u3068\u306E\u305F\u3068\u3048"
-      fontSize: 32
+      textContent: "\u30FB<r=\u3057>\u77E5</r>\u3089\u306C\u304C<r=\u307B\u3068\u3051>\u4ECF</r>\u2026<r=\u3057>\u77E5</r>\u3089\u306A\u3044\u307E\u307E\u3067\u3044\u305F\u307B\u3046\u304C\u3001<r=\u3053\u3053\u308D>\u5FC3</r>\u306E<r=\u3078\u3044\u305B\u3044>\u5E73\u9759</r>\u3092<r=\u305F\u3082>\u4FDD</r>\u3063\u3066\u3044\u3089\u308C\u308B\u3053\u3068\u304C\u3042\u308B\u3068\u3044\u3046<r=\u304A\u3057>\u6559</r>\u3048"
+      fontSize: 36
       overrideColor: 0
       textColor: {r: 0, g: 0, b: 0, a: 0}
       imageContent: {fileID: 0}
@@ -171,8 +177,8 @@ MonoBehaviour:
       anchoredPosition: {x: 44, y: 330}
     - groupName: Content_3
       itemType: 0
-      textContent: "\u30FB<r=\u3055\u308B>\u733F</r>\u306E<r=\u3057\u308A\u308F\u3089>\u5C3B\u7B11</r>\u3044\u2026<r=\u3058\u3076\u3093>\u81EA\u5206</r>\u306E<r=\u3051\u3063\u3066\u3093>\u6B20\u70B9</r>\u3092<r=\u305F\u306A>\u68DA</r>\u306B<r=\u3042>\u4E0A</r>\u3052\u3066\u3001<r=\u305F\u306B\u3093>\u4ED6\u4EBA</r>\u306E<r=\u3051\u3063\u3066\u3093>\u6B20\u70B9</r>\u3092<r=\u308F\u3089>\u7B11</r>\u3046\u3053\u3068\u306E\u305F\u3068\u3048"
-      fontSize: 32
+      textContent: "\u30FB<r=\u3044\u305D>\u6025</r>\u304C\u3070<r=\u307E\u308F>\u56DE</r>\u308C\u2026<r=\u3068\u304A\u307E\u308F>\u9060\u56DE</r>\u308A\u3067\u3082<r=\u304B\u304F\u3058\u3064>\u78BA\u5B9F</r>\u306A<r=\u307B\u3046\u307B\u3046>\u65B9\u6CD5</r>\u3092<r=\u3048\u3089>\u9078</r>\u3093\u3060<r=\u307B\u3046>\u65B9</r>\u304C\u3001<r=\u3051\u3063\u304B\u3066\u304D>\u7D50\u679C\u7684</r>\u306B<r=\u306F\u3084>\u65E9</r>\u3044\u3053\u3068\u304C\u3042\u308B\u3068\u3044\u3046<r=\u304A\u3057>\u6559</r>\u3048"
+      fontSize: 36
       overrideColor: 0
       textColor: {r: 0, g: 0, b: 0, a: 0}
       imageContent: {fileID: 0}
@@ -180,8 +186,8 @@ MonoBehaviour:
       anchoredPosition: {x: 44, y: 245}
     - groupName: Content_3
       itemType: 0
-      textContent: "\u30FB<r=\u3057>\u77E5</r>\u3089\u306C\u304C<r=\u307B\u3068\u3051>\u4ECF</r>\u2026<r=\u3057>\u77E5</r>\u3089\u306A\u3044\u307E\u307E\u3067\u3044\u305F\u307B\u3046\u304C\u3001<r=\u3053\u3053\u308D>\u5FC3</r>\u306E<r=\u3078\u3044\u305B\u3044>\u5E73\u9759</r>\u3092<r=\u305F\u3082>\u4FDD</r>\u3063\u3066\u3044\u3089\u308C\u308B\u3053\u3068\u304C\u3042\u308B\u3068\u3044\u3046<r=\u304A\u3057>\u6559</r>\u3048"
-      fontSize: 32
+      textContent: "\u30FB<r=\u304D>\u805E</r>\u304F\u306F<r=\u3044\u3063\u3068\u304D>\u4E00\u6642</r>\u306E<r=\u306F\u3058>\u6065</r>\u3001<r=\u304D>\u805E</r>\u304B\u306C\u306F<r=\u3044\u3063\u3057\u3087\u3046>\u4E00\u751F</r>\u306E<r=\u306F\u3058>\u6065</r>\u2026<r=\u306F>\u6065</r>\u305A\u304B\u3057\u304F\u3066\u3082<r=\u3057>\u77E5</r>\u3089\u306A\u3044\u3053\u3068\u306F<r=\u304D>\u805E</r>\u3044\u305F<r=\u307B\u3046>\u65B9</r>\u304C<r=\u3088>\u826F</r>\u3044\u3068\u3044\u3046<r=\u304A\u3057>\u6559</r>\u3048"
+      fontSize: 36
       overrideColor: 0
       textColor: {r: 0, g: 0, b: 0, a: 0}
       imageContent: {fileID: 0}
@@ -189,8 +195,8 @@ MonoBehaviour:
       anchoredPosition: {x: 44, y: 160}
     - groupName: Content_3
       itemType: 0
-      textContent: "\u30FB<r=\u3044\u305D>\u6025</r>\u304C\u3070<r=\u307E\u308F>\u56DE</r>\u308C\u2026<r=\u3068\u304A\u307E\u308F>\u9060\u56DE</r>\u308A\u3067\u3082<r=\u304B\u304F\u3058\u3064>\u78BA\u5B9F</r>\u306A<r=\u307B\u3046\u307B\u3046>\u65B9\u6CD5</r>\u3092<r=\u3048\u3089>\u9078</r>\u3093\u3060<r=\u307B\u3046>\u65B9</r>\u304C\u3001<r=\u3051\u3063\u304B\u3066\u304D>\u7D50\u679C\u7684</r>\u306B<r=\u306F\u3084>\u65E9</r>\u3044\u3053\u3068\u304C\u3042\u308B\u3068\u3044\u3046<r=\u304A\u3057>\u6559</r>\u3048"
-      fontSize: 32
+      textContent: "\u30FB<r=\u3042\u3081>\u96E8</r><r=\u3075>\u964D</r>\u3063\u3066<r=\u3058>\u5730</r><r=\u304B\u305F>\u56FA</r>\u307E\u308B\u2026<r=\u308F\u308B>\u60AA</r>\u3044\u3053\u3068\u304C<r=\u304A>\u8D77</r>\u304D\u305F\u3042\u3068\u3001\u304B\u3048\u3063\u3066<r=\u307E\u3048>\u524D</r>\u3088\u308A\u3082<r=\u3088>\u826F</r>\u3044<r=\u3058\u3087\u3046\u305F\u3044>\u72B6\u614B</r>\u306B\u306A\u308B\u3053\u3068\u306E\u305F\u3068\u3048"
+      fontSize: 36
       overrideColor: 0
       textColor: {r: 0, g: 0, b: 0, a: 0}
       imageContent: {fileID: 0}
@@ -198,8 +204,8 @@ MonoBehaviour:
       anchoredPosition: {x: 44, y: 75}
     - groupName: Content_3
       itemType: 0
-      textContent: "\u30FB<r=\u3042\u3081>\u96E8</r><r=\u3075>\u964D</r>\u3063\u3066<r=\u3058>\u5730</r><r=\u304B\u305F>\u56FA</r>\u307E\u308B\u2026<r=\u308F\u308B>\u60AA</r>\u3044\u3053\u3068\u304C<r=\u304A>\u8D77</r>\u304D\u305F\u3042\u3068\u3001\u304B\u3048\u3063\u3066<r=\u307E\u3048>\u524D</r>\u3088\u308A\u3082<r=\u3088>\u826F</r>\u3044<r=\u3058\u3087\u3046\u305F\u3044>\u72B6\u614B</r>\u306B\u306A\u308B\u3053\u3068\u306E\u305F\u3068\u3048"
-      fontSize: 32
+      textContent: "\u30FB<r=\u305F\u306A>\u68DA</r>\u304B\u3089\u307C\u305F<r=\u3082\u3061>\u9905</r>\u2026<r=\u304A\u3082>\u601D</r>\u3044\u304C\u3051\u306A\u3044<r=\u3053\u3046\u3046\u3093>\u5E78\u904B</r>\u306B<r=\u3081\u3050>\u6075</r>\u307E\u308C\u308B\u3053\u3068\u306E\u305F\u3068\u3048"
+      fontSize: 36
       overrideColor: 0
       textColor: {r: 0, g: 0, b: 0, a: 0}
       imageContent: {fileID: 0}
@@ -207,8 +213,8 @@ MonoBehaviour:
       anchoredPosition: {x: 44, y: -10}
     - groupName: Content_3
       itemType: 0
-      textContent: "\u30FB<r=\u304D>\u805E</r>\u304F\u306F<r=\u3044\u3063\u3068\u304D>\u4E00\u6642</r>\u306E<r=\u306F\u3058>\u6065</r>\u3001<r=\u304D>\u805E</r>\u304B\u306C\u306F<r=\u3044\u3063\u3057\u3087\u3046>\u4E00\u751F</r>\u306E<r=\u306F\u3058>\u6065</r>\u2026<r=\u306F>\u6065</r>\u305A\u304B\u3057\u304F\u3066\u3082<r=\u3057>\u77E5</r>\u3089\u306A\u3044\u3053\u3068\u306F<r=\u304D>\u805E</r>\u3044\u305F<r=\u307B\u3046>\u65B9</r>\u304C<r=\u3088>\u826F</r>\u3044\u3068\u3044\u3046<r=\u304A\u3057>\u6559</r>\u3048"
-      fontSize: 32
+      textContent: "\u30FB<r=\u3055\u308B>\u733F</r>\u306E<r=\u3057\u308A\u308F\u3089>\u5C3B\u7B11</r>\u3044\u2026<r=\u3058\u3076\u3093>\u81EA\u5206</r>\u306E<r=\u3051\u3063\u3066\u3093>\u6B20\u70B9</r>\u3092<r=\u305F\u306A>\u68DA</r>\u306B<r=\u3042>\u4E0A</r>\u3052\u3066\u3001<r=\u305F\u306B\u3093>\u4ED6\u4EBA</r>\u306E<r=\u3051\u3063\u3066\u3093>\u6B20\u70B9</r>\u3092<r=\u308F\u3089>\u7B11</r>\u3046\u3053\u3068\u306E\u305F\u3068\u3048"
+      fontSize: 36
       overrideColor: 0
       textColor: {r: 0, g: 0, b: 0, a: 0}
       imageContent: {fileID: 0}
@@ -217,12 +223,18 @@ MonoBehaviour:
     - groupName: Content_3
       itemType: 0
       textContent: "\u30FB<r=\u3053\u308D>\u8EE2</r>\u3070\u306C<r=\u3055\u304D>\u5148</r>\u306E<r=\u3064\u3048>\u6756</r>\u2026<r=\u3057\u3063\u3071\u3044>\u5931\u6557</r>\u3092\u3057\u306A\u3044\u3088\u3046\u306B<r=\u307E\u3048>\u524D</r>\u3082\u3063\u3066<r=\u3058\u3085\u3093\u3073>\u6E96\u5099</r>\u3057\u3066\u304A\u304F\u3053\u3068\u306E\u305F\u3068\u3048"
-      fontSize: 32
+      fontSize: 36
       overrideColor: 0
       textColor: {r: 0, g: 0, b: 0, a: 0}
       imageContent: {fileID: 0}
       imageScale: 0
       anchoredPosition: {x: 44, y: -180}
+  - clearType: 0
+    targetGroups: []
+    dialogueText: "<r=\u304D\u3087\u3046>\u4ECA\u65E5</r><r=\u3057\u3087\u3046\u304B\u3044>\u7D39\u4ECB</r>\u3059\u308B\u306E\u306F\u3053\u308C\u3067<r=\u305C\u3093\u3076>\u5168\u90E8</r>\u30B1\u30ED\u3002"
+    isFrogHandLowered: 0
+    playChalkSound: 0
+    newBoardItems: []
   - clearType: 0
     targetGroups: []
     dialogueText: "<r=\u3057>\u77E5</r>\u3063\u3066\u308B<r=\u3053\u3068\u3070>\u8A00\u8449</r>\u3067\u3082\u3001<r=\u3050\u305F\u3044\u308C\u3044>\u5177\u4F53\u4F8B</r>\u3092<r=\u304B\u3093\u304C>\u8003</r>\u3048\u308B\u3068<br><r=\u3042\u3089>\u65B0</r>\u305F\u306A<r=\u306F\u3063\u3051\u3093>\u767A\u898B</r>\u304C\u3042\u308B\u304B\u3082\u3057\u308C\u306A\u3044\u30B1\u30ED\uFF01"

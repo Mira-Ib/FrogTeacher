@@ -844,7 +844,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
+  m_Transition: 0
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -1590,7 +1590,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
+  m_Transition: 0
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -2017,7 +2017,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
+  m_Transition: 0
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -2371,7 +2371,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\u3059\u3079\u3066\u306E\u8A08\u7B97<space=-2.00em><voffset=1em><size=50%>\u3051\u3044\u3055\u3093</size></voffset>\u306E\u30AD\u30DB\u30F3\u3068\u306A\u308B\u305F\u3057\u7B97<space=-1.00em><voffset=1em><size=50%>\u3056\u3093</size></voffset>\u3002\r\n<space=0.25em>\u5F62<space=-1.25em><voffset=1em><size=50%>\u304B\u305F\u3061</size></voffset>\u306E\u3042\u308B\u300C\u3082\u306E\u300D\u3068<space=0.25em>\u5F62<space=-1.25em><voffset=1em><size=50%>\u304B\u305F\u3061</size></voffset>\u306E\u306A\u3044\u300C\u6570\u5B57<space=-1.75em><voffset=1em><size=50%>\u3059\u3046\u3058</size></voffset><space=0.25em>\u300D\u3092\r\n\u95A2\u9023<space=-2.00em><voffset=1em><size=50%>\u304B\u3093\u308C\u3093</size></voffset>\u4ED8<space=-0.75em><voffset=1em><size=50%>\u3065</size></voffset><space=0.25em>\u3051\u3088\u3046\u3068\u3059\u308B\u30AB\u30A8\u30EB\u5148\u751F<space=-2.00em><voffset=1em><size=50%>\u305B\u3093\u305B\u3044</size></voffset>\u3067\u3059\u304C\u2026\uFF1F\r\n"
+  m_text: "\u3053\u3068\u308F\u3056\u306B\u306F\u3001<space=0.25em>\u77ED<space=-1.25em><voffset=1em><size=50%>\u307F\u3058\u304B</size></voffset>\u3044\u8A00\u8449<space=-1.75em><voffset=1em><size=50%>\u3053\u3068\u3070</size></voffset><space=0.25em>\u306B\u69D8\u3005<space=-2.00em><voffset=1em><size=50%>\u3055\u307E\u3056\u307E</size></voffset>\u306A\u610F<space=-0.75em><voffset=1em><size=50%>\u3044</size></voffset><space=0.25em>\u5473<space=-0.75em><voffset=1em><size=50%>\u307F</size></voffset><space=0.25em>\u304C\r\n\u8FBC<space=-0.75em><voffset=1em><size=50%>\u3053</size></voffset><space=0.25em>\u3081\u3089\u308C\u3066\u3044\u307E\u3059\u3002\u8EAB\u8FD1<space=-1.75em><voffset=1em><size=50%>\u307F\u3062\u304B</size></voffset><space=0.25em>\u306A\u4F8B<space=-1.00em><voffset=1em><size=50%>\u308C\u3044</size></voffset>\u3092\u51FA<space=-0.75em><voffset=1em><size=50%>\u3060</size></voffset><space=0.25em>\u3057\u306A\u304C\u3089\r\n\u8AAC\u660E<space=-2.00em><voffset=1em><size=50%>\u305B\u3064\u3081\u3044</size></voffset>\u3057\u3088\u3046\u3068\u3059\u308B\u30AB\u30A8\u30EB\u5148\u751F<space=-2.00em><voffset=1em><size=50%>\u305B\u3093\u305B\u3044</size></voffset>\u3067\u3059\u304C\u2026\uFF1F"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b07bce67210878440848b7321c73e1a8, type: 2}
   m_sharedMaterial: {fileID: 6872325252274991182, guid: b07bce67210878440848b7321c73e1a8, type: 2}
@@ -2482,7 +2482,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tmpText: {fileID: 610087665}
-  text: "\u3059\u3079\u3066\u306E<r=\u3051\u3044\u3055\u3093>\u8A08\u7B97</r>\u306E\u30AD\u30DB\u30F3\u3068\u306A\u308B\u305F\u3057<r=\u3056\u3093>\u7B97</r>\u3002\r\n<r=\u304B\u305F\u3061>\u5F62</r>\u306E\u3042\u308B\u300C\u3082\u306E\u300D\u3068<r=\u304B\u305F\u3061>\u5F62</r>\u306E\u306A\u3044\u300C<r=\u3059\u3046\u3058>\u6570\u5B57</r>\u300D\u3092\r\n<r=\u304B\u3093\u308C\u3093>\u95A2\u9023</r><r=\u3065>\u4ED8</r>\u3051\u3088\u3046\u3068\u3059\u308B\u30AB\u30A8\u30EB<r=\u305B\u3093\u305B\u3044>\u5148\u751F</r>\u3067\u3059\u304C\u2026\uFF1F\r\n"
+  text: "\u3053\u3068\u308F\u3056\u306B\u306F\u3001<r=\u307F\u3058\u304B>\u77ED</r>\u3044<r=\u3053\u3068\u3070>\u8A00\u8449</r>\u306B<r=\u3055\u307E\u3056\u307E>\u69D8\u3005</r>\u306A<r=\u3044>\u610F</r><r=\u307F>\u5473</r>\u304C\r\n<r=\u3053>\u8FBC</r>\u3081\u3089\u308C\u3066\u3044\u307E\u3059\u3002<r=\u307F\u3062\u304B>\u8EAB\u8FD1</r>\u306A<r=\u308C\u3044>\u4F8B</r>\u3092<r=\u3060>\u51FA</r>\u3057\u306A\u304C\u3089\r\n<r=\u305B\u3064\u3081\u3044>\u8AAC\u660E</r>\u3057\u3088\u3046\u3068\u3059\u308B\u30AB\u30A8\u30EB<r=\u305B\u3093\u305B\u3044>\u5148\u751F</r>\u3067\u3059\u304C\u2026\uFF1F"
   fixedLineHeight: 0
   autoMarginTop: 1
 --- !u!1 &619394800
@@ -6124,6 +6124,7 @@ GameObject:
   - component: {fileID: 1333207266}
   - component: {fileID: 1333207267}
   - component: {fileID: 1333207269}
+  - component: {fileID: 1333207270}
   m_Layer: 5
   m_Name: StageSelectPanel
   m_TagString: Untagged
@@ -6260,6 +6261,23 @@ MonoBehaviour:
   blackoutCanvasGroup: {fileID: 309818700}
   stageDataList:
   - {fileID: 11400000, guid: fe788c2991510d944b2c6ff935e612b6, type: 2}
+  - {fileID: 11400000, guid: 5a0bfb3107f575444bd830cfde575c63, type: 2}
+--- !u!114 &1333207270
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1333207262}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 497be93a0ebec394c951e5657740c160, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  leftButton: {fileID: 1670668159}
+  rightButton: {fileID: 528769810}
+  submitButton: {fileID: 373802594}
+  backButton: {fileID: 192578141}
 --- !u!1 &1338530155
 GameObject:
   m_ObjectHideFlags: 0
@@ -6471,7 +6489,7 @@ MonoBehaviour:
   animationDuration: 0.8
   wipeMask: {fileID: 1369909616}
   firstSelectedElement: {fileID: 295032472}
-  submitButton: {fileID: 0}
+  submitButton: {fileID: 3074312501828215040}
 --- !u!114 &1369909616
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7063,7 +7081,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\u305F\u3057\u7B97<space=-1.00em><voffset=1em><size=50%>\u3056\u3093</size></voffset>"
+  m_text: "\u3053\u3068\u308F\u3056<color=#00000000><space=0.25em><space=-0.25em><voffset=1em><size=50%>a</size></voffset></color>"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b07bce67210878440848b7321c73e1a8, type: 2}
   m_sharedMaterial: {fileID: 6872325252274991182, guid: b07bce67210878440848b7321c73e1a8, type: 2}
@@ -7147,7 +7165,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tmpText: {fileID: 1466514520}
-  text: "\u305F\u3057<r=\u3056\u3093>\u7B97</r>"
+  text: "\u3053\u3068\u308F\u3056<color=#00000000><r=a></r></color>"
   fixedLineHeight: 0
   autoMarginTop: 1
 --- !u!1 &1470423654
@@ -7989,7 +8007,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 528769810}
-  m_Transition: 1
+  m_Transition: 0
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -8974,7 +8992,7 @@ MonoBehaviour:
   animationDuration: 0.8
   wipeMask: {fileID: 1929035505}
   firstSelectedElement: {fileID: 230031525}
-  submitButton: {fileID: 0}
+  submitButton: {fileID: 230031528}
 --- !u!114 &1929035505
 MonoBehaviour:
   m_ObjectHideFlags: 0

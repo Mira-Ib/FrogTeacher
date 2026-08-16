@@ -28,6 +28,7 @@ public class LectureManager : MonoBehaviour
 
 
     private CancellationTokenSource _cts;
+    private bool _isDestroying;
 
     private void Start()
     {
@@ -41,6 +42,12 @@ public class LectureManager : MonoBehaviour
         {
             SkipLecture();
         }
+    }
+
+    private void OnDestroy()
+    {
+        _isDestroying = true;
+        _cts?.Cancel();
     }
 
     private async UniTaskVoid StartLecture()
@@ -138,6 +145,11 @@ public class LectureManager : MonoBehaviour
         }
         catch (OperationCanceledException)
         {
+            if (_isDestroying)
+            {
+                return;
+            }
+
             ExecuteSkipFastForward();
             CompleteLecture();
         }

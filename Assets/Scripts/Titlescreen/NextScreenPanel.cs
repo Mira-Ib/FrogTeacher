@@ -51,7 +51,7 @@ public class NextScreenPanel : MonoBehaviour
 
             // 2. ボタンを再び押せるようにする
             var btn = submitButton.GetComponent<Button>();
-            if (btn != null) btn.interactable = true;
+            if (btn != null) btn.interactable = false;
         }
     }
 
@@ -76,6 +76,13 @@ public class NextScreenPanel : MonoBehaviour
         await rectTransform.DOAnchorPosY(targetPosY, animationDuration)
             .SetEase(Ease.OutBack)
             .WithCancellation(token);
+
+        // ★修正：降下アニメーションが完全に終わった後でボタンを有効化する
+        if (submitButton != null)
+        {
+            var btn = submitButton.GetComponent<Button>();
+            if (btn != null) btn.interactable = true;
+        }
 
         // アニメーションが終わったらフォーカスを当てる
         if (firstSelectedElement != null && EventSystem.current != null)

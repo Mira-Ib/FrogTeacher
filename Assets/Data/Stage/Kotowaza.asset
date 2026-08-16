@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e03c28502c59d9949999ffab1574cf99, type: 3}
+  m_Name: Kotowaza
+  m_EditorClassIdentifier: 
+  stageName: "\u3053\u3068\u308F\u3056<color=#00000000><r=a></r></color>"
+  description: "\u3053\u3068\u308F\u3056\u306B\u306F\u3001<r=\u307F\u3058\u304B>\u77ED</r>\u3044<r=\u3053\u3068\u3070>\u8A00\u8449</r>\u306B<r=\u3055\u307E\u3056\u307E>\u69D8\u3005</r>\u306A<r=\u3044>\u610F</r><r=\u307F>\u5473</r>\u304C\n<r=\u3053>\u8FBC</r>\u3081\u3089\u308C\u3066\u3044\u307E\u3059\u3002<r=\u307F\u3062\u304B>\u8EAB\u8FD1</r>\u306A<r=\u308C\u3044>\u4F8B</r>\u3092<r=\u3060>\u51FA</r>\u3057\u306A\u304C\u3089\n<r=\u305B\u3064\u3081\u3044>\u8AAC\u660E</r>\u3057\u3088\u3046\u3068\u3059\u308B\u30AB\u30A8\u30EB<r=\u305B\u3093\u305B\u3044>\u5148\u751F</r>\u3067\u3059\u304C\u2026\uFF1F"
+  lectureData: {fileID: 11400000, guid: 2a4bb67173831df4ea8b9cf6637ce561, type: 2}
+  quizData: {fileID: 11400000, guid: 6cd33c8ce3f60b2428287a3d7a356f5e, type: 2}

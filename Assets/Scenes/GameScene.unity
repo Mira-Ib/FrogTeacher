@@ -152,9 +152,9 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 184244560}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 600, y: -300}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &7755188
@@ -177,7 +177,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\u65E9<space=-1.00em><voffset=1em><size=50%>\u306F\u3084</size></voffset>\u8D77<space=-0.75em><voffset=1em><size=50%>\u304A</size></voffset><space=0.25em>\u304D\u3057\u3066\u3082<color=red>\u7720<space=-1.00em><voffset=1em><size=50%>\u306D\u3080</size></voffset>\u3044</color>\u3053\u3068\u306F\u3042\u308B"
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 7673a5641aad6c1479563331224e625c, type: 2}
   m_sharedMaterial: {fileID: -1083039237076450415, guid: 7673a5641aad6c1479563331224e625c, type: 2}
@@ -269,7 +269,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tmpText: {fileID: 7755188}
-  text: "<r=\u306F\u3084>\u65E9</r><r=\u304A>\u8D77</r>\u304D\u3057\u3066\u3082<color=red><r=\u306D\u3080>\u7720</r>\u3044</color>\u3053\u3068\u306F\u3042\u308B"
+  text: 
   fixedLineHeight: 0
   autoMarginTop: 1
 --- !u!1 &13696829
@@ -3260,7 +3260,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &644860058
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5580,6 +5580,13 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 2f8df2029c1fc4249b3f4c96a8567fc8, type: 3}
   - {fileID: 21300000, guid: 035987df4bfee7d408773292bca4c832, type: 3}
   - {fileID: 21300000, guid: db0c7c91b1e3a114880c6da1913bafef, type: 3}
+  - {fileID: 21300000, guid: aee7d9beafe3db146a919d2b9eab8125, type: 3}
+  - {fileID: 21300000, guid: e97e886d5d119494a8d2c054644b2422, type: 3}
+  - {fileID: 21300000, guid: a8fa41c507fd8f844bec24ab27916dc7, type: 3}
+  - {fileID: 21300000, guid: 8f46862aa8aa1074e836ad2e34148582, type: 3}
+  - {fileID: 21300000, guid: 4bbba9084d41f4e4296ca42e1d766d26, type: 3}
+  - {fileID: 21300000, guid: 1d50acc22f00a274882d0278b93fa4a4, type: 3}
+  - {fileID: 21300000, guid: 23d048d7eaef39646a38272cfa160a34, type: 3}
   correctFalseSprites:
   - {fileID: 21300000, guid: aed68872fdc637548b23c53c70cd2940, type: 3}
   - {fileID: 21300000, guid: 286d4a21b0a221c4a83ee88cf4c4f7c3, type: 3}
@@ -5595,10 +5602,24 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 1a2e6bbb6974ef545a88c62327ff5ae8, type: 3}
   - {fileID: 21300000, guid: 34d95cd985b2fd649b09e1492b685eb5, type: 3}
   - {fileID: 21300000, guid: 6b1c7a3a1c0cf1542ac302dedd63fa4b, type: 3}
+  - {fileID: 21300000, guid: 37ad9520dbfd22247822321149efa956, type: 3}
+  - {fileID: 21300000, guid: 50ef669b951b63444b2e227e20d854d5, type: 3}
+  - {fileID: 21300000, guid: d9a8f29116fc3984ab77900701af6cf3, type: 3}
+  - {fileID: 21300000, guid: 64282da9107b6914a87fce74f407af40, type: 3}
+  - {fileID: 21300000, guid: fb5ec704be2da8d44bb993f916afb83e, type: 3}
+  - {fileID: 21300000, guid: 9df37344e703e7a48893bc09947a1b44, type: 3}
+  - {fileID: 21300000, guid: 3005652c4de155c4aba5ab9a66e2e64e, type: 3}
   wrongFalseSprites:
   - {fileID: 21300000, guid: eeebecba54db19849a33fcd4832e55f7, type: 3}
   - {fileID: 21300000, guid: 49109e84488818e42b04e5fba662cc62, type: 3}
   - {fileID: 21300000, guid: 831053e3669af8641b4a2baf5d95ed07, type: 3}
+  - {fileID: 21300000, guid: 7019afedccb92794b96942269644e366, type: 3}
+  - {fileID: 21300000, guid: dd43ce77892b7e74c90e0450ef15d338, type: 3}
+  - {fileID: 21300000, guid: 6cb19eb69ed4d6b45a4003809e599c70, type: 3}
+  - {fileID: 21300000, guid: dc296c30b7736a242a0fcdd71f09bbe3, type: 3}
+  - {fileID: 21300000, guid: cf56dda296402884c8df8d4dacc123bc, type: 3}
+  - {fileID: 21300000, guid: 1c8af0f373e33da4fa4b413e8828f12e, type: 3}
+  - {fileID: 21300000, guid: b48caf921204ad04dad51517173aeab6, type: 3}
   colorPalette:
   - {r: 1, g: 0.5691823, b: 0.5691823, a: 1}
   - {r: 0.9985136, g: 1, b: 0.5686275, a: 1}
