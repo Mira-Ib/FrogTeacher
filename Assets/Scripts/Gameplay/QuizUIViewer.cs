@@ -129,7 +129,7 @@ public class QuizUIViewer : MonoBehaviour
     {
         introTextDisplay.text = "";
         outroTextDisplay.text = "";
-        rubyInput.Text = "ひどい！";
+        rubyInput.Text = "そんな……";
     }
 
     // ==========================================

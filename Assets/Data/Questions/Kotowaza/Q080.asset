@@ -15,7 +15,7 @@ MonoBehaviour:
   questionText: "<r=\u306A\u306B>\u4F55</r>\u304B<r=\u304A>\u8D77</r>\u3053\u308B<r=\u307E\u3048>\u524D</r>\u306B<br><color=red><r=\u305D\u306A>\u5099</r>\u3048\u308B</color>\u3053\u3068\u304C<r=\u305F\u3044\u305B\u3064>\u5927\u5207</r>"
   isTrueKero: 1
   isFirstFixed: 0
-  isLateGameOnly: 1
-  questionType: 1
+  isLateGameOnly: 0
+  questionType: 0
   fontSize: 85
   useAutoSizing: 0

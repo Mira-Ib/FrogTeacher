@@ -372,7 +372,17 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Reaction1_8_0: 6271110038803290332
+      Reaction1_8_1: 2022461917139034157
+      Reaction1_8_2: -5140754381201590642
+      Reaction1_8_3: 4024573363433075488
+      Reaction1_8_4: -359207323673544628
+      Reaction1_8_5: 5036579058970899451
+      Reaction1_8_6: -3464004081347152700
+      Reaction1_8_7: 1461143021392100805
+      Reaction1_8_8: -249501857492630750
+      Reaction1_8_9: 2300941859846974559
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
