@@ -12,6 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aebd107f1983d8b4ba492b7a48524900, type: 3}
   m_Name: Tashizan
   m_EditorClassIdentifier: 
+  openingMonologue: "（<r=はじ>初</r>めての<r=じゅぎょう>授業</r>、<r=きんちょう>緊張</r>するケロ…）"
+  openingMonologueDelay: 0.5
+  openingMonologueDuration: 5
   steps:
   - clearType: 0
     targetGroups: []

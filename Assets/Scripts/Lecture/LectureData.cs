@@ -65,5 +65,19 @@ public class LectureStep
 [CreateAssetMenu(fileName = "NewLectureData", menuName = "Game/Lecture Data")]
 public class LectureData : ScriptableObject
 {
+    [Header("授業開始時のひとこと")]
+    [TextArea(1, 3)]
+    [Tooltip("先生の入場後、吹き出しが出る前にフェード表示するセリフ。空欄の場合は表示しません。")]
+    public string openingMonologue;
+
+    [Min(0f)]
+    [Tooltip("先生の入場後、ひとことを表示するまでの待機時間です。")]
+    public float openingMonologueDelay = 0.5f;
+
+    [Min(0f)]
+    [Tooltip("ひとことをフェード表示する秒数です。")]
+    public float openingMonologueDuration = 5f;
+
+    [Header("授業本編")]
     public LectureStep[] steps;
 }

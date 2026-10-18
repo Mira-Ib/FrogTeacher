@@ -12,6 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aebd107f1983d8b4ba492b7a48524900, type: 3}
   m_Name: Kotowaza
   m_EditorClassIdentifier: 
+  openingMonologue: "\uFF08\u3053\u3068\u308F\u3056\u306F\u305F\u3068\u3048\u304C<r=\u3060\u3044\u3058>\u5927\u4E8B</r>\u30B1\u30ED\uFF01\uFF09"
+  openingMonologueDelay: 0.5
+  openingMonologueDuration: 5
   steps:
   - clearType: 0
     targetGroups: []

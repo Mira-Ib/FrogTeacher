@@ -12,6 +12,7 @@ public class LectureManager : MonoBehaviour
     [Header("各種コンポーネント")]
     [SerializeField] private DialogueController dialogueController;
     [SerializeField] private BubbleAnimView bubbleView;
+    [SerializeField] private OpeningMonologueView openingMonologueView;
     [SerializeField] private TeacherView teacherView;
     [SerializeField] private BlackboardView blackboardView;
 
@@ -93,7 +94,7 @@ public class LectureManager : MonoBehaviour
             // ※ここで鳴らしていたチャイムはタイトル画面で鳴らすようにしたので、コメントアウトか削除します
             // AudioManager.Instance.PlaySE(SE.Chime);
             await teacherView.EnterTeacherAsync(token);
-            await UniTask.Delay(TimeSpan.FromSeconds(5.5f), cancellationToken: token);
+            await PlayOpeningMonologueAsync(token);
             await bubbleView.ShowBubbleAsync(token);
             await UniTask.Delay(TimeSpan.FromSeconds(0.5f), cancellationToken: token);
             AudioManager.Instance.PlayBGM(BGM.Lecture);
@@ -173,6 +174,7 @@ public class LectureManager : MonoBehaviour
         Debug.Log("授業演出をスキップ！最終状態へ移行します。");
         teacherView.FastForward();
         bubbleView.FastForward();
+        openingMonologueView?.FastForward();
         blackboardView.FastForward();
         dialogueController.FastForward();
         skipTextCanvasGroup.alpha = 0.0f;
@@ -191,6 +193,35 @@ public class LectureManager : MonoBehaviour
         // ★修正：スキップ時は true を渡して強制的に即時停止させる
         AudioManager.Instance.StopLoopSE(true);
         AudioManager.Instance.StopBGMImmediate();
+    }
+
+    /// <summary>
+    /// 先生の入場から吹き出し表示までの既存の待機時間で、任意のひとことを表示する。
+    /// </summary>
+    private async UniTask PlayOpeningMonologueAsync(CancellationToken token)
+    {
+        const float defaultDelayDuration = 0.5f;
+        const float defaultDisplayDuration = 5f;
+
+        float delay = currentLectureData != null
+            ? Mathf.Max(0f, currentLectureData.openingMonologueDelay)
+            : defaultDelayDuration;
+        float duration = currentLectureData != null && currentLectureData.openingMonologueDuration > 0f
+            ? currentLectureData.openingMonologueDuration
+            : defaultDisplayDuration;
+
+        await UniTask.Delay(TimeSpan.FromSeconds(delay), cancellationToken: token);
+
+        if (currentLectureData != null &&
+            !string.IsNullOrWhiteSpace(currentLectureData.openingMonologue) &&
+            openingMonologueView != null)
+        {
+            await openingMonologueView.PlayAsync(currentLectureData.openingMonologue, duration, token);
+            return;
+        }
+
+        // テキスト未設定または表示ビュー未設定時も、開始演出全体の時間は維持する。
+        await UniTask.Delay(TimeSpan.FromSeconds(duration), cancellationToken: token);
     }
 
     private void CompleteLecture()

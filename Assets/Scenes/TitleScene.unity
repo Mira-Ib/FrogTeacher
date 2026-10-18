@@ -5954,8 +5954,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Mira.\uFF08\u6771\u5317\u5927\u5B66\u30B2\u30FC\u30E0\u5236\u4F5C\u30B5\u30FC\u30AF\u30EB
-    Micomprocedure\uFF09"
+  m_text: Mira.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b07bce67210878440848b7321c73e1a8, type: 2}
   m_sharedMaterial: {fileID: 6872325252274991182, guid: b07bce67210878440848b7321c73e1a8, type: 2}
@@ -9784,6 +9783,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5928841327601889211, guid: 3bf13e272e8c1e0439945bf22525f95f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5942819620129389063, guid: 3bf13e272e8c1e0439945bf22525f95f, type: 3}
+      propertyPath: Loop
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9108493861857866034, guid: 3bf13e272e8c1e0439945bf22525f95f, type: 3}
