@@ -14,6 +14,7 @@ public class MusicTimer : MonoBehaviour
 
     // タイマーを途中でキャンセルするためのトークン
     private CancellationTokenSource _cts;
+    private int _timerGeneration;
 
     // ==========================================
     // ★追加：ゲージUIに開始を知らせるためのイベント（引数：何秒かけるか）
@@ -23,40 +24,49 @@ public class MusicTimer : MonoBehaviour
     void OnEnable()
     {
         AudioManager.Instance.OnBGMStarted += StartTimer;
+        AudioManager.Instance.OnBGMStopped += CancelTimer;
     }
 
     void OnDisable()
     {
         AudioManager.Instance.OnBGMStarted -= StartTimer;
+        AudioManager.Instance.OnBGMStopped -= CancelTimer;
         CancelTimer(); // スクリプトが無効になったらタイマーも止める
     }
 
     private void StartTimer(AudioClip clip, AudioSource source)
     {
         // 判定（※名前での判定はタイポの危険があるので注意）
-        if (clip.name == "Mountain_King")
+        if (clip.name != "Mountain_King")
         {
-            CancelTimer(); // 前のタイマーが動いていたらリセット
-            _cts = new CancellationTokenSource();
-
-            // ==========================================
-            // ★追加：UIにタイマーの長さを伝えてゲージを動かし始める
-            // ※OnGameEndedが呼ばれるまでの「実質的な時間（曲の長さ - 1秒）」を渡す
-            float actualDuration = clip.length - 1.0f;
-            OnTimerStarted?.Invoke(actualDuration);
-            // ==========================================
-
-            // 非同期でタイマーをスタート（完了を待たずに次の処理へ）
-            RunTimerAsync(clip.length, _cts.Token).Forget();
+            // タイトルや講義の曲に切り替わった時点で、前回プレイの
+            // クイズ用タイマーを残さない。
+            CancelTimer();
+            return;
         }
+
+        CancelTimer(); // 前のタイマーが動いていたらリセット
+        _cts = new CancellationTokenSource();
+        int timerGeneration = _timerGeneration;
+
+        // ==========================================
+        // ★追加：UIにタイマーの長さを伝えてゲージを動かし始める
+        // ※OnGameEndedが呼ばれるまでの「実質的な時間（曲の長さ - 1秒）」を渡す
+        float actualDuration = clip.length - 1.0f;
+        OnTimerStarted?.Invoke(actualDuration);
+        // ==========================================
+
+        // 非同期でタイマーをスタート（完了を待たずに次の処理へ）
+        RunTimerAsync(clip.length, timerGeneration, _cts.Token).Forget();
     }
 
-    private async UniTaskVoid RunTimerAsync(float totalLength, CancellationToken token)
+    private async UniTaskVoid RunTimerAsync(float totalLength, int timerGeneration, CancellationToken token)
     {
         try
         {
             // 1. まず「notifyTime（96秒）」だけ待つ
             await UniTask.Delay(TimeSpan.FromSeconds(notifyTime), cancellationToken: token);
+            if (token.IsCancellationRequested || timerGeneration != _timerGeneration) return;
 
             // 時間が来たらイベント発行
             OnGameProgressed?.Invoke();
@@ -67,6 +77,8 @@ public class MusicTimer : MonoBehaviour
             {
                 await UniTask.Delay(TimeSpan.FromSeconds(remainingTime), cancellationToken: token);
             }
+
+            if (token.IsCancellationRequested || timerGeneration != _timerGeneration) return;
 
             // 曲が完全に終わったらイベント発行
             OnGameEnded?.Invoke();
@@ -80,6 +92,8 @@ public class MusicTimer : MonoBehaviour
     // タイマーを安全に破棄する処理
     private void CancelTimer()
     {
+        _timerGeneration++;
+
         if (_cts != null)
         {
             _cts.Cancel();

@@ -13,6 +13,7 @@ public class AudioManager : MonoBehaviour
 {
     public static AudioManager Instance { get; private set; }
     public event Action<AudioClip, AudioSource> OnBGMStarted;
+    public event Action OnBGMStopped;
 
     [Header("スピーカー (Audio Sources)")]
     [SerializeField] private AudioSource bgmSource;
@@ -130,6 +131,10 @@ public class AudioManager : MonoBehaviour
 
     public void FadeOutBGM(float duration)
     {
+        // A fade-out means the current music session is over, even though the
+        // AudioSource continues playing until the fade animation completes.
+        OnBGMStopped?.Invoke();
+
         // DOTweenを使って指定秒数で音量を0にし、完了したらStopする
         _bgmFadeTween = bgmSource.DOFade(0f, duration).OnComplete(() => bgmSource.Stop());
     }
@@ -137,6 +142,7 @@ public class AudioManager : MonoBehaviour
     public void StopBGMImmediate()
     {
         _bgmFadeTween?.Kill();
+        OnBGMStopped?.Invoke();
         bgmSource.volume = 0f;
         bgmSource.Stop();
     }
