@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aebd107f1983d8b4ba492b7a48524900, type: 3}
   m_Name: Tashizan
   m_EditorClassIdentifier: 
-  openingMonologue: "（<r=はじ>初</r>めての<r=じゅぎょう>授業</r>、<r=きんちょう>緊張</r>するケロ…）"
+  openingMonologue: "\uFF08<r=\u306F\u3058>\u521D</r>\u3081\u3066\u306E<r=\u3058\u3085\u304E\u3087\u3046>\u6388\u696D</r>\u3001<r=\u304D\u3093\u3061\u3087\u3046>\u7DCA\u5F35</r>\u3059\u308B\u30B1\u30ED\u2026\uFF09"
   openingMonologueDelay: 0.5
   openingMonologueDuration: 5
   steps:
@@ -208,8 +208,8 @@ MonoBehaviour:
       overrideColor: 0
       textColor: {r: 0, g: 0, b: 0, a: 0}
       imageContent: {fileID: 21300000, guid: 875e69997895a2c4a91779677607d4f6, type: 3}
-      imageScale: 5.8
-      anchoredPosition: {x: -94, y: 321}
+      imageScale: 5.9
+      anchoredPosition: {x: -77, y: 321}
   - clearType: 0
     targetGroups: []
     dialogueText: "\u307F\u3093\u306A\u3001<r=\u308F>\u5206</r>\u304B\u3063\u305F\u30B1\u30ED\uFF1F"
